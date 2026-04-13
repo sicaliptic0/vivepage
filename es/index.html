@@ -1,0 +1,3109 @@
+<!DOCTYPE html>
+<!-- Editar este archivo y ejecutar: node tools/build-locales.cjs — genera es/, en/ y la raíz con redirección a /es/ -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VivePage: desarrollo y diseño de webs y landing pages profesionales a bajo costo. Entrega rápida, trato personal, sin burocracia ni complicaciones. Dominio .com y planes claros para médicos, abogados, coaches y profesionales independientes." />
+  <link rel="canonical" href="https://vivepage.com/es/" />
+  <link rel="alternate" hreflang="es" href="https://vivepage.com/es/" />
+  <link rel="alternate" hreflang="en" href="https://vivepage.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://vivepage.com/es/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivepage.com/es/" />
+  <meta property="og:title" content="VivePage — Diseño web profesional" />
+  <meta property="og:description" content="VivePage: desarrollo y diseño de webs y landing pages profesionales a bajo costo. Entrega rápida, trato personal, sin burocracia ni complicaciones. Dominio .com y planes claros para médicos, abogados, coaches y profesionales independientes." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>VivePage — Diseño web profesional</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@500;600;700&display=swap');
+
+    :root {
+      --bg-deep: #05060a;
+      --bg: #0a0c14;
+      --card: rgba(18, 21, 32, 0.72);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --accent-2: #a78bfa;
+      --text: #f4f4f5;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.12);
+      --border-strong: rgba(148, 163, 184, 0.2);
+      --footer-bg: #030408;
+      --wa: #25d366;
+      --glow-cyan: rgba(56, 189, 248, 0.35);
+      --glow-violet: rgba(167, 139, 250, 0.22);
+      --font-display: 'Syne', system-ui, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(ellipse 120% 80% at 50% -30%, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(ellipse 90% 60% at 100% 20%, rgba(167, 139, 250, 0.12), transparent 50%),
+        radial-gradient(ellipse 70% 50% at 0% 60%, rgba(56, 189, 248, 0.08), transparent 45%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 35%, #0c0e18 100%);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      min-height: 100vh;
+      position: relative;
+      isolation: isolate;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 40%, #000 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 40%, #000 20%, transparent 75%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 70% 90%, rgba(167, 139, 250, 0.06) 0%, transparent 42%);
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn-primary:hover,
+      .target-card:hover,
+      .why-card:hover,
+      .flow-step-card:hover {
+        transform: none;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 6, 10, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(56, 189, 248, 0.04);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 1rem;
+      position: relative;
+      width: 100%;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .logo:hover {
+      color: var(--accent);
+      text-shadow: 0 0 24px var(--glow-cyan);
+    }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(5, 6, 10, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .nav-links.is-open {
+      display: flex;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-tail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: rgba(18, 21, 32, 0.6);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .lang-pill:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+      color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-soft);
+    }
+
+    @media (min-width: 768px) {
+      .nav-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        position: static;
+        padding: 0;
+        border: none;
+        background: transparent;
+        margin-left: auto;
+        margin-right: 1rem;
+      }
+
+      .nav-links a {
+        padding: 0;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      padding: 3.25rem 0 3.75rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(100vw, 720px);
+      height: 320px;
+      background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 5.2vw, 2.95rem);
+      font-weight: 700;
+      line-height: 1.12;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #7dd3fc 85%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-title-line {
+      display: block;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title-line {
+        display: inline;
+      }
+
+      .hero-title-line:first-child::after {
+        content: ' ';
+      }
+    }
+
+    @supports not (background-clip: text) {
+      .hero-title {
+        color: var(--text);
+        background: none;
+      }
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin: 0 0 1.75rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 45%, #22d3ee 100%);
+      color: #030712;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 4px 24px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 6px 32px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: rgba(12, 14, 24, 0.5);
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(167, 139, 250, 0.45);
+      color: #e0e7ff;
+      box-shadow: 0 0 24px var(--glow-violet);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .hero-stats span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .hero-stats .dot {
+      margin: 0 0.5rem;
+      color: var(--border);
+      user-select: none;
+    }
+
+    .hero .launch-countdown {
+      margin: 0 auto 1.35rem;
+      max-width: min(100%, 28rem);
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem 1rem;
+      box-sizing: border-box;
+    }
+
+    .hero .launch-countdown-title {
+      font-size: 0.875rem;
+      margin: 0 auto 0.5rem;
+      max-width: 22rem;
+    }
+
+    .hero .launch-countdown-digits {
+      justify-content: center;
+      gap: 0.65rem 1rem;
+    }
+
+    .hero .launch-countdown-unit .cd-num {
+      font-size: 1.35rem;
+    }
+
+    .hero .launch-countdown-note {
+      font-size: 0.7rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 24rem;
+    }
+
+    .hero .launch-countdown .cd-expired-msg {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 24rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4vw, 2.05rem);
+      font-weight: 700;
+      margin: 0 0 1.75rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    /* PRICING */
+    #precios {
+      padding-top: 2.5rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    @media (min-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .plan-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+      box-shadow: 0 4px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .plan-card:hover {
+      border-color: rgba(56, 189, 248, 0.28);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .plan-card.featured {
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      background: linear-gradient(165deg, rgba(22, 28, 45, 0.88) 0%, rgba(18, 21, 32, 0.72) 100%);
+      box-shadow:
+        0 0 0 1px rgba(167, 139, 250, 0.12),
+        0 8px 40px rgba(56, 189, 248, 0.12),
+        0 4px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .plan-badge-popular {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #0ea5e9, #a78bfa);
+      color: #030712;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+    }
+
+    .plan-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    .plan-name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .plan-price {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .plan-sub {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+    }
+
+    .plan-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin: 0 0 1.25rem;
+      padding: 0;
+      flex: 1;
+    }
+
+    .plan-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .plan-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: transparent;
+      border: none;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .accordion-trigger:hover {
+      opacity: 0.85;
+    }
+
+    .accordion-trigger .chevron {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .accordion-trigger[aria-expanded="true"] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-panel {
+      display: none;
+      padding: 0.5rem 0 0.75rem;
+    }
+
+    .accordion-panel.is-open {
+      display: block;
+    }
+
+    .accordion-panel p,
+    .accordion-panel li {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .accordion-panel ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .accordion-panel li {
+      margin-bottom: 0.35rem;
+    }
+
+    .plan-note-base {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .plan-cta {
+      margin-top: auto;
+    }
+
+    .plan-cta .btn {
+      width: 100%;
+    }
+
+    .plan-link-small {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.65rem;
+    }
+
+    .plan-link-small:hover {
+      color: var(--accent);
+    }
+
+    /* ENTERPRISE */
+    .enterprise-wrap {
+      margin-top: 1.25rem;
+    }
+
+    .plan-enterprise {
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .enterprise-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(167, 139, 250, 0.12);
+      color: #c4b5fd;
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .enterprise-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem 2rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .enterprise-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pricing-def-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin: -0.5rem 0 1.75rem;
+      line-height: 1.55;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(12, 14, 24, 0.45);
+    }
+
+    details.pricing-note-wrap {
+      margin: -0.5rem 0 1.5rem;
+      max-width: 40rem;
+    }
+
+    details.pricing-note-wrap > summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 0.35rem 0;
+    }
+
+    details.pricing-note-wrap > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.pricing-note-wrap > summary::after {
+      content: ' ↓';
+      font-size: 0.75rem;
+      opacity: 0.85;
+    }
+
+    details.pricing-note-wrap[open] > summary::after {
+      content: ' ↑';
+    }
+
+    details.pricing-note-wrap .pricing-def-note {
+      margin-top: 0.5rem;
+    }
+
+    .compare-pricing-wrap {
+      margin: 0 0 1.75rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(12, 14, 24, 0.35);
+    }
+
+    .compare-pricing {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+
+    .compare-pricing th,
+    .compare-pricing td {
+      padding: 0.38rem 0.65rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .compare-pricing th:first-child,
+    .compare-pricing td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: var(--muted);
+      min-width: 9rem;
+    }
+
+    .compare-pricing thead th {
+      background: rgba(56, 189, 248, 0.08);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .compare-pricing tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-pricing .plan-price-cell {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9375rem;
+    }
+
+    .compare-price-cell-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      line-height: 1.25;
+    }
+
+    .price-regular-struck {
+      color: #f87171;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .price-promo {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.0625rem;
+    }
+
+    .plan-price-stack {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.5rem;
+    }
+
+    .plan-price-stack .price-regular-struck {
+      font-size: 1rem;
+    }
+
+    .plan-price-stack .price-promo {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .plan-card.featured .plan-price-stack .price-promo {
+      color: #f0f9ff;
+    }
+
+    .price-promo-tag {
+      font-size: 0.75rem;
+      color: #fbbf24;
+      margin: -0.35rem 0 0.85rem;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .launch-countdown {
+      margin: 0 0 1.5rem;
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(56, 189, 248, 0.08) 100%);
+      text-align: center;
+      max-width: min(100%, 38rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .launch-countdown-title {
+      margin: 0 0 0.65rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .launch-countdown-digits {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+
+    .launch-countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 3.1rem;
+    }
+
+    .launch-countdown-unit .cd-num {
+      font-size: 1.55rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .launch-countdown-unit .cd-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+    }
+
+    .launch-countdown-note {
+      margin: 0.65rem 0 0;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .launch-countdown.is-ended .launch-countdown-digits {
+      display: none;
+    }
+
+    .launch-countdown.is-ended .cd-expired-msg {
+      display: block;
+    }
+
+    .cd-expired-msg {
+      display: none;
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .compare-pricing .compare-cat th {
+      background: rgba(56, 189, 248, 0.06);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.35rem 0.65rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-pricing .compare-cell-addon {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fbbf24;
+      line-height: 1.3;
+    }
+
+    .compare-pricing .compare-cell-no {
+      color: #f87171;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .compare-hint,
+    .compare-sections-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0.65rem 0 0;
+      line-height: 1.45;
+      max-width: 42rem;
+    }
+
+    details.sections-catalog-wrap {
+      margin: 0 0 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: rgba(12, 14, 24, 0.4);
+    }
+
+    details.sections-catalog-wrap > summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text);
+      padding: 0.85rem 1rem;
+    }
+
+    details.sections-catalog-wrap > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.sections-catalog-wrap > summary::after {
+      content: ' ↓';
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    details.sections-catalog-wrap[open] > summary::after {
+      content: ' ↑';
+    }
+
+    .sections-catalog-body {
+      padding: 0 1rem 1rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .sections-catalog-body .sections-block-title {
+      font-weight: 600;
+      color: var(--text);
+      margin: 0.9rem 0 0.35rem;
+      font-size: 0.8125rem;
+    }
+
+    .sections-catalog-body .sections-block-title:first-of-type {
+      margin-top: 0.25rem;
+    }
+
+    .sections-catalog-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.2rem;
+    }
+
+    .sections-catalog-body li {
+      margin-bottom: 0.2rem;
+    }
+
+    details.plan-details-wrap {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(12, 14, 24, 0.25);
+      padding: 0 1rem 1rem;
+    }
+
+    details.plan-details-wrap > summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      padding: 1rem 0;
+    }
+
+    details.plan-details-wrap > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.plan-details-wrap > summary::after {
+      content: ' ↓';
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    details.plan-details-wrap[open] > summary::after {
+      content: ' ↑';
+    }
+
+    .plan-details-inner {
+      padding-top: 0.25rem;
+    }
+
+    .targets-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.65rem;
+      justify-content: center;
+      max-width: min(100%, 56rem);
+      margin: 0 auto;
+    }
+
+    .target-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .target-chip svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 639px) {
+      .targets-chips {
+        gap: 0.4rem 0.45rem;
+        justify-content: center;
+      }
+
+      .target-chip {
+        font-size: 0.6875rem;
+        padding: 0.32rem 0.5rem;
+        gap: 0.28rem;
+      }
+
+      .target-chip svg {
+        width: 0.85rem;
+        height: 0.85rem;
+      }
+    }
+
+    .flow-intro {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-align: center;
+      margin: -0.35rem auto 1.5rem;
+      max-width: 38rem;
+      line-height: 1.55;
+    }
+
+    #como {
+      padding-top: 3.5rem;
+      margin-top: 0;
+      border-top: 1px solid rgba(56, 189, 248, 0.14);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, transparent 42%);
+    }
+
+    .flow-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 560px) {
+      .flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .flow-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .flow-step-card {
+      position: relative;
+      border-radius: 14px;
+      padding: 1.2rem 1.1rem 1.15rem;
+      background: linear-gradient(155deg, rgba(22, 28, 45, 0.55) 0%, rgba(14, 16, 26, 0.92) 100%);
+      border: 1px solid var(--border);
+      border-left: 3px solid rgba(56, 189, 248, 0.65);
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(167, 139, 250, 0.06) inset;
+      overflow: hidden;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    }
+
+    .flow-step-card:hover {
+      border-color: rgba(56, 189, 248, 0.28);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.28),
+        0 0 0 1px rgba(167, 139, 250, 0.1) inset;
+      transform: translateY(-2px);
+    }
+
+    .flow-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .flow-step-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+      position: relative;
+    }
+
+    .flow-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.22), rgba(167, 139, 250, 0.18));
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(56, 189, 248, 0.12);
+    }
+
+    .flow-step-card h3 {
+      margin: 0;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .flow-step-card p {
+      margin: 0;
+      padding-left: calc(32px + 0.75rem);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.55;
+      position: relative;
+    }
+
+    @media (max-width: 559px) {
+      .flow-step-card p {
+        padding-left: 0;
+      }
+    }
+
+    details.why-step {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    details.why-step > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+
+    details.why-step > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.why-step > summary::after {
+      margin-left: auto;
+      content: '↓';
+      font-size: 0.7rem;
+      color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+
+    details.why-step[open] > summary::after {
+      transform: rotate(180deg);
+    }
+
+    details.why-step .why-step-body {
+      padding: 0 1rem 1rem 1rem;
+    }
+
+    details.why-step .why-step-body p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    details.why-step summary svg {
+      width: 28px;
+      height: 28px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .portfolio-intro {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin: -0.25rem auto 1.25rem;
+      line-height: 1.5;
+    }
+
+    .portfolio-scroller {
+      margin: 0 -1rem;
+      padding: 0 1rem 0.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    @media (min-width: 900px) {
+      .portfolio-scroller {
+        margin: 0;
+        padding: 0 0 0.5rem;
+      }
+    }
+
+    .portfolio-track {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 0.35rem;
+    }
+
+    .portfolio-card {
+      flex: 0 0 min(85vw, 320px);
+      scroll-snap-align: start;
+      margin: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 4px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .portfolio-mocks {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .mock-desktop {
+      flex: 1;
+      height: 100px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.12), rgba(12, 14, 24, 0.6));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-desktop::after {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 28%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 14px 0 rgba(255, 255, 255, 0.05), 0 28px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .mock-mobile {
+      width: 48px;
+      height: 88px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(167, 139, 250, 0.15), rgba(12, 14, 24, 0.65));
+      flex-shrink: 0;
+    }
+
+    .portfolio-card figcaption {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .portfolio-card figcaption strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.875rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .portfolio-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .portfolio-link:hover {
+      text-decoration: underline;
+    }
+
+    .global-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-width: 48rem;
+      margin: 2rem auto 0;
+      line-height: 1.55;
+    }
+
+    /* ADDONS */
+    .addons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .addons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .addons-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .addon-card {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .addon-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .addon-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+
+    .addon-card p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .addon-price {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .why-list {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 0.65rem;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 1rem 1.1rem;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      transition: background 0.2s ease;
+    }
+
+    .faq-q:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq-q .faq-icon {
+      flex-shrink: 0;
+      color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-q[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 1.1rem 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .faq-a.is-open {
+      display: block;
+    }
+
+    /* CONTACT CTA */
+    .contact-block {
+      position: relative;
+      background: linear-gradient(165deg, rgba(22, 28, 48, 0.85) 0%, rgba(14, 16, 28, 0.75) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 20px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(167, 139, 250, 0.08) inset,
+        0 12px 48px rgba(0, 0, 0, 0.35),
+        0 0 80px rgba(56, 189, 248, 0.08);
+    }
+
+    .contact-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.03em;
+      position: relative;
+    }
+
+    .contact-block .sub {
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-block .btn-primary {
+      padding: 0.9rem 1.75rem;
+      font-size: 1rem;
+    }
+
+    .contact-meta {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .contact-email {
+      margin-top: 1.25rem;
+      font-size: 0.9375rem;
+    }
+
+    .contact-email a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    /* FLOAT WA */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2fe077, var(--wa));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      z-index: 1001;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+    }
+
+    .wa-float svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/es/" class="logo">VivePage</a>
+      <nav class="nav-links" id="nav-menu" aria-label="Principal">
+        <a href="#precios" data-i18n="nav_services">Servicios</a>
+        <a href="#como" data-i18n="nav_how">Cómo funciona</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Trabajos</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      </nav>
+      <div class="nav-tail">
+        <a href="/en/" class="lang-pill" id="lang-switch" aria-label="Cambiar a inglés">EN</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge" data-i18n="hero_badge">🚀 Precios de lanzamiento — primeras 6 semanas</span>
+        <h1 class="hero-title">
+          <span class="hero-title-line" data-i18n="hero_title_line1">Tu web profesional</span>
+          <span class="hero-title-line" data-i18n="hero_title_line2">en 1 a 2 días</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_subtitle">Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación.</p>
+        <!-- Oferta: ajusta data-offer-end a la fecha y hora exactas de cierre (ISO 8601). -->
+        <div
+          class="launch-countdown"
+          id="offer-countdown"
+          role="timer"
+          aria-live="polite"
+          data-offer-end="2026-05-25T23:59:59"
+        >
+          <p class="launch-countdown-title" data-i18n="offer_countdown_title">Oferta de precios termina en</p>
+          <div class="launch-countdown-digits" id="offer-countdown-digits">
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-days">–</span>
+              <span class="cd-label" data-i18n="offer_count_days">días</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-hours">–</span>
+              <span class="cd-label" data-i18n="offer_count_hours">horas</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-minutes">–</span>
+              <span class="cd-label" data-i18n="offer_count_minutes">min</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-seconds">–</span>
+              <span class="cd-label" data-i18n="offer_count_seconds">seg</span>
+            </div>
+          </div>
+          <p class="cd-expired-msg" id="cd-expired" data-i18n="offer_count_expired">La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.</p>
+          <p class="launch-countdown-note" data-i18n="offer_countdown_note">Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.</p>
+        </div>
+        <div class="hero-cta">
+          <a href="#precios" class="btn btn-primary" data-i18n="hero_cta_primary">Ver planes</a>
+          <a href="https://wa.me/13470000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_wa">Escribir por WhatsApp</a>
+        </div>
+        <div class="hero-stats">
+          <span data-i18n="hero_stat1">✓ Web profesional en 24–48 h con tu contenido</span><span class="dot" aria-hidden="true">·</span>
+          <span data-i18n="hero_stat2">✓ Dominio .com incluido</span><span class="dot" aria-hidden="true">·</span>
+          <span data-i18n="hero_stat3">✓ Sin mensualidades</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="quien">
+      <div class="container">
+        <h2 class="section-title" data-i18n="targets_title">Para profesionales y emprendedores que valoran una web a la altura de su trabajo</h2>
+        <div class="targets-chips" role="list">
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5 5 0 00-7.08 0L12 5.92l-1.34-1.34a5 5 0 00-7.08 7.08L12 21l8.42-8.34a5 5 0 000-7.08z" stroke-linecap="round"/></svg>
+            <span data-i18n="target_1">Médicos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5 5 0 00-7.08 0L12 5.92l-1.34-1.34a5 5 0 00-7.08 7.08L12 21l8.42-8.34a5 5 0 000-7.08z" stroke-linecap="round"/></svg>
+            <span data-i18n="target_2">Especialistas</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.2 1.5 2.9 2.5 4 2.5s2.8-1 4-2.5" stroke-linecap="round"/></svg>
+            <span data-i18n="target_3">Odontólogos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 8l3 6h8l3-6"/><path d="M5 8a3.5 3.5 0 007 0M12 8a3.5 3.5 0 007 0"/></svg>
+            <span data-i18n="target_4">Abogados</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20.5a6.5 6.5 0 0113 0" stroke-linecap="round"/></svg>
+            <span data-i18n="target_5">Independientes</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.5 8.5 0 018.5 8.5z"/></svg>
+            <span data-i18n="target_6">Psicólogos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.5 8.5 0 018.5 8.5z"/></svg>
+            <span data-i18n="target_7">Terapeutas</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_8">Nutrición</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 10h12"/><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M4 8v8M20 8v8"/></svg>
+            <span data-i18n="target_9">Fitness</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.2 6.8H21l-5.5 4 2.1 6.7L12 15.8l-5.6 3.7 2.1-6.7L3 8.8h6.8L12 2z"/></svg>
+            <span data-i18n="target_10">Coaches</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_11">Fisioterapia</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_12">Rehabilitación</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span data-i18n="target_13">Arquitectos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span data-i18n="target_14">Interiorismo</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <span data-i18n="target_15">Ingeniería</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <span data-i18n="target_16">Servicios técnicos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_17">Contadores</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_18">Asesores fiscales</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+            <span data-i18n="target_19">Consultores</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+            <span data-i18n="target_20">Estrategia</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2z"/><circle cx="12" cy="13" r="3"/></svg>
+            <span data-i18n="target_21">Fotografía</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2z"/><circle cx="12" cy="13" r="3"/></svg>
+            <span data-i18n="target_22">Audiovisual</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l9-9-3-3-6 6-3-3-3 3 6 6 3-3z"/><path d="M18 13l-5-5" stroke-linecap="round"/></svg>
+            <span data-i18n="target_23">Diseño</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l9-9-3-3-6 6-3-3-3 3 6 6 3-3z"/><path d="M18 13l-5-5" stroke-linecap="round"/></svg>
+            <span data-i18n="target_24">Branding</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_25">Creativos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2h4l5 4V7L7 11H3z"/><path d="M16 8c2 0 4 1.5 4 4s-2 4-4 4v-8z"/></svg>
+            <span data-i18n="target_26">Marketing</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2h4l5 4V7L7 11H3z"/><path d="M16 8c2 0 4 1.5 4 4s-2 4-4 4v-8z"/></svg>
+            <span data-i18n="target_27">Agencias digitales</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>
+            <span data-i18n="target_28">Inmobiliaria</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>
+            <span data-i18n="target_29">Brokers</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><ellipse cx="8" cy="9" rx="2" ry="2"/><ellipse cx="16" cy="9" rx="2" ry="2"/><ellipse cx="9.5" cy="6.5" rx="1.3" ry="1.3"/><ellipse cx="14.5" cy="6.5" rx="1.3" ry="1.3"/><path d="M12 11c-2.5 2.5-2 5.5 0 6.5 2-1 2.5-4 0-6.5z"/></svg>
+            <span data-i18n="target_30">Veterinarias</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><ellipse cx="8" cy="9" rx="2" ry="2"/><ellipse cx="16" cy="9" rx="2" ry="2"/><ellipse cx="9.5" cy="6.5" rx="1.3" ry="1.3"/><ellipse cx="14.5" cy="6.5" rx="1.3" ry="1.3"/><path d="M12 11c-2.5 2.5-2 5.5 0 6.5 2-1 2.5-4 0-6.5z"/></svg>
+            <span data-i18n="target_31">Mascotas</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_32">Estética</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_33">Spa</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_34">Belleza</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3v17M10 3v10M14 3v17M18 3v6"/></svg>
+            <span data-i18n="target_35">Restauración</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7V5a3 3 0 016 0v2" stroke-linecap="round"/></svg>
+            <span data-i18n="target_36">Retail</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h6l12 12a2 2 0 01-3 3L6 9V6z"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg>
+            <span data-i18n="target_37">Marcas</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016 17h10a2.5 2.5 0 012.5 2.5" stroke-linecap="round"/><path d="M6 17V5a2 2 0 012-2h8v16H8a2 2 0 00-2 2zM18 2v16"/></svg>
+            <span data-i18n="target_38">Educación</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016 17h10a2.5 2.5 0 012.5 2.5" stroke-linecap="round"/><path d="M6 17V5a2 2 0 012-2h8v16H8a2 2 0 00-2 2zM18 2v16"/></svg>
+            <span data-i18n="target_39">Formación</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios">
+      <div class="container">
+        <h2 class="section-title" data-i18n="pricing_title">Planes y precios</h2>
+        <details class="pricing-note-wrap">
+          <summary data-i18n="pricing_revision_summary">Cómo funciona el plazo y las revisiones</summary>
+          <p class="pricing-def-note" data-i18n="pricing_revision_def">En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.</p>
+        </details>
+
+        <div class="compare-pricing-wrap">
+          <table class="compare-pricing">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" data-i18n="plan_basic_name">Básico</th>
+                <th scope="col" data-i18n="plan_pro_name">Profesional</th>
+                <th scope="col" data-i18n="plan_prem_name">Premium</th>
+                <th scope="col" data-i18n="plan_ent_name">Empresarial</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-i18n="compare_row_price">Precio (pago único)</th>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$149</span>
+                    <span class="price-promo">$99</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$249</span>
+                    <span class="price-promo">$169</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$399</span>
+                    <span class="price-promo">$269</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$599</span>
+                    <span class="price-promo">$399</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_sections">Portada + secciones de contenido</th>
+                <td data-i18n="compare_sec_basic">+ 3</td>
+                <td data-i18n="compare_sec_pro">+ 5</td>
+                <td data-i18n="compare_sec_prem">+ 7</td>
+                <td data-i18n="compare_sec_ent">Ilimitadas</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_revision">Rondas de revisión antes de publicar</th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_post_changes">Cambios tras publicar (incluidos)</th>
+                <td data-i18n="compare_post_basic">2 en 10 días</td>
+                <td data-i18n="compare_post_pro">3 en 15 días</td>
+                <td data-i18n="compare_post_prem">5 en 30 días</td>
+                <td data-i18n="compare_post_ent">5 en 30 días + 2/año</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_ready_48">Lista en 24–48 h (con tu contenido)</th>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_blocks">Bloques de secciones que puedes usar</th>
+                <td data-i18n="compare_blocks_basic">Solo bloque 1 (elige 3)</td>
+                <td data-i18n="compare_blocks_pro">Bloques 1 y 2 (elige 5)</td>
+                <td data-i18n="compare_blocks_prem">Bloques 1, 2 y 3 (elige 7)</td>
+                <td data-i18n="compare_blocks_ent">Catálogo completo + ilimitadas</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_blog">Blog (5 posts iniciales)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_leads">Formulario de captación de leads</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_gallery">Galería de casos y resultados</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_maps">Mapa de ubicación (Google Maps)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_appt">Solicitud de cita (al correo, sin panel)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_video">Video embebido (IG / YT / TikTok)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_unlimited">Páginas ilimitadas + menú</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_search">Búsqueda / filtro de servicios</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_responsive">Diseño responsivo + dominio .com 1.er año</th>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_email">Correo profesional @dominio</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_email_1">1 cuenta</td>
+                <td data-i18n="compare_email_3">Hasta 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-sections-hint" data-i18n="compare_sections_hint">La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges. La lista numerada de todas las secciones posibles y los bloques por plan está en el detalle de planes (desplegable de abajo).</p>
+
+        <details class="plan-details-wrap">
+          <summary data-i18n="plans_details_toggle">Ver detalle de cada plan y contratar</summary>
+          <div class="plan-details-inner">
+        <details class="sections-catalog-wrap">
+          <summary data-i18n="sections_catalog_summary">Todas las secciones de contenido disponibles</summary>
+          <div class="sections-catalog-body">
+            <p data-i18n="sections_catalog_intro">Cada “sección” es un bloque de tu web (texto + estructura) que eliges según plan. Los módulos interactivos (formularios, mapa, galería, video, etc.) se comparan aparte en la tabla.</p>
+            <p class="sections-block-title" data-i18n="sections_block_a_title">Bloque 1 — incluido desde Básico (elige hasta 3 en Básico; también en planes superiores)</p>
+            <ol>
+              <li data-i18n="sections_cat_1">Trayectoria y biografía profesional</li>
+              <li data-i18n="sections_cat_2">Portafolio de servicios</li>
+              <li data-i18n="sections_cat_3">Tarifario de servicios</li>
+              <li data-i18n="sections_cat_4">Horarios y sedes</li>
+              <li data-i18n="sections_cat_5">Ecosistema de contacto y redes sociales</li>
+              <li data-i18n="sections_cat_6">Tecnología y equipamiento</li>
+            </ol>
+            <p class="sections-block-title" data-i18n="sections_block_b_title">Bloque 2 — a partir de Profesional (además del bloque 1; elige hasta 5 secciones en total en Profesional)</p>
+            <ol start="7">
+              <li data-i18n="sections_cat_7">Preguntas frecuentes (FAQ)</li>
+              <li data-i18n="sections_cat_8">Testimonios de clientes</li>
+              <li data-i18n="sections_cat_9">Convenios y seguros</li>
+            </ol>
+            <p class="sections-block-title" data-i18n="sections_block_c_title">Bloque 3 — a partir de Premium (además de 1 y 2; elige hasta 7 secciones en total en Premium)</p>
+            <ol start="10">
+              <li data-i18n="sections_cat_10">Área de descargas (PDFs: protocolos, consentimientos, guías, etc.)</li>
+              <li data-i18n="sections_cat_11">Directorio de equipo / personal</li>
+            </ol>
+            <p data-i18n="sections_catalog_blog_note">Blog: en Empresarial incluye 5 posts iniciales; posts extra son add-on. El video embebido es un módulo interactivo (tabla comparativa), no una sección de esta lista.</p>
+            <p data-i18n="sections_catalog_note_enterprise">En Empresarial las secciones de contenido son ilimitadas y puedes combinar todo el catálogo de bloques 1–3 más el blog con esas 5 entradas iniciales.</p>
+          </div>
+        </details>
+        <div class="pricing-grid">
+          <!-- Básico -->
+          <article class="plan-card">
+            <p class="plan-label" data-i18n="plan_basic_label">Plan 01</p>
+            <div class="plan-name-row">
+              <h3 class="plan-name" data-i18n="plan_basic_name">Básico</h3>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$149</span>
+                <span class="price-promo">$99</span>
+              </div>
+            </div>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_basic_sub">Presencia digital profesional · Portada + 3 secciones a elegir</p>
+            <p class="plan-note" data-i18n="plan_basic_note">Pago único · Dominio .com incluido 1.er año</p>
+            <ul class="plan-list">
+              <li data-i18n="plan_basic_li1">Portada siempre incluida (no cuenta como sección elegida)</li>
+              <li data-i18n="plan_basic_li2">Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)</li>
+              <li data-i18n="plan_basic_li3">Página lista en 24–48 h desde que recibimos tu contenido</li>
+              <li data-i18n="plan_basic_li4">1 ronda de revisión antes de publicar</li>
+              <li data-i18n="plan_basic_li5">2 cambios incluidos en los primeros 10 días tras publicar</li>
+              <li data-i18n="plan_basic_li6">Diseño responsivo y dominio .com 1.er año</li>
+              <li data-i18n="plan_basic_li7">Sin formularios avanzados, mapa embebido ni galería de casos</li>
+            </ul>
+            <div class="plan-cta">
+              <a href="https://wa.me/13470000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="plan_basic_btn">Empezar con el Básico</a>
+              <button type="button" class="accordion-trigger" data-accordion="basic-sections" aria-expanded="false" aria-controls="panel-basic-sections" id="btn-basic-sections">
+                <span data-i18n="plan_basic_acc_trigger">Recordatorio: secciones del bloque 1 (Básico)</span>
+                <span class="chevron" aria-hidden="true"> ↓</span>
+              </button>
+              <div class="accordion-panel" id="panel-basic-sections" role="region" aria-labelledby="btn-basic-sections">
+                <ul>
+                  <li data-i18n="plan_basic_sec1">Trayectoria y biografía profesional</li>
+                  <li data-i18n="plan_basic_sec2">Portafolio de servicios</li>
+                  <li data-i18n="plan_basic_sec3">Tarifario de servicios</li>
+                  <li data-i18n="plan_basic_sec4">Horarios y sedes</li>
+                  <li data-i18n="plan_basic_sec5">Ecosistema de contacto y redes sociales</li>
+                  <li data-i18n="plan_basic_sec6">Tecnología y equipamiento</li>
+                </ul>
+                <p class="plan-note-base" data-i18n="plan_basic_sec_note">Elige 3 de estas 6. La portada va aparte y siempre incluida.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Profesional -->
+          <article class="plan-card featured">
+            <span class="plan-badge-popular" data-i18n="plan_popular_badge">Más popular</span>
+            <p class="plan-label" data-i18n="plan_pro_label">Plan 02</p>
+            <div class="plan-name-row">
+              <h3 class="plan-name" data-i18n="plan_pro_name">Profesional</h3>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$249</span>
+                <span class="price-promo">$169</span>
+              </div>
+            </div>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_pro_sub">Captación activa · Portada + 5 secciones · Leads y galería</p>
+            <p class="plan-note" data-i18n="plan_pro_note">Pago único · Dominio .com incluido 1.er año</p>
+            <ul class="plan-list">
+              <li data-i18n="plan_pro_li1">Todo lo del Básico, con 5 secciones a elegir y catálogo ampliado</li>
+              <li data-i18n="plan_pro_li2">Galería de casos y resultados</li>
+              <li data-i18n="plan_pro_li3">Formulario de captación de leads</li>
+              <li data-i18n="plan_pro_li4">2 rondas de revisión antes de publicar · 3 cambios en los primeros 15 días</li>
+              <li data-i18n="plan_pro_li5">Opciones del bloque 2 (p. ej. FAQ, testimonios, convenios)</li>
+            </ul>
+            <div class="plan-cta">
+              <button type="button" class="accordion-trigger" data-accordion="pro-sections" aria-expanded="false" aria-controls="panel-pro-sections" id="btn-pro-sections">
+                <span data-i18n="plan_pro_acc_trigger">Secciones extra y módulos sobre el Básico</span>
+                <span class="chevron" aria-hidden="true">↓</span>
+              </button>
+              <div class="accordion-panel" id="panel-pro-sections" role="region" aria-labelledby="btn-pro-sections">
+                <p data-i18n="plan_pro_acc_intro">Además del bloque 1, en Profesional sumas el bloque 2 (hasta 5 secciones en total). Por ejemplo:</p>
+                <ul>
+                  <li data-i18n="plan_pro_sec1">Preguntas frecuentes (FAQ)</li>
+                  <li data-i18n="plan_pro_sec2">Testimonios de clientes</li>
+                  <li data-i18n="plan_pro_sec3">Convenios y seguros</li>
+                  <li data-i18n="plan_pro_sec4">Galería de casos y resultados (módulo)</li>
+                  <li data-i18n="plan_pro_sec5">Formulario de captación de leads (módulo)</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/13470000000" class="btn btn-primary" style="margin-top: 0.75rem;" target="_blank" rel="noopener noreferrer" data-i18n="plan_pro_btn">Empezar con el Profesional</a>
+            </div>
+          </article>
+
+          <!-- Premium -->
+          <article class="plan-card">
+            <p class="plan-label" data-i18n="plan_prem_label">Plan 03</p>
+            <div class="plan-name-row">
+              <h3 class="plan-name" data-i18n="plan_prem_name">Premium</h3>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$399</span>
+                <span class="price-promo">$269</span>
+              </div>
+            </div>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_prem_sub">Presencia completa · Portada + 7 secciones · Mapa y cita</p>
+            <p class="plan-note" data-i18n="plan_prem_note">Pago único · Dominio .com incluido 1.er año</p>
+            <ul class="plan-list">
+              <li data-i18n="plan_prem_li1">Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)</li>
+              <li data-i18n="plan_prem_li2">Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)</li>
+              <li data-i18n="plan_prem_li3">1 correo profesional @dominio · Sitio bilingüe ES/EN incluido</li>
+              <li data-i18n="plan_prem_li4">3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días</li>
+            </ul>
+            <div class="plan-cta">
+              <button type="button" class="accordion-trigger" data-accordion="prem-sections" aria-expanded="false" aria-controls="panel-prem-sections" id="btn-prem-sections">
+                <span data-i18n="plan_prem_acc_trigger">Detalle de secciones y módulos Premium</span>
+                <span class="chevron" aria-hidden="true">↓</span>
+              </button>
+              <div class="accordion-panel" id="panel-prem-sections" role="region" aria-labelledby="btn-prem-sections">
+                <p data-i18n="plan_prem_acc_intro">Ejemplos de secciones de contenido disponibles en el catálogo ampliado:</p>
+                <ul>
+                  <li data-i18n="plan_prem_sec1">Área de descargas (PDFs: protocolos, consentimientos, guías)</li>
+                  <li data-i18n="plan_prem_sec2">Directorio de equipo / personal</li>
+                  <li data-i18n="plan_prem_sec3">Reproductor de video embebido (IG / YT / TikTok)</li>
+                </ul>
+                <p class="plan-note-base" data-i18n="plan_prem_acc_note">Las solicitudes de cita llegan por correo; la coordinación la haces por WhatsApp con la persona o el cliente.</p>
+              </div>
+              <a href="https://wa.me/13470000000" class="btn btn-outline" style="margin-top: 0.75rem;" target="_blank" rel="noopener noreferrer" data-i18n="plan_prem_btn">Empezar con el Premium</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="enterprise-wrap">
+          <article class="plan-card plan-enterprise">
+            <span class="enterprise-badge" data-i18n="plan_ent_badge">Para empresas y clínicas</span>
+            <p class="plan-label" data-i18n="plan_ent_label">Plan 04</p>
+            <div class="plan-name-row">
+              <h3 class="plan-name" data-i18n="plan_ent_name">Empresarial</h3>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$599</span>
+                <span class="price-promo">$399</span>
+              </div>
+            </div>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_ent_sub">Clínicas y grupos · Multipágina, blog y búsqueda</p>
+            <p class="plan-note" data-i18n="plan_ent_note">Pago único · Dominio .com incluido 1.er año</p>
+            <div class="enterprise-cols">
+              <ul class="plan-list">
+                <li data-i18n="plan_ent_li1">Todo lo del plan Premium</li>
+                <li data-i18n="plan_ent_li2">Páginas ilimitadas con menú de navegación</li>
+                <li data-i18n="plan_ent_li3">Blog con 5 posts iniciales incluidos</li>
+                <li data-i18n="plan_ent_li4">Búsqueda / filtro de servicios</li>
+                <li data-i18n="plan_ent_li5">Hasta 3 correos @dominio vinculados a bandejas personales</li>
+              </ul>
+              <ul class="plan-list">
+                <li data-i18n="plan_ent_li6">2 actualizaciones de contenido incluidas por año (texto, fotos, info)</li>
+                <li data-i18n="plan_ent_li8">Misma cadencia de revisión que Premium: 3 rondas antes de publicar</li>
+                <li data-i18n="plan_ent_li9">5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales</li>
+                <li data-i18n="plan_ent_li10">Ideal para varias sedes, varios profesionales o muchos servicios</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/13470000000" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="plan_ent_btn">Consultar disponibilidad</a>
+          </article>
+        </div>
+          </div>
+        </details>
+
+        <p class="global-note" data-i18n="pricing_global_note">No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales.</p>
+      </div>
+    </section>
+
+    <section id="como">
+      <div class="container">
+        <h2 class="section-title" data-i18n="how_title">¿Cómo funciona?</h2>
+        <p class="flow-intro" data-i18n="how_intro">Seis pasos claros, sin sorpresas: del primer mensaje a tu web en vivo.</p>
+        <div class="flow-grid">
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">1</span>
+              <h3 data-i18n="how_s1_title">Nos contactas</h3>
+            </div>
+            <p data-i18n="how_s1_desc">Escríbenos por WhatsApp y cuéntanos tu proyecto.</p>
+          </article>
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">2</span>
+              <h3 data-i18n="how_s2_title">Envías tu contenido</h3>
+            </div>
+            <p data-i18n="how_s2_desc">Textos, fotos y logo cuando estés listo. Sin límite de tiempo.</p>
+          </article>
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">3</span>
+              <h3 data-i18n="how_s3_title">Diseñamos tu página</h3>
+            </div>
+            <p data-i18n="how_s3_desc">Cuando recibimos tu contenido, en 24–48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.</p>
+          </article>
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">4</span>
+              <h3 data-i18n="how_s4_title">Periodo de revisión</h3>
+            </div>
+            <p data-i18n="how_s4_desc">Con la página ya lista, la afinamos con las rondas de revisión de tu plan; todo antes de publicar en internet.</p>
+          </article>
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">5</span>
+              <h3 data-i18n="how_s5_title">Confirmas el pago</h3>
+            </div>
+            <p data-i18n="how_s5_desc">Solo se cobra cuando estás conforme con el resultado final.</p>
+          </article>
+          <article class="flow-step-card">
+            <div class="flow-step-head">
+              <span class="flow-num" aria-hidden="true">6</span>
+              <h3 data-i18n="how_s6_title">Tu página queda en vivo</h3>
+            </div>
+            <p data-i18n="how_s6_desc">Dominio activo, email listo, todo entregado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-title" data-i18n="portfolio_title">Algunos trabajos</h2>
+        <p class="portfolio-intro" data-i18n="portfolio_intro">Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.</p>
+        <div class="portfolio-scroller" tabindex="0" role="region" data-i18n-aria="portfolio_aria" aria-label="Carrusel de proyectos">
+          <div class="portfolio-track">
+            <figure class="portfolio-card">
+              <div class="portfolio-mocks" aria-hidden="true">
+                <div class="mock-desktop"></div>
+                <div class="mock-mobile"></div>
+              </div>
+              <figcaption>
+                <strong data-i18n="portfolio_ex1_title">Consultorio médico</strong>
+                <span data-i18n="portfolio_ex1_desc">Portada clara, servicios y contacto por WhatsApp.</span>
+                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
+              </figcaption>
+            </figure>
+            <figure class="portfolio-card">
+              <div class="portfolio-mocks" aria-hidden="true">
+                <div class="mock-desktop"></div>
+                <div class="mock-mobile"></div>
+              </div>
+              <figcaption>
+                <strong data-i18n="portfolio_ex2_title">Despacho legal</strong>
+                <span data-i18n="portfolio_ex2_desc">Credenciales, áreas de práctica y formulario.</span>
+                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
+              </figcaption>
+            </figure>
+            <figure class="portfolio-card">
+              <div class="portfolio-mocks" aria-hidden="true">
+                <div class="mock-desktop"></div>
+                <div class="mock-mobile"></div>
+              </div>
+              <figcaption>
+                <strong data-i18n="portfolio_ex3_title">Clínica dental</strong>
+                <span data-i18n="portfolio_ex3_desc">Galería, mapa y reserva de cita por formulario.</span>
+                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <p class="compare-hint" data-i18n="portfolio_scroll_hint">Desliza horizontalmente para ver más.</p>
+      </div>
+    </section>
+
+    <section id="addons">
+      <div class="container">
+        <h2 class="section-title" data-i18n="addons_title">Servicios adicionales</h2>
+        <div class="addons-grid">
+          <article class="addon-card">
+            <h3><span data-i18n="addon1_title">Actualización de contenido</span> — <span class="addon-price">$30</span></h3>
+            <p data-i18n="addon1_desc">Cambios de texto, fotos o información. Entrega en 3–5 días hábiles.</p>
+          </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon2_title">Renovación de dominio</span> — <span class="addon-price" data-i18n="addon2_price">$35/año</span></h3>
+            <p data-i18n="addon2_desc">Gestión completa incluida.</p>
+          </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon3_title">Correo @dominio.com adicional</span> — <span class="addon-price" data-i18n="addon3_price">$20</span></h3>
+            <p data-i18n="addon3_desc">Buzón adicional vinculado a tu correo personal.</p>
+          </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon4_title">Versión bilingüe (ES/EN)</span> — <span class="addon-price" data-i18n="addon4_price">$39</span></h3>
+            <p data-i18n="addon4_desc">Solo planes Básico y Profesional (ya incluida en Premium y Empresarial).</p>
+          </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon5_title">Blog / post adicional</span> — <span class="addon-price" data-i18n="addon5_price">$30/post</span></h3>
+            <p data-i18n="addon5_desc">También disponible como servicio independiente. Entrega acordada por volumen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="porque">
+      <div class="container">
+        <h2 class="section-title" data-i18n="why_title">¿Por qué VivePage?</h2>
+        <div class="why-list">
+          <details class="why-step">
+            <summary>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l2 4 4 .5-3 3 .8 4.5L12 13l-3.8 2.5.8-4.5-3-3 4-.5z" stroke-linejoin="round"/></svg>
+              <span data-i18n="why_1_title">Entendemos tu profesión</span>
+            </summary>
+            <div class="why-step-body"><p data-i18n="why_1_desc">No somos una agencia genérica. Sabemos cómo presentar credenciales, servicios y prueba social para que quien visita tu web confíe en ti desde el primer vistazo.</p></div>
+          </details>
+          <details class="why-step">
+            <summary>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 14h4M7 10h10" stroke-linecap="round"/></svg>
+              <span data-i18n="why_2_title">Precio justo, pago único</span>
+            </summary>
+            <div class="why-step-body"><p data-i18n="why_2_desc">Sin mensualidades, sin sorpresas. Pagas una vez y la página es tuya. A partir del segundo año, la renovación del dominio es de $35/año; nosotros la gestionamos por ti.</p></div>
+          </details>
+          <details class="why-step">
+            <summary>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+              <span data-i18n="why_3_title">Rápido y con soporte real</span>
+            </summary>
+            <div class="why-step-body"><p data-i18n="why_3_desc">Página lista en 24–48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title" data-i18n="faq_title">Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+              <span data-i18n="faq_q1">¿Necesito saber de tecnología para tener mi página?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+              <span data-i18n="faq_a1">No. Nosotros nos encargamos de todo: el dominio, el diseño y la publicación. Tú solo nos mandas tu información y fotos.</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+              <span data-i18n="faq_q2">¿Qué pasa con el dominio después del primer año?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+              <span data-i18n="faq_a2">El dominio se renueva cada año. Nosotros lo renovamos y gestionamos por $35/año.</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+              <span data-i18n="faq_q3">¿Puedo pedir cambios después de que la página esté lista?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+              <span data-i18n="faq_a3">Sí. Dentro del plazo de revisiones incluido en tu plan puedes pedir cambios sin costo. Después de ese plazo, cada actualización cuesta $30.</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+              <span data-i18n="faq_q4">¿El correo @midominio.com reemplaza mi Gmail?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+              <span data-i18n="faq_a4">No. El correo profesional está vinculado a tu Gmail o correo habitual. Los mensajes llegan al mismo lugar de siempre, pero quien te escribe ve una dirección profesional como dr.martinez@clinica.com.</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+              <span data-i18n="faq_q5">¿Diseñan logos?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+              <span data-i18n="faq_a5">No diseñamos logos. El cliente debe proveer su logo o foto de perfil.</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+              <span data-i18n="faq_q6">¿Puedo ver ejemplos de páginas que han hecho?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+              <span data-i18n="faq_a6">En la sección Trabajos hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-block">
+          <h2 data-i18n="contact_title">¿Listo para tener tu página web?</h2>
+          <p class="sub" data-i18n="contact_sub">Escríbenos por WhatsApp y te respondemos en menos de 24 horas.</p>
+          <a href="https://wa.me/13470000000" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="contact_btn">Escribir por WhatsApp</a>
+          <p class="contact-meta" data-i18n="contact_meta">Lunes a Sábado · Atención en español e inglés</p>
+          <p class="contact-email"><a href="mailto:hola@vivepage.com">hola@vivepage.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/es/" class="logo">VivePage</a>
+      <nav class="footer-links" aria-label="Pie">
+        <a href="#precios" data-i18n="nav_services">Servicios</a>
+        <a href="#como" data-i18n="nav_how">Cómo funciona</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Trabajos</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+        <a href="#faq" data-i18n="footer_faq">Preguntas frecuentes</a>
+      </nav>
+      <p class="footer-copy" data-i18n="footer_copy">© 2026 VivePage · Diseño web profesional</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/13470000000" class="wa-float" id="wa-float" target="_blank" rel="noopener noreferrer" title="Escríbenos" aria-label="WhatsApp">
+    <span class="visually-hidden" data-i18n="wa_aria">Abrir WhatsApp</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    const translations = {
+      es: {
+        nav_services: 'Servicios',
+        nav_portfolio: 'Trabajos',
+        nav_how: 'Cómo funciona',
+        nav_contact: 'Contacto',
+        hero_badge: '🚀 Precios de lanzamiento — primeras 6 semanas',
+        hero_title_line1: 'Tu web profesional',
+        hero_title_line2: 'en 1 a 2 días',
+        hero_subtitle: 'Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación.',
+        hero_cta_primary: 'Ver planes',
+        hero_cta_wa: 'Escribir por WhatsApp',
+        hero_stat1: '✓ Web profesional en 24–48 h con tu contenido',
+        hero_stat2: '✓ Dominio .com incluido',
+        hero_stat3: '✓ Sin mensualidades',
+        targets_title: 'Para profesionales y emprendedores que valoran una web a la altura de su trabajo',
+        target_1: 'Médicos',
+        target_2: 'Especialistas',
+        target_3: 'Odontólogos',
+        target_4: 'Abogados',
+        target_5: 'Independientes',
+        target_6: 'Psicólogos',
+        target_7: 'Terapeutas',
+        target_8: 'Nutrición',
+        target_9: 'Fitness',
+        target_10: 'Coaches',
+        target_11: 'Fisioterapia',
+        target_12: 'Rehabilitación',
+        target_13: 'Arquitectos',
+        target_14: 'Interiorismo',
+        target_15: 'Ingeniería',
+        target_16: 'Servicios técnicos',
+        target_17: 'Contadores',
+        target_18: 'Asesores fiscales',
+        target_19: 'Consultores',
+        target_20: 'Estrategia',
+        target_21: 'Fotografía',
+        target_22: 'Audiovisual',
+        target_23: 'Diseño',
+        target_24: 'Branding',
+        target_25: 'Creativos',
+        target_26: 'Marketing',
+        target_27: 'Agencias digitales',
+        target_28: 'Inmobiliaria',
+        target_29: 'Brokers',
+        target_30: 'Veterinarias',
+        target_31: 'Mascotas',
+        target_32: 'Estética',
+        target_33: 'Spa',
+        target_34: 'Belleza',
+        target_35: 'Restauración',
+        target_36: 'Retail',
+        target_37: 'Marcas',
+        target_38: 'Educación',
+        target_39: 'Formación',
+        offer_countdown_title: 'Oferta de precios termina en',
+        offer_count_days: 'días',
+        offer_count_hours: 'horas',
+        offer_count_minutes: 'min',
+        offer_count_seconds: 'seg',
+        offer_countdown_note: 'Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.',
+        offer_count_expired: 'La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.',
+        price_promo_opening: 'Precio de promoción por apertura e inicio del proyecto',
+        pricing_title: 'Planes y precios',
+        pricing_revision_summary: 'Cómo funciona el plazo y las revisiones',
+        pricing_revision_def: 'En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.',
+        plans_details_toggle: 'Ver detalle de cada plan y contratar',
+        compare_row_price: 'Precio (pago único)',
+        compare_row_sections: 'Portada + secciones de contenido',
+        compare_row_revision: 'Rondas de revisión antes de publicar',
+        compare_row_post_changes: 'Cambios tras publicar (incluidos)',
+        compare_post_basic: '2 en 10 días',
+        compare_post_pro: '3 en 15 días',
+        compare_post_prem: '5 en 30 días',
+        compare_post_ent: '5 en 30 días + 2/año',
+        compare_row_ready_48: 'Lista en 24–48 h (con tu contenido)',
+        compare_row_blocks: 'Bloques de secciones que puedes usar',
+        compare_blocks_basic: 'Solo bloque 1 (elige 3)',
+        compare_blocks_pro: 'Bloques 1 y 2 (elige 5)',
+        compare_blocks_prem: 'Bloques 1, 2 y 3 (elige 7)',
+        compare_blocks_ent: 'Catálogo completo + ilimitadas',
+        compare_row_blog: 'Blog (5 posts iniciales)',
+        sections_catalog_summary: 'Todas las secciones de contenido disponibles',
+        sections_catalog_intro: 'Cada “sección” es un bloque de tu web (texto + estructura) que eliges según plan. Los módulos interactivos (formularios, mapa, galería, video, etc.) se comparan aparte en la tabla.',
+        sections_block_a_title: 'Bloque 1 — incluido desde Básico (elige hasta 3 en Básico; también en planes superiores)',
+        sections_block_b_title: 'Bloque 2 — a partir de Profesional (además del bloque 1; hasta 5 secciones en total en Profesional)',
+        sections_block_c_title: 'Bloque 3 — a partir de Premium (además de 1 y 2; hasta 7 secciones en total en Premium)',
+        sections_cat_1: 'Trayectoria y biografía profesional',
+        sections_cat_2: 'Portafolio de servicios',
+        sections_cat_3: 'Tarifario de servicios',
+        sections_cat_4: 'Horarios y sedes',
+        sections_cat_5: 'Ecosistema de contacto y redes sociales',
+        sections_cat_6: 'Tecnología y equipamiento',
+        sections_cat_7: 'Preguntas frecuentes (FAQ)',
+        sections_cat_8: 'Testimonios de clientes',
+        sections_cat_9: 'Convenios y seguros',
+        sections_cat_10: 'Área de descargas (PDFs: protocolos, consentimientos, guías, etc.)',
+        sections_cat_11: 'Directorio de equipo / personal',
+        sections_catalog_blog_note: 'Blog: en Empresarial incluye 5 posts iniciales; posts extra son add-on. El video embebido es un módulo interactivo (tabla comparativa), no una sección de esta lista.',
+        sections_catalog_note_enterprise: 'En Empresarial las secciones de contenido son ilimitadas y puedes combinar todo el catálogo de bloques 1–3 más el blog con esas 5 entradas iniciales.',
+        compare_row_leads: 'Formulario de captación de leads',
+        compare_row_gallery: 'Galería de casos y resultados',
+        compare_row_maps: 'Mapa de ubicación (Google Maps)',
+        compare_row_appt: 'Solicitud de cita (al correo, sin panel)',
+        compare_row_video: 'Video embebido (IG / YT / TikTok)',
+        compare_row_unlimited: 'Páginas ilimitadas + menú',
+        compare_row_search: 'Búsqueda / filtro de servicios',
+        compare_row_responsive: 'Diseño responsivo + dominio .com 1.er año',
+        compare_row_email: 'Correo profesional @dominio',
+        compare_sec_basic: '+ 3',
+        compare_sec_pro: '+ 5',
+        compare_sec_prem: '+ 7',
+        compare_sec_ent: 'Ilimitadas',
+        compare_cell_no: '✕',
+        compare_cell_yes: '✓',
+        compare_email_1: '1 cuenta',
+        compare_email_3: 'Hasta 3',
+        compare_sections_hint: 'La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges. La lista numerada de todas las secciones posibles y los bloques por plan está en el detalle de planes (desplegable de abajo).',
+        plan_basic_label: 'Plan 01',
+        plan_basic_name: 'Básico',
+        plan_basic_sub: 'Presencia digital profesional · Portada + 3 secciones a elegir',
+        plan_basic_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_basic_li1: 'Portada siempre incluida (no cuenta como sección elegida)',
+        plan_basic_li2: 'Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)',
+        plan_basic_li3: 'Página lista en 24–48 h desde que recibimos tu contenido',
+        plan_basic_li4: '1 ronda de revisión antes de publicar',
+        plan_basic_li5: '2 cambios incluidos en los primeros 10 días tras publicar',
+        plan_basic_li6: 'Diseño responsivo y dominio .com 1.er año',
+        plan_basic_li7: 'Sin formularios avanzados, mapa embebido ni galería de casos',
+        plan_basic_btn: 'Empezar con el Básico',
+        plan_basic_acc_trigger: 'Recordatorio: secciones del bloque 1 (Básico)',
+        plan_basic_sec1: 'Trayectoria y biografía profesional',
+        plan_basic_sec2: 'Portafolio de servicios',
+        plan_basic_sec3: 'Tarifario de servicios',
+        plan_basic_sec4: 'Horarios y sedes',
+        plan_basic_sec5: 'Ecosistema de contacto y redes sociales',
+        plan_basic_sec6: 'Tecnología y equipamiento',
+        plan_basic_sec_note: 'Elige 3 de estas 6. La portada va aparte y siempre incluida.',
+        plan_popular_badge: 'Más popular',
+        plan_pro_label: 'Plan 02',
+        plan_pro_name: 'Profesional',
+        plan_pro_sub: 'Captación activa · Portada + 5 secciones · Leads y galería',
+        plan_pro_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_pro_li1: 'Todo lo del Básico, con 5 secciones a elegir y catálogo ampliado',
+        plan_pro_li2: 'Galería de casos y resultados',
+        plan_pro_li3: 'Formulario de captación de leads',
+        plan_pro_li4: '2 rondas de revisión antes de publicar · 3 cambios en los primeros 15 días',
+        plan_pro_li5: 'Opciones del bloque 2 (p. ej. FAQ, testimonios, convenios)',
+        plan_pro_acc_trigger: 'Secciones extra y módulos sobre el Básico',
+        plan_pro_acc_intro: 'Además del bloque 1, en Profesional sumas el bloque 2 (hasta 5 secciones en total). Por ejemplo:',
+        plan_pro_sec1: 'Preguntas frecuentes (FAQ)',
+        plan_pro_sec2: 'Testimonios de clientes',
+        plan_pro_sec3: 'Convenios y seguros',
+        plan_pro_sec4: 'Galería de casos y resultados (módulo)',
+        plan_pro_sec5: 'Formulario de captación de leads (módulo)',
+        plan_pro_btn: 'Empezar con el Profesional',
+        plan_prem_label: 'Plan 03',
+        plan_prem_name: 'Premium',
+        plan_prem_sub: 'Presencia completa · Portada + 7 secciones · Mapa y cita',
+        plan_prem_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_prem_li1: 'Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)',
+        plan_prem_li2: 'Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)',
+        plan_prem_li3: '1 correo profesional @dominio · Sitio bilingüe ES/EN incluido',
+        plan_prem_li4: '3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días',
+        plan_prem_acc_trigger: 'Detalle de secciones y módulos Premium',
+        plan_prem_acc_intro: 'Ejemplos de secciones de contenido disponibles en el catálogo ampliado:',
+        plan_prem_sec1: 'Área de descargas (PDFs: protocolos, consentimientos, guías)',
+        plan_prem_sec2: 'Directorio de equipo / personal',
+        plan_prem_sec3: 'Reproductor de video embebido (IG / YT / TikTok)',
+        plan_prem_acc_note: 'Las solicitudes de cita llegan por correo; la coordinación la haces por WhatsApp con la persona o el cliente.',
+        plan_prem_btn: 'Empezar con el Premium',
+        plan_ent_badge: 'Para empresas y clínicas',
+        plan_ent_label: 'Plan 04',
+        plan_ent_name: 'Empresarial',
+        plan_ent_sub: 'Clínicas y grupos · Multipágina, blog y búsqueda',
+        plan_ent_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_ent_li1: 'Todo lo del plan Premium',
+        plan_ent_li2: 'Páginas ilimitadas con menú de navegación',
+        plan_ent_li3: 'Blog con 5 posts iniciales incluidos',
+        plan_ent_li4: 'Búsqueda / filtro de servicios',
+        plan_ent_li5: 'Hasta 3 correos @dominio vinculados a bandejas personales',
+        plan_ent_li6: '2 actualizaciones de contenido incluidas por año (texto, fotos, info)',
+        plan_ent_li8: 'Misma cadencia de revisión que Premium: 3 rondas antes de publicar',
+        plan_ent_li9: '5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales',
+        plan_ent_li10: 'Ideal para varias sedes, varios profesionales o muchos servicios',
+        plan_ent_btn: 'Consultar disponibilidad',
+        pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales.',
+        addons_title: 'Servicios adicionales',
+        addon1_title: 'Actualización de contenido',
+        addon1_desc: 'Cambios de texto, fotos o información. Entrega en 3–5 días hábiles.',
+        addon2_title: 'Renovación de dominio',
+        addon2_price: '$35/año',
+        addon2_desc: 'Gestión completa incluida.',
+        addon3_title: 'Correo @dominio.com adicional',
+        addon3_price: '$20',
+        addon3_desc: 'Buzón adicional vinculado a tu correo personal.',
+        addon4_title: 'Versión bilingüe (ES/EN)',
+        addon4_price: '$39',
+        addon4_desc: 'Solo planes Básico y Profesional (ya incluida en Premium y Empresarial).',
+        addon5_title: 'Blog / post adicional',
+        addon5_price: '$30/post',
+        addon5_desc: 'También disponible como servicio independiente. Entrega acordada por volumen.',
+        portfolio_title: 'Algunos trabajos',
+        portfolio_intro: 'Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.',
+        portfolio_aria: 'Carrusel de proyectos',
+        portfolio_ex1_title: 'Consultorio médico',
+        portfolio_ex1_desc: 'Portada clara, servicios y contacto por WhatsApp.',
+        portfolio_ex2_title: 'Despacho legal',
+        portfolio_ex2_desc: 'Credenciales, áreas de práctica y formulario.',
+        portfolio_ex3_title: 'Clínica dental',
+        portfolio_ex3_desc: 'Galería, mapa y reserva de cita por formulario.',
+        portfolio_view_site: 'Ver sitio',
+        portfolio_scroll_hint: 'Desliza horizontalmente para ver más.',
+        how_title: '¿Cómo funciona?',
+        how_intro: 'Seis pasos claros, sin sorpresas: del primer mensaje a tu web en vivo.',
+        how_s1_title: 'Nos contactas',
+        how_s1_desc: 'Escríbenos por WhatsApp y cuéntanos tu proyecto.',
+        how_s2_title: 'Envías tu contenido',
+        how_s2_desc: 'Textos, fotos y logo cuando estés listo. Sin límite de tiempo.',
+        how_s3_title: 'Diseñamos tu página',
+        how_s3_desc: 'Cuando recibimos tu contenido, en 24–48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.',
+        how_s4_title: 'Periodo de revisión',
+        how_s4_desc: 'Con la página ya lista, la afinamos con las rondas de revisión de tu plan; todo antes de publicar en internet.',
+        how_s5_title: 'Confirmas el pago',
+        how_s5_desc: 'Solo se cobra cuando estás conforme con el resultado final.',
+        how_s6_title: 'Tu página queda en vivo',
+        how_s6_desc: 'Dominio activo, email listo, todo entregado.',
+        why_title: '¿Por qué VivePage?',
+        why_1_title: 'Entendemos tu profesión',
+        why_1_desc: 'No somos una agencia genérica. Sabemos cómo presentar credenciales, servicios y prueba social para que quien visita tu web confíe en ti desde el primer vistazo.',
+        why_2_title: 'Precio justo, pago único',
+        why_2_desc: 'Sin mensualidades, sin sorpresas. Pagas una vez y la página es tuya. A partir del segundo año, la renovación del dominio es de $35/año; nosotros la gestionamos por ti.',
+        why_3_title: 'Rápido y con soporte real',
+        why_3_desc: 'Página lista en 24–48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.',
+        faq_title: 'Preguntas frecuentes',
+        faq_q1: '¿Necesito saber de tecnología para tener mi página?',
+        faq_a1: 'No. Nosotros nos encargamos de todo: el dominio, el diseño y la publicación. Tú solo nos mandas tu información y fotos.',
+        faq_q2: '¿Qué pasa con el dominio después del primer año?',
+        faq_a2: 'El dominio se renueva cada año. Nosotros lo renovamos y gestionamos por $35/año.',
+        faq_q3: '¿Puedo pedir cambios después de que la página esté lista?',
+        faq_a3: 'Sí. En 24–48 h tienes la página lista; luego un periodo de revisión con rondas incluidas antes de publicar en internet. Después, los cambios son ajustes de contenido con la web ya en vivo (según tu plan). Pasado el plazo de cambios incluido, cada actualización cuesta $30.',
+        faq_q4: '¿El correo @midominio.com reemplaza mi Gmail?',
+        faq_a4: 'No. El correo profesional está vinculado a tu Gmail o correo habitual. Los mensajes llegan al mismo lugar de siempre, pero quien te escribe ve una dirección profesional como dr.martinez@clinica.com.',
+        faq_q5: '¿Diseñan logos?',
+        faq_a5: 'No diseñamos logos. El cliente debe proveer su logo o foto de perfil.',
+        faq_q6: '¿Puedo ver ejemplos de páginas que han hecho?',
+        faq_a6: 'En la sección Trabajos hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.',
+        contact_title: '¿Listo para tener tu página web?',
+        contact_sub: 'Escríbenos por WhatsApp y te respondemos en menos de 24 horas.',
+        contact_btn: 'Escribir por WhatsApp',
+        contact_meta: 'Lunes a Sábado · Atención en español e inglés',
+        footer_faq: 'Preguntas frecuentes',
+        footer_copy: '© 2026 VivePage · Diseño web profesional',
+        wa_tooltip: 'Escríbenos',
+        wa_aria: 'Abrir WhatsApp',
+        lang_toggle_to_en: 'Cambiar a inglés',
+        lang_toggle_to_es: 'Cambiar a español',
+        doc_title: 'VivePage — Diseño web profesional'
+      },
+      en: {
+        nav_services: 'Services',
+        nav_portfolio: 'Work',
+        nav_how: 'How it works',
+        nav_contact: 'Contact',
+        hero_badge: '🚀 Launch pricing — first 6 weeks',
+        hero_title_line1: 'Your professional website',
+        hero_title_line2: 'in 1–2 days',
+        hero_subtitle: 'Professional-grade sites for solopreneurs, teams and founders who treat the web as part of their reputation.',
+        hero_cta_primary: 'View plans',
+        hero_cta_wa: 'Message on WhatsApp',
+        hero_stat1: '✓ Professional site in 24–48h with your content',
+        hero_stat2: '✓ .com domain included',
+        hero_stat3: '✓ No monthly fees',
+        targets_title: 'For professionals and entrepreneurs who expect a website that matches their work',
+        target_1: 'Physicians',
+        target_2: 'Specialists',
+        target_3: 'Dentists',
+        target_4: 'Lawyers',
+        target_5: 'Freelancers',
+        target_6: 'Psychologists',
+        target_7: 'Therapists',
+        target_8: 'Nutrition',
+        target_9: 'Fitness',
+        target_10: 'Coaches',
+        target_11: 'Physiotherapy',
+        target_12: 'Rehab',
+        target_13: 'Architects',
+        target_14: 'Interior design',
+        target_15: 'Engineering',
+        target_16: 'Technical services',
+        target_17: 'Accountants',
+        target_18: 'Tax advisors',
+        target_19: 'Consultants',
+        target_20: 'Strategy',
+        target_21: 'Photography',
+        target_22: 'Video',
+        target_23: 'Design',
+        target_24: 'Branding',
+        target_25: 'Creatives',
+        target_26: 'Marketing',
+        target_27: 'Digital agencies',
+        target_28: 'Real estate',
+        target_29: 'Brokers',
+        target_30: 'Veterinary',
+        target_31: 'Pet care',
+        target_32: 'Aesthetics',
+        target_33: 'Spa',
+        target_34: 'Beauty',
+        target_35: 'Hospitality',
+        target_36: 'Retail',
+        target_37: 'Brands',
+        target_38: 'Education',
+        target_39: 'Training',
+        offer_countdown_title: 'Launch pricing ends in',
+        offer_count_days: 'days',
+        offer_count_hours: 'hours',
+        offer_count_minutes: 'min',
+        offer_count_seconds: 'sec',
+        offer_countdown_note: 'Opening rates are valid only during the first 6 weeks of the project.',
+        offer_count_expired: 'The launch promotion has ended. Message us for current pricing.',
+        price_promo_opening: 'Promotional opening price for the start of this project',
+        pricing_title: 'Plans and pricing',
+        pricing_revision_summary: 'How timing and revisions work',
+        pricing_revision_def: 'Within 24–48 hours your website is ready from your content. Then comes the revision period — correction rounds before we publish it online. After go-live, changes are content updates as included in your plan.',
+        plans_details_toggle: 'See full plan details and get started',
+        compare_row_price: 'Price (one-time)',
+        compare_row_sections: 'Cover + content sections',
+        compare_row_revision: 'Revision rounds before publishing',
+        compare_row_post_changes: 'Changes after publishing (included)',
+        compare_post_basic: '2 within 10 days',
+        compare_post_pro: '3 within 15 days',
+        compare_post_prem: '5 within 30 days',
+        compare_post_ent: '5 in 30 days + 2/year',
+        compare_row_ready_48: 'Ready in 24–48h (with your content)',
+        compare_row_blocks: 'Section blocks you can use',
+        compare_blocks_basic: 'Block 1 only (pick 3)',
+        compare_blocks_pro: 'Blocks 1 and 2 (pick 5)',
+        compare_blocks_prem: 'Blocks 1, 2 and 3 (pick 7)',
+        compare_blocks_ent: 'Full catalog + unlimited',
+        compare_row_blog: 'Blog (5 starter posts)',
+        sections_catalog_summary: 'All available content sections',
+        sections_catalog_intro: 'Each “section” is a content block on your site that you choose by plan. Interactive modules (forms, map, gallery, video, etc.) are compared separately in the table.',
+        sections_block_a_title: 'Block 1 — from Basic upward (pick up to 3 on Basic; also on higher plans)',
+        sections_block_b_title: 'Block 2 — from Professional (in addition to block 1; up to 5 sections total on Professional)',
+        sections_block_c_title: 'Block 3 — from Premium (in addition to 1 and 2; up to 7 sections total on Premium)',
+        sections_cat_1: 'Professional background and bio',
+        sections_cat_2: 'Services portfolio',
+        sections_cat_3: 'Fee schedule',
+        sections_cat_4: 'Hours and locations',
+        sections_cat_5: 'Contact hub and social links',
+        sections_cat_6: 'Technology and equipment',
+        sections_cat_7: 'Frequently asked questions (FAQ)',
+        sections_cat_8: 'Client testimonials',
+        sections_cat_9: 'Partnerships and insurance',
+        sections_cat_10: 'Download area (PDFs: protocols, consent forms, guides, etc.)',
+        sections_cat_11: 'Team / staff directory',
+        sections_catalog_blog_note: 'Blog: Enterprise includes 5 starter posts; extra posts are add-ons. Embedded video is an interactive module (comparison table), not a section in this list.',
+        sections_catalog_note_enterprise: 'On Enterprise, content sections are unlimited and you can combine the full block 1–3 catalog plus the blog with those 5 starter posts.',
+        compare_row_leads: 'Lead capture form',
+        compare_row_gallery: 'Case results gallery',
+        compare_row_maps: 'Location map (Google Maps)',
+        compare_row_appt: 'Appointment request (to email, no dashboard)',
+        compare_row_video: 'Embedded video (IG / YT / TikTok)',
+        compare_row_unlimited: 'Unlimited pages + menu',
+        compare_row_search: 'Service search / filter',
+        compare_row_responsive: 'Responsive design + .com domain 1st year',
+        compare_row_email: 'Professional @domain email',
+        compare_sec_basic: '+ 3',
+        compare_sec_pro: '+ 5',
+        compare_sec_prem: '+ 7',
+        compare_sec_ent: 'Unlimited',
+        compare_cell_no: '✕',
+        compare_cell_yes: '✓',
+        compare_email_1: '1 inbox',
+        compare_email_3: 'Up to 3',
+        compare_sections_hint: 'The cover block (name, photo, headline) is always included and does not count toward the sections you choose. The full numbered list of sections and how blocks map to each plan is inside the plan details dropdown below.',
+        plan_basic_label: 'Plan 01',
+        plan_basic_name: 'Basic',
+        plan_basic_sub: 'Professional presence · Cover + 3 sections of your choice',
+        plan_basic_note: 'One-time payment · .com domain included 1st year',
+        plan_basic_li1: 'Cover always included (does not count as a chosen section)',
+        plan_basic_li2: 'You choose 3 sections from block 1 (full list under “All available content sections”)',
+        plan_basic_li3: 'Site ready in 24–48h after we receive your content',
+        plan_basic_li4: '1 revision round before publishing',
+        plan_basic_li5: '2 changes included within the first 10 days after publishing',
+        plan_basic_li6: 'Responsive design and .com domain 1st year',
+        plan_basic_li7: 'No advanced forms, embedded map or case gallery',
+        plan_basic_btn: 'Start with Basic',
+        plan_basic_acc_trigger: 'Reminder: block 1 sections (Basic)',
+        plan_basic_sec1: 'Professional background and bio',
+        plan_basic_sec2: 'Services portfolio',
+        plan_basic_sec3: 'Fee schedule',
+        plan_basic_sec4: 'Hours and locations',
+        plan_basic_sec5: 'Contact hub and social links',
+        plan_basic_sec6: 'Technology and equipment',
+        plan_basic_sec_note: 'Pick 3 of these 6. The cover is separate and always included.',
+        plan_popular_badge: 'Most popular',
+        plan_pro_label: 'Plan 02',
+        plan_pro_name: 'Professional',
+        plan_pro_sub: 'Active lead capture · Cover + 5 sections · Leads and gallery',
+        plan_pro_note: 'One-time payment · .com domain included 1st year',
+        plan_pro_li1: 'Everything in Basic, with 5 sections and an expanded catalog',
+        plan_pro_li2: 'Case results gallery',
+        plan_pro_li3: 'Lead capture form',
+        plan_pro_li4: '2 revision rounds before publishing · 3 changes within the first 15 days',
+        plan_pro_li5: 'Block 2 options (e.g. FAQ, testimonials, partnerships)',
+        plan_pro_acc_trigger: 'Extra sections and modules over Basic',
+        plan_pro_acc_intro: 'Beyond block 1, Professional adds block 2 (up to 5 sections total). For example:',
+        plan_pro_sec1: 'Frequently asked questions (FAQ)',
+        plan_pro_sec2: 'Client testimonials',
+        plan_pro_sec3: 'Partnerships and insurance',
+        plan_pro_sec4: 'Case results gallery (module)',
+        plan_pro_sec5: 'Lead capture form (module)',
+        plan_pro_btn: 'Start with Professional',
+        plan_prem_label: 'Plan 03',
+        plan_prem_name: 'Premium',
+        plan_prem_sub: 'Full presence · Cover + 7 sections · Map and appointments',
+        plan_prem_note: 'One-time payment · .com domain included 1st year',
+        plan_prem_li1: 'Everything in Professional, with 7 sections and premium catalog (downloads, team, video)',
+        plan_prem_li2: 'Google Maps, appointment request form to email (no dashboard or calendar)',
+        plan_prem_li3: '1 professional @domain email · Bilingual ES/EN included',
+        plan_prem_li4: '3 revision rounds before publishing · 5 changes within the first 30 days',
+        plan_prem_acc_trigger: 'Premium sections and modules in detail',
+        plan_prem_acc_intro: 'Examples of content sections in the expanded catalog:',
+        plan_prem_sec1: 'Download area (PDFs: protocols, consent forms, guides)',
+        plan_prem_sec2: 'Team / staff directory',
+        plan_prem_sec3: 'Embedded video player (IG / YT / TikTok)',
+        plan_prem_acc_note: 'Appointment requests arrive by email; you coordinate with the client on WhatsApp.',
+        plan_prem_btn: 'Start with Premium',
+        plan_ent_badge: 'For businesses and clinics',
+        plan_ent_label: 'Plan 04',
+        plan_ent_name: 'Enterprise',
+        plan_ent_sub: 'Clinics and groups · Multi-page, blog and search',
+        plan_ent_note: 'One-time payment · .com domain included 1st year',
+        plan_ent_li1: 'Everything in the Premium plan',
+        plan_ent_li2: 'Unlimited pages with navigation menu',
+        plan_ent_li3: 'Blog with 5 starter posts included',
+        plan_ent_li4: 'Service search / filter',
+        plan_ent_li5: 'Up to 3 @domain emails linked to personal inboxes',
+        plan_ent_li6: '2 content updates per year included (copy, photos, info)',
+        plan_ent_li8: 'Same revision cadence as Premium: 3 rounds before publishing',
+        plan_ent_li9: '5 changes within the first 30 days after publishing, plus the 2 yearly updates',
+        plan_ent_li10: 'Ideal for multiple locations, several providers or many services',
+        plan_ent_btn: 'Check availability',
+        pricing_global_note: 'We do not design logos. Client must provide a logo or profile photo. · Your site is ready within 24–48h after we receive all content; publishing online follows your plan’s revision period. · Business days are Monday–Friday, excluding official holidays.',
+        addons_title: 'Add-on services',
+        addon1_title: 'Content update',
+        addon1_desc: 'Text, photo or information changes. Delivery in 3–5 business days.',
+        addon2_title: 'Domain renewal',
+        addon2_price: '$35/year',
+        addon2_desc: 'Full management included.',
+        addon3_title: 'Extra @domain.com email',
+        addon3_price: '$20',
+        addon3_desc: 'Additional mailbox linked to your personal inbox.',
+        addon4_title: 'Bilingual version (ES/EN)',
+        addon4_price: '$39',
+        addon4_desc: 'For Basic and Professional plans only (already included in Premium and Enterprise).',
+        addon5_title: 'Blog / extra post',
+        addon5_price: '$30/post',
+        addon5_desc: 'Also available as a standalone service. Timeline agreed by volume.',
+        portfolio_title: 'Selected work',
+        portfolio_intro: 'Example sites for professionals. Replace the placeholders with real screenshots or set “View site” when you have public URLs.',
+        portfolio_aria: 'Project carousel',
+        portfolio_ex1_title: 'Medical practice',
+        portfolio_ex1_desc: 'Clear cover, services and WhatsApp contact.',
+        portfolio_ex2_title: 'Law office',
+        portfolio_ex2_desc: 'Credentials, practice areas and contact form.',
+        portfolio_ex3_title: 'Dental clinic',
+        portfolio_ex3_desc: 'Gallery, map and appointment request form.',
+        portfolio_view_site: 'View site',
+        portfolio_scroll_hint: 'Scroll sideways to see more.',
+        how_title: 'How does it work?',
+        how_intro: 'Six clear steps, no surprises — from first message to a live site.',
+        how_s1_title: 'You reach out',
+        how_s1_desc: 'Message us on WhatsApp and tell us about your project.',
+        how_s2_title: 'You send your content',
+        how_s2_desc: 'Send your texts, photos and logo when you\'re ready. No time limit.',
+        how_s3_title: 'We design your page',
+        how_s3_desc: 'Once we receive your content, your website is ready within 24–48 hours for you to review. Going live on the web comes after the revision period.',
+        how_s4_title: 'Revision period',
+        how_s4_desc: 'With your site ready, we refine it using your plan’s revision rounds — all before publishing online.',
+        how_s5_title: 'You confirm payment',
+        how_s5_desc: 'You only pay once you\'re happy with the final result.',
+        how_s6_title: 'Your site goes live',
+        how_s6_desc: 'Domain active, email ready, everything delivered.',
+        why_title: 'Why VivePage?',
+        why_1_title: 'We understand your profession',
+        why_1_desc: 'We are not a generic agency. We know how to present credentials, services and social proof so visitors trust you from the first glance.',
+        why_2_title: 'Fair price, one-time pay',
+        why_2_desc: 'No monthly fees, no surprises. You pay once and the site is yours. From year two on, domain renewal is $35/year — we renew and manage it for you.',
+        why_3_title: 'Fast with real support',
+        why_3_desc: 'Site ready in 24–48h after you send content, revision period before publishing, and included changes once live per your plan. WhatsApp support Mon–Sat.',
+        faq_title: 'Frequently asked questions',
+        faq_q1: 'Do I need tech skills to have my website?',
+        faq_a1: 'No. We handle everything: domain, design and publishing. You just send your information and photos.',
+        faq_q2: 'What happens to the domain after the first year?',
+        faq_a2: 'The domain renews every year. We renew and manage it for $35/year.',
+        faq_q3: 'Can I request changes after the site is ready?',
+        faq_a3: 'Yes. Your site is ready in 24–48h; then a revision period with included rounds before publishing online. After go-live, changes are content tweaks per your plan. After the included change window, each update is $30.',
+        faq_q4: 'Does @mydomain.com email replace my Gmail?',
+        faq_a4: 'No. Professional email forwards to your Gmail or usual inbox. Messages arrive in the same place, but senders see a professional address like dr.martinez@clinic.com.',
+        faq_q5: 'Do you design logos?',
+        faq_a5: 'We do not design logos. The client must provide a logo or profile photo.',
+        faq_q6: 'Can I see examples of sites you have built?',
+        faq_a6: 'See the Work section for samples; you can also message us on WhatsApp for references by specialty.',
+        contact_title: 'Ready for your professional website?',
+        contact_sub: 'Write us on WhatsApp — we reply in under 24 hours.',
+        contact_btn: 'Message on WhatsApp',
+        contact_meta: 'Monday to Saturday · Spanish and English',
+        footer_faq: 'FAQ',
+        footer_copy: '© 2026 VivePage · Professional web design',
+        wa_tooltip: 'Contact us',
+        wa_aria: 'Open WhatsApp',
+        lang_toggle_to_en: 'Switch to English',
+        lang_toggle_to_es: 'Switch to Spanish',
+        doc_title: 'VivePage — Professional web design'
+      }
+    };
+
+    function getStoredLang() {
+      return 'es';
+    }
+
+    function applyLang(lang) {
+      const t = translations[lang];
+      if (!t) return;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n-aria');
+        if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+      });
+      const wa = document.getElementById('wa-float');
+      if (wa && t.wa_tooltip) wa.setAttribute('title', t.wa_tooltip);
+      if (t.doc_title) document.title = t.doc_title;
+    }
+
+    (function initLang() {
+      applyLang(getStoredLang());
+    })();
+
+    (function offerCountdown() {
+      var root = document.getElementById('offer-countdown');
+      if (!root) return;
+      var endAttr = root.getAttribute('data-offer-end');
+      var end = endAttr ? new Date(endAttr).getTime() : NaN;
+      var dEl = document.getElementById('cd-days');
+      var hEl = document.getElementById('cd-hours');
+      var mEl = document.getElementById('cd-minutes');
+      var sEl = document.getElementById('cd-seconds');
+      function pad2(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+      function tick() {
+        if (!endAttr || isNaN(end)) {
+          if (dEl) dEl.textContent = '–';
+          if (hEl) hEl.textContent = '–';
+          if (mEl) mEl.textContent = '–';
+          if (sEl) sEl.textContent = '–';
+          return;
+        }
+        var left = end - Date.now();
+        if (left <= 0) {
+          root.classList.add('is-ended');
+          if (dEl) dEl.textContent = '0';
+          if (hEl) hEl.textContent = '0';
+          if (mEl) mEl.textContent = '00';
+          if (sEl) sEl.textContent = '00';
+          return;
+        }
+        root.classList.remove('is-ended');
+        var days = Math.floor(left / 86400000);
+        var rem = left % 86400000;
+        var hours = Math.floor(rem / 3600000);
+        rem %= 3600000;
+        var minutes = Math.floor(rem / 60000);
+        var seconds = Math.floor((rem % 60000) / 1000);
+        if (dEl) dEl.textContent = String(days);
+        if (hEl) hEl.textContent = String(hours);
+        if (mEl) mEl.textContent = pad2(minutes);
+        if (sEl) sEl.textContent = pad2(seconds);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    /* Mobile nav */
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', function () {
+      const open = navMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        navMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* Plan accordions */
+    document.querySelectorAll('.accordion-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const id = btn.getAttribute('aria-controls');
+        const panel = document.getElementById(id);
+        if (!panel) return;
+        const open = !panel.classList.contains('is-open');
+        panel.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+
+    /* FAQ */
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const id = btn.getAttribute('aria-controls');
+        const ans = document.getElementById(id);
+        if (!ans) return;
+        const open = !ans.classList.contains('is-open');
+        document.querySelectorAll('.faq-a.is-open').forEach(function (p) {
+          if (p !== ans) {
+            p.classList.remove('is-open');
+            const qid = p.getAttribute('aria-labelledby');
+            const qb = qid ? document.getElementById(qid) : null;
+            if (qb) qb.setAttribute('aria-expanded', 'false');
+          }
+        });
+        ans.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  </script>
+</body>
+</html>
