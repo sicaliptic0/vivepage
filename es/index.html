@@ -2036,6 +2036,13 @@
                 <td data-i18n="compare_email_1">1 cuenta</td>
                 <td data-i18n="compare_email_3">Hasta 3</td>
               </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_gmail_send">Enviar como @dominio desde Gmail</th>
+                <td class="compare-cell-addon" data-i18n="compare_cell_addon_gmail30">Add-on (+$30 USD)</td>
+                <td class="compare-cell-addon" data-i18n="compare_cell_addon_gmail30">Add-on (+$30 USD)</td>
+                <td class="compare-cell-addon" data-i18n="compare_cell_addon_gmail30">Add-on (+$30 USD)</td>
+                <td data-i18n="compare_cell_included_gmail">Incluido</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -2172,6 +2179,7 @@
               <li data-i18n="plan_prem_li1">Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)</li>
               <li data-i18n="plan_prem_li2">Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)</li>
               <li data-i18n="plan_prem_li3">1 correo @dominio para recepción en tu Gmail · sitio bilingüe ES/EN incluido</li>
+              <li data-i18n="plan_prem_li_sendgmail">Opcional: enviar como @dominio desde Gmail (+$30 USD, pago único; configuración completa)</li>
               <li data-i18n="plan_prem_li4">3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días</li>
             </ul>
             <div class="plan-cta">
@@ -2214,6 +2222,7 @@
                 <li data-i18n="plan_ent_li3">Blog con 5 posts iniciales incluidos</li>
                 <li data-i18n="plan_ent_li4">Búsqueda / filtro de servicios</li>
                 <li data-i18n="plan_ent_li5">Hasta 3 correos @dominio para recepción, vinculados a bandejas personales</li>
+                <li data-i18n="plan_ent_li_sendgmail">Enviar como @dominio desde Gmail incluido (configuración completa; un solo buzón)</li>
               </ul>
               <ul class="plan-list">
                 <li data-i18n="plan_ent_li6">2 actualizaciones de contenido incluidas por año (texto, fotos, info)</li>
@@ -2228,7 +2237,7 @@
           </div>
         </details>
 
-        <p class="global-note" data-i18n="pricing_global_note">No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio enlazado a Gmail es principalmente para recibir; enviar como @dominio suele requerir Google Workspace (~$6 USD/mes, ~$72/año) u otra configuración (pregúntanos).</p>
+        <p class="global-note" data-i18n="pricing_global_note">No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere unos ajustes breves de seguridad en tu cuenta de Google que te guiamos; si prefieres la suite oficial de Google, Workspace ronda los $6 USD/mes.</p>
       </div>
     </section>
 
@@ -2331,7 +2340,7 @@
           </article>
           <article class="addon-card">
             <h3><span data-i18n="addon3_title">Correo @dominio.com adicional</span> — <span class="addon-price" data-i18n="addon3_price">$20</span></h3>
-            <p data-i18n="addon3_desc">Buzón adicional para recibir en tu correo personal. Enviar con remitente @dominio requiere otro proceso (p. ej. Workspace de pago o SMTP del proveedor).</p>
+            <p data-i18n="addon3_desc">Buzón adicional solo para recibir en tu correo personal. Si también necesitas enviar como @dominio desde Gmail, revisa el add-on de envío.</p>
           </article>
           <article class="addon-card">
             <h3><span data-i18n="addon4_title">Versión bilingüe (ES/EN)</span> — <span class="addon-price" data-i18n="addon4_price">$39</span></h3>
@@ -2340,6 +2349,10 @@
           <article class="addon-card">
             <h3><span data-i18n="addon5_title">Blog / post adicional</span> — <span class="addon-price" data-i18n="addon5_price">$30/post</span></h3>
             <p data-i18n="addon5_desc">También disponible como servicio independiente. Entrega acordada por volumen.</p>
+          </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon6_title">Enviar como @dominio desde Gmail</span> — <span class="addon-price" data-i18n="addon6_price">$30 USD</span></h3>
+            <p data-i18n="addon6_desc">Pago único: configuramos tu dirección profesional para que puedas enviar con remitente @dominio desde la misma cuenta de Gmail que ya usas (recepción y envío en un solo lugar). Requiere unos ajustes breves de seguridad en tu cuenta de Google; te guiamos en el proceso. Incluido en plan Empresarial; opcional en Básico, Profesional y Premium cuando aplica correo @dominio.</p>
           </article>
         </div>
       </div>
@@ -2411,7 +2424,7 @@
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
-              <span data-i18n="faq_a4">No reemplaza Gmail como aplicación. Lo que solemos configurar es recepción: lo enviado a nombre@tudominio.com llega a tu Gmail o correo habitual y quien te escribe ve tu dirección profesional. Eso no incluye por sí mismo enviar ya como remitente @tudominio.com desde Gmail; para eso lo más sencillo suele ser Google Workspace (aprox. $6 USD/mes, ~$72 USD/año). Otra opción es el envío por SMTP o panel del proveedor; a veces podemos ayudarte sin costo adicional si compartes de forma segura el acceso que pida tu proveedor (usuario y contraseña del buzón o del panel, según el caso). Escríbenos y te orientamos.</span>
+              <span data-i18n="faq_a4">No reemplaza Gmail como aplicación. Lo habitual con el correo @dominio es la recepción en tu Gmail. Para enviar también como @dominio desde esa misma cuenta, ofrecemos un servicio de $30 USD (pago único) con configuración completa: implica unos ajustes breves de seguridad en tu cuenta de Google que coordinamos contigo, para que recibas y envíes desde un solo buzón. En plan Empresarial va incluido; en otros planes es add-on. Si prefieres la opción oficial todo-en-uno de Google, existe Google Workspace (aprox. $6 USD/mes). Escríbenos y te recomendamos la mejor ruta.</span>
             </div>
           </div>
           <div class="faq-item">
@@ -2578,6 +2591,9 @@
         compare_row_search: 'Búsqueda / filtro de servicios',
         compare_row_responsive: 'Diseño responsivo + dominio .com 1.er año',
         compare_row_email: 'Correo @dominio (recepción en Gmail)',
+        compare_row_gmail_send: 'Enviar como @dominio desde Gmail',
+        compare_cell_addon_gmail30: 'Add-on (+$30 USD)',
+        compare_cell_included_gmail: 'Incluido',
         compare_sec_basic: '+ 3',
         compare_sec_pro: '+ 5',
         compare_sec_prem: '+ 7',
@@ -2632,6 +2648,7 @@
         plan_prem_li1: 'Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)',
         plan_prem_li2: 'Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)',
         plan_prem_li3: '1 correo @dominio para recepción en tu Gmail · sitio bilingüe ES/EN incluido',
+        plan_prem_li_sendgmail: 'Opcional: enviar como @dominio desde Gmail (+$30 USD, pago único; configuración completa)',
         plan_prem_li4: '3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días',
         plan_prem_acc_trigger: 'Detalle de secciones y módulos Premium',
         plan_prem_acc_intro: 'Ejemplos de secciones de contenido disponibles en el catálogo ampliado:',
@@ -2650,12 +2667,13 @@
         plan_ent_li3: 'Blog con 5 posts iniciales incluidos',
         plan_ent_li4: 'Búsqueda / filtro de servicios',
         plan_ent_li5: 'Hasta 3 correos @dominio para recepción, vinculados a bandejas personales',
+        plan_ent_li_sendgmail: 'Enviar como @dominio desde Gmail incluido (configuración completa; un solo buzón)',
         plan_ent_li6: '2 actualizaciones de contenido incluidas por año (texto, fotos, info)',
         plan_ent_li8: 'Misma cadencia de revisión que Premium: 3 rondas antes de publicar',
         plan_ent_li9: '5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales',
         plan_ent_li10: 'Ideal para varias sedes, varios profesionales o muchos servicios',
         plan_ent_btn: 'Consultar disponibilidad',
-        pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio enlazado a Gmail es principalmente para recibir; enviar como @dominio suele requerir Google Workspace (~$6 USD/mes, ~$72/año) u otra configuración (pregúntanos).',
+        pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere unos ajustes breves de seguridad en tu cuenta de Google que te guiamos; si prefieres la suite oficial de Google, Workspace ronda los $6 USD/mes.',
         addons_title: 'Servicios adicionales',
         addon1_title: 'Actualización de contenido',
         addon1_desc: 'Cambios de texto, fotos o información. Entrega en 3–5 días hábiles.',
@@ -2664,7 +2682,10 @@
         addon2_desc: 'Gestión completa incluida.',
         addon3_title: 'Correo @dominio.com adicional',
         addon3_price: '$20',
-        addon3_desc: 'Buzón adicional para recibir en tu correo personal. Enviar con remitente @dominio requiere otro proceso (p. ej. Workspace de pago o SMTP del proveedor).',
+        addon3_desc: 'Buzón adicional solo para recibir en tu correo personal. Si también necesitas enviar como @dominio desde Gmail, revisa el add-on de envío.',
+        addon6_title: 'Enviar como @dominio desde Gmail',
+        addon6_price: '$30 USD',
+        addon6_desc: 'Pago único: configuramos tu dirección profesional para que puedas enviar con remitente @dominio desde la misma cuenta de Gmail que ya usas (recepción y envío en un solo lugar). Requiere unos ajustes breves de seguridad en tu cuenta de Google; te guiamos en el proceso. Incluido en plan Empresarial; opcional en Básico, Profesional y Premium cuando aplica correo @dominio.',
         addon4_title: 'Versión bilingüe (ES/EN)',
         addon4_price: '$39',
         addon4_desc: 'Solo planes Básico y Profesional (ya incluida en Premium y Empresarial).',
@@ -2711,7 +2732,7 @@
         faq_q3: '¿Puedo pedir cambios después de que la página esté lista?',
         faq_a3: 'Sí. En 24–48 h tienes la página lista; luego un periodo de revisión con rondas incluidas antes de publicar en internet. Después, los cambios son ajustes de contenido con la web ya en vivo (según tu plan). Pasado el plazo de cambios incluido, cada actualización cuesta $30.',
         faq_q4: '¿Puedo enviar y recibir con el correo @midominio.com desde Gmail?',
-        faq_a4: 'No reemplaza Gmail como aplicación. Lo que solemos configurar es recepción: lo enviado a nombre@tudominio.com llega a tu Gmail o correo habitual y quien te escribe ve tu dirección profesional. Eso no incluye por sí mismo enviar ya como remitente @tudominio.com desde Gmail; para eso lo más sencillo suele ser Google Workspace (aprox. $6 USD/mes, ~$72 USD/año). Otra opción es el envío por SMTP o panel del proveedor; a veces podemos ayudarte sin costo adicional si compartes de forma segura el acceso que pida tu proveedor (usuario y contraseña del buzón o del panel, según el caso). Escríbenos y te orientamos.',
+        faq_a4: 'No reemplaza Gmail como aplicación. Lo habitual con el correo @dominio es la recepción en tu Gmail. Para enviar también como @dominio desde esa misma cuenta, ofrecemos un servicio de $30 USD (pago único) con configuración completa: implica unos ajustes breves de seguridad en tu cuenta de Google que coordinamos contigo, para que recibas y envíes desde un solo buzón. En plan Empresarial va incluido; en otros planes es add-on. Si prefieres la opción oficial todo-en-uno de Google, existe Google Workspace (aprox. $6 USD/mes). Escríbenos y te recomendamos la mejor ruta.',
         faq_q5: '¿Diseñan logos?',
         faq_a5: 'No diseñamos logos. El cliente debe proveer su logo o foto de perfil.',
         faq_q6: '¿Puedo ver ejemplos de páginas que han hecho?',
@@ -2836,6 +2857,9 @@
         compare_row_search: 'Service search / filter',
         compare_row_responsive: 'Responsive design + .com domain 1st year',
         compare_row_email: 'Email @domain (receive in Gmail)',
+        compare_row_gmail_send: 'Send as @domain from Gmail',
+        compare_cell_addon_gmail30: 'Add-on (+$30 USD)',
+        compare_cell_included_gmail: 'Included',
         compare_sec_basic: '+ 3',
         compare_sec_pro: '+ 5',
         compare_sec_prem: '+ 7',
@@ -2890,6 +2914,7 @@
         plan_prem_li1: 'Everything in Professional, with 7 sections and premium catalog (downloads, team, video)',
         plan_prem_li2: 'Google Maps, appointment request form to email (no dashboard or calendar)',
         plan_prem_li3: '1 @domain inbox for receiving in your Gmail · bilingual ES/EN included',
+        plan_prem_li_sendgmail: 'Optional: send as @domain from Gmail (+$30 USD one-time; full setup)',
         plan_prem_li4: '3 revision rounds before publishing · 5 changes within the first 30 days',
         plan_prem_acc_trigger: 'Premium sections and modules in detail',
         plan_prem_acc_intro: 'Examples of content sections in the expanded catalog:',
@@ -2908,12 +2933,13 @@
         plan_ent_li3: 'Blog with 5 starter posts included',
         plan_ent_li4: 'Service search / filter',
         plan_ent_li5: 'Up to 3 @domain addresses for receiving, linked to personal inboxes',
+        plan_ent_li_sendgmail: 'Send as @domain from Gmail included (full setup; one inbox)',
         plan_ent_li6: '2 content updates per year included (copy, photos, info)',
         plan_ent_li8: 'Same revision cadence as Premium: 3 rounds before publishing',
         plan_ent_li9: '5 changes within the first 30 days after publishing, plus the 2 yearly updates',
         plan_ent_li10: 'Ideal for multiple locations, several providers or many services',
         plan_ent_btn: 'Check availability',
-        pricing_global_note: 'We do not design logos. Client must provide a logo or profile photo. · Your site is ready within 24–48h after we receive all content; publishing online follows your plan’s revision period. · Business days are Monday–Friday, excluding official holidays. · @domain email linked to Gmail is mainly for receiving; sending as @domain usually needs Google Workspace (~$6 USD/month, ~$72/year) or another outbound setup (ask us).',
+        pricing_global_note: 'We do not design logos. Client must provide a logo or profile photo. · Your site is ready within 24–48h after we receive all content; publishing online follows your plan’s revision period. · Business days are Monday–Friday, excluding official holidays. · @domain email in Gmail includes receiving; sending as @domain from Gmail can be added with a $30 USD one-time add-on or is included on Enterprise. It requires brief security adjustments in your Google account that we walk you through; if you prefer Google’s official suite, Workspace is about $6 USD/month.',
         addons_title: 'Add-on services',
         addon1_title: 'Content update',
         addon1_desc: 'Text, photo or information changes. Delivery in 3–5 business days.',
@@ -2922,7 +2948,10 @@
         addon2_desc: 'Full management included.',
         addon3_title: 'Extra @domain.com email',
         addon3_price: '$20',
-        addon3_desc: 'Additional mailbox for receiving in your personal inbox. Sending as @domain needs a separate setup (e.g. paid Workspace or provider SMTP).',
+        addon3_desc: 'Additional mailbox for receiving only in your personal inbox. If you also need to send as @domain from Gmail, see the Gmail send add-on.',
+        addon6_title: 'Send as @domain from Gmail',
+        addon6_price: '$30 USD',
+        addon6_desc: 'One-time fee: we configure your professional address so you can send with an @domain sender from the same Gmail you already use (receive and send in one inbox). It requires brief security adjustments in your Google account; we guide you step by step. Included on Enterprise; optional on Basic, Professional and Premium when @domain email applies.',
         addon4_title: 'Bilingual version (ES/EN)',
         addon4_price: '$39',
         addon4_desc: 'For Basic and Professional plans only (already included in Premium and Enterprise).',
@@ -2969,7 +2998,7 @@
         faq_q3: 'Can I request changes after the site is ready?',
         faq_a3: 'Yes. Your site is ready in 24–48h; then a revision period with included rounds before publishing online. After go-live, changes are content tweaks per your plan. After the included change window, each update is $30.',
         faq_q4: 'Can I send and receive using @mydomain.com from Gmail?',
-        faq_a4: 'It does not replace Gmail as your app. What we usually set up is receiving: mail to you@yourdomain.com lands in your Gmail or usual inbox, and senders see a professional address. That does not by itself let you send as @yourdomain.com from Gmail; the simplest path is often Google Workspace (about $6 USD/month, roughly $72 USD/year). Another path is SMTP / your provider’s mail settings; sometimes we can help at no extra charge if you securely share the access your provider requires (mailbox or hosting panel username and password, depending on the case). Message us and we will guide you.',
+        faq_a4: 'It does not replace Gmail as your app. @domain email usually means receiving in Gmail. To also send as @domain from that same inbox, we offer a $30 USD one-time service with full setup: it involves brief security adjustments in your Google account that we coordinate with you, so you receive and send from one place. Included on Enterprise; on other plans it is an add-on. If you prefer Google’s all-in-one option, Google Workspace is about $6 USD/month. Message us and we will recommend the best fit.',
         faq_q5: 'Do you design logos?',
         faq_a5: 'We do not design logos. The client must provide a logo or profile photo.',
         faq_q6: 'Can I see examples of sites you have built?',
