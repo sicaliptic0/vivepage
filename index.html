@@ -707,7 +707,7 @@
 
     .compare-pricing {
       width: 100%;
-      min-width: 520px;
+      min-width: 720px;
       border-collapse: collapse;
       font-size: 0.8125rem;
     }
@@ -744,6 +744,147 @@
       font-size: 0.9375rem;
     }
 
+    .compare-price-cell-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      line-height: 1.25;
+    }
+
+    .price-regular-struck {
+      color: #f87171;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .price-promo {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.0625rem;
+    }
+
+    .plan-price-stack {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.5rem;
+    }
+
+    .plan-price-stack .price-regular-struck {
+      font-size: 1rem;
+    }
+
+    .plan-price-stack .price-promo {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .plan-card.featured .plan-price-stack .price-promo {
+      color: #f0f9ff;
+    }
+
+    .price-promo-tag {
+      font-size: 0.75rem;
+      color: #fbbf24;
+      margin: -0.35rem 0 0.85rem;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .launch-countdown {
+      margin: 0 0 1.5rem;
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(56, 189, 248, 0.08) 100%);
+      text-align: center;
+      max-width: min(100%, 38rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .launch-countdown-title {
+      margin: 0 0 0.65rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .launch-countdown-digits {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+
+    .launch-countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 3.1rem;
+    }
+
+    .launch-countdown-unit .cd-num {
+      font-size: 1.55rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .launch-countdown-unit .cd-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+    }
+
+    .launch-countdown-note {
+      margin: 0.65rem 0 0;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .launch-countdown.is-ended .launch-countdown-digits {
+      display: none;
+    }
+
+    .launch-countdown.is-ended .cd-expired-msg {
+      display: block;
+    }
+
+    .cd-expired-msg {
+      display: none;
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .compare-pricing .compare-cat th {
+      background: rgba(56, 189, 248, 0.06);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-pricing .compare-cell-addon {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fbbf24;
+      line-height: 1.3;
+    }
+
     .compare-pricing .compare-cell-no {
       color: #f87171;
       font-weight: 600;
@@ -758,6 +899,63 @@
       margin: 0.65rem 0 0;
       line-height: 1.45;
       max-width: 42rem;
+    }
+
+    details.sections-catalog-wrap {
+      margin: 0 0 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: rgba(12, 14, 24, 0.4);
+    }
+
+    details.sections-catalog-wrap > summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text);
+      padding: 0.85rem 1rem;
+    }
+
+    details.sections-catalog-wrap > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.sections-catalog-wrap > summary::after {
+      content: ' ↓';
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    details.sections-catalog-wrap[open] > summary::after {
+      content: ' ↑';
+    }
+
+    .sections-catalog-body {
+      padding: 0 1rem 1rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .sections-catalog-body .sections-block-title {
+      font-weight: 600;
+      color: var(--text);
+      margin: 0.9rem 0 0.35rem;
+      font-size: 0.8125rem;
+    }
+
+    .sections-catalog-body .sections-block-title:first-of-type {
+      margin-top: 0.25rem;
+    }
+
+    .sections-catalog-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.2rem;
+    }
+
+    .sections-catalog-body li {
+      margin-bottom: 0.2rem;
     }
 
     details.plan-details-wrap {
@@ -1600,6 +1798,37 @@
           <p class="pricing-def-note" data-i18n="pricing_revision_def">En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.</p>
         </details>
 
+        <!-- Oferta: ajusta data-offer-end a la fecha y hora exactas de cierre (ISO 8601, hora local del navegador si no pones zona). -->
+        <div
+          class="launch-countdown"
+          id="offer-countdown"
+          role="timer"
+          aria-live="polite"
+          data-offer-end="2026-05-25T23:59:59"
+        >
+          <p class="launch-countdown-title" data-i18n="offer_countdown_title">Oferta de precios termina en</p>
+          <div class="launch-countdown-digits" id="offer-countdown-digits">
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-days">–</span>
+              <span class="cd-label" data-i18n="offer_count_days">días</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-hours">–</span>
+              <span class="cd-label" data-i18n="offer_count_hours">horas</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-minutes">–</span>
+              <span class="cd-label" data-i18n="offer_count_minutes">min</span>
+            </div>
+            <div class="launch-countdown-unit">
+              <span class="cd-num" id="cd-seconds">–</span>
+              <span class="cd-label" data-i18n="offer_count_seconds">seg</span>
+            </div>
+          </div>
+          <p class="cd-expired-msg" id="cd-expired" data-i18n="offer_count_expired">La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.</p>
+          <p class="launch-countdown-note" data-i18n="offer_countdown_note">Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.</p>
+        </div>
+
         <div class="compare-pricing-wrap">
           <table class="compare-pricing">
             <thead>
@@ -1612,18 +1841,41 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row" data-i18n="compare_row_price">Precio (pago único)</th>
-                <td class="plan-price-cell">$99</td>
-                <td class="plan-price-cell">$149</td>
-                <td class="plan-price-cell">$249</td>
-                <td class="plan-price-cell">$299</td>
+              <tr class="compare-cat">
+                <th colspan="5" scope="colgroup" data-i18n="compare_cat_invest">Inversión y alcance</th>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_sections">Secciones de contenido a elegir</th>
-                <td data-i18n="compare_sec_basic">2</td>
-                <td data-i18n="compare_sec_pro">4</td>
-                <td data-i18n="compare_sec_prem">6</td>
+                <th scope="row" data-i18n="compare_row_price">Precio (pago único)</th>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$149</span>
+                    <span class="price-promo">$99</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$249</span>
+                    <span class="price-promo">$169</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$399</span>
+                    <span class="price-promo">$269</span>
+                  </div>
+                </td>
+                <td class="plan-price-cell">
+                  <div class="compare-price-cell-inner">
+                    <span class="price-regular-struck">$599</span>
+                    <span class="price-promo">$399</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_sections">Portada + secciones de contenido</th>
+                <td data-i18n="compare_sec_basic">+ 3</td>
+                <td data-i18n="compare_sec_pro">+ 5</td>
+                <td data-i18n="compare_sec_prem">+ 7</td>
                 <td data-i18n="compare_sec_ent">Ilimitadas</td>
               </tr>
               <tr>
@@ -1634,8 +1886,94 @@
                 <td>3</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_forms">Formulario, mapa y galería</th>
+                <th scope="row" data-i18n="compare_row_post_changes">Cambios tras publicar (incluidos)</th>
+                <td data-i18n="compare_post_basic">2 en 10 días</td>
+                <td data-i18n="compare_post_pro">3 en 15 días</td>
+                <td data-i18n="compare_post_prem">5 en 30 días</td>
+                <td data-i18n="compare_post_ent">5 en 30 días + 2/año</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_ready_48">Lista en 24–48 h (con tu contenido)</th>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr class="compare-cat">
+                <th colspan="5" scope="colgroup" data-i18n="compare_cat_content">Contenido y secciones por plan</th>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_blocks">Bloques de secciones que puedes usar</th>
+                <td data-i18n="compare_blocks_basic">Solo bloque 1 (elige 3)</td>
+                <td data-i18n="compare_blocks_pro">Bloques 1 y 2 (elige 5)</td>
+                <td data-i18n="compare_blocks_prem">Bloques 1, 2 y 3 (elige 7)</td>
+                <td data-i18n="compare_blocks_ent">Catálogo completo + ilimitadas</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_blog">Blog (5 posts iniciales)</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr class="compare-cat">
+                <th colspan="5" scope="colgroup" data-i18n="compare_cat_interactive">Módulos interactivos</th>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_leads">Formulario de captación de leads</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_gallery">Galería de casos y resultados</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_maps">Mapa de ubicación (Google Maps)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_appt">Solicitud de cita (al correo, sin panel)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_video">Video embebido (IG / YT / TikTok)</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_unlimited">Páginas ilimitadas + menú</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_search">Búsqueda / filtro de servicios</th>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td data-i18n="compare_cell_yes">✓</td>
+              </tr>
+              <tr class="compare-cat">
+                <th colspan="5" scope="colgroup" data-i18n="compare_cat_tech">Técnico, correo y soporte</th>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="compare_row_responsive">Diseño responsivo + dominio .com 1.er año</th>
+                <td data-i18n="compare_cell_yes">✓</td>
                 <td data-i18n="compare_cell_yes">✓</td>
                 <td data-i18n="compare_cell_yes">✓</td>
                 <td data-i18n="compare_cell_yes">✓</td>
@@ -1644,68 +1982,98 @@
                 <th scope="row" data-i18n="compare_row_email">Correo profesional @dominio</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_email_1">1</td>
+                <td data-i18n="compare_email_1">1 cuenta</td>
                 <td data-i18n="compare_email_3">Hasta 3</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_video_bi">Video embebido y web bilingüe</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <th scope="row" data-i18n="compare_row_bilingual">Sitio bilingüe ES / EN</th>
+                <td class="compare-cell-addon" data-i18n="compare_cell_addon_bi">Opcional (+$39)</td>
+                <td class="compare-cell-addon" data-i18n="compare_cell_addon_bi">Opcional (+$39)</td>
                 <td data-i18n="compare_cell_yes">✓</td>
                 <td data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_enterprise">Multipágina, equipo, búsqueda y citas</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <th scope="row" data-i18n="compare_row_support">Soporte por WhatsApp Lun–Sáb</th>
+                <td data-i18n="compare_support_std">Estándar</td>
+                <td data-i18n="compare_support_std">Estándar</td>
+                <td data-i18n="compare_support_std">Estándar</td>
+                <td data-i18n="compare_support_pri">Prioritario</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="compare-sections-hint" data-i18n="compare_sections_hint">La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges.</p>
+        <p class="compare-sections-hint" data-i18n="compare_sections_hint">La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges. La lista numerada de todas las secciones posibles y los bloques por plan está en el detalle de planes (desplegable de abajo).</p>
 
         <details class="plan-details-wrap">
           <summary data-i18n="plans_details_toggle">Ver detalle de cada plan y contratar</summary>
           <div class="plan-details-inner">
+        <details class="sections-catalog-wrap">
+          <summary data-i18n="sections_catalog_summary">Todas las secciones de contenido disponibles</summary>
+          <div class="sections-catalog-body">
+            <p data-i18n="sections_catalog_intro">Cada “sección” es un bloque de tu web (texto + estructura) que eliges según plan. Los módulos interactivos (formularios, mapa, galería, video, etc.) se comparan aparte en la tabla.</p>
+            <p class="sections-block-title" data-i18n="sections_block_a_title">Bloque 1 — incluido desde Básico (elige hasta 3 en Básico; también en planes superiores)</p>
+            <ol>
+              <li data-i18n="sections_cat_1">Trayectoria y biografía profesional</li>
+              <li data-i18n="sections_cat_2">Portafolio de servicios</li>
+              <li data-i18n="sections_cat_3">Tarifario de servicios</li>
+              <li data-i18n="sections_cat_4">Horarios y sedes</li>
+              <li data-i18n="sections_cat_5">Ecosistema de contacto y redes sociales</li>
+              <li data-i18n="sections_cat_6">Tecnología y equipamiento</li>
+            </ol>
+            <p class="sections-block-title" data-i18n="sections_block_b_title">Bloque 2 — a partir de Profesional (además del bloque 1; elige hasta 5 secciones en total en Profesional)</p>
+            <ol start="7">
+              <li data-i18n="sections_cat_7">Preguntas frecuentes (FAQ)</li>
+              <li data-i18n="sections_cat_8">Testimonios de clientes</li>
+              <li data-i18n="sections_cat_9">Convenios y seguros</li>
+            </ol>
+            <p class="sections-block-title" data-i18n="sections_block_c_title">Bloque 3 — a partir de Premium (además de 1 y 2; elige hasta 7 secciones en total en Premium)</p>
+            <ol start="10">
+              <li data-i18n="sections_cat_10">Área de descargas (PDFs: protocolos, consentimientos, guías, etc.)</li>
+              <li data-i18n="sections_cat_11">Directorio de equipo / personal</li>
+            </ol>
+            <p data-i18n="sections_catalog_blog_note">Blog: en Empresarial incluye 5 posts iniciales; posts extra son add-on. El video embebido es un módulo interactivo (tabla comparativa), no una sección de esta lista.</p>
+            <p data-i18n="sections_catalog_note_enterprise">En Empresarial las secciones de contenido son ilimitadas y puedes combinar todo el catálogo de bloques 1–3 más el blog con esas 5 entradas iniciales.</p>
+          </div>
+        </details>
         <div class="pricing-grid">
           <!-- Básico -->
           <article class="plan-card">
             <p class="plan-label" data-i18n="plan_basic_label">Plan 01</p>
             <div class="plan-name-row">
               <h3 class="plan-name" data-i18n="plan_basic_name">Básico</h3>
-              <span class="plan-price">$99</span>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$149</span>
+                <span class="price-promo">$99</span>
+              </div>
             </div>
-            <p class="plan-sub" data-i18n="plan_basic_sub">Portada + 2 secciones a elegir</p>
-            <p class="plan-note" data-i18n="plan_basic_note">Pago único · Dominio .com incluido 1er año</p>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_basic_sub">Presencia digital profesional · Portada + 3 secciones a elegir</p>
+            <p class="plan-note" data-i18n="plan_basic_note">Pago único · Dominio .com incluido 1.er año</p>
             <ul class="plan-list">
               <li data-i18n="plan_basic_li1">Portada siempre incluida (no cuenta como sección elegida)</li>
-              <li data-i18n="plan_basic_li2">Tú eliges 2 secciones adicionales</li>
-              <li data-i18n="plan_basic_li3">Página web lista en 24–48 horas desde que recibimos tu contenido</li>
-              <li data-i18n="plan_basic_li4">Periodo de revisión antes de publicar: 1 ronda de correcciones incluida</li>
-              <li data-i18n="plan_basic_li5">2 cambios incluidos en los primeros 5 días después de publicar</li>
-              <li data-i18n="plan_basic_li6">Incluye: diseño responsive, botón de WhatsApp, enlaces a redes, dominio .com el 1.er año, soporte por WhatsApp Lun–Sáb</li>
-              <li data-i18n="plan_basic_li7">No incluye: formulario de contacto, mapa, galería de fotos, correo @dominio, versión bilingüe</li>
+              <li data-i18n="plan_basic_li2">Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)</li>
+              <li data-i18n="plan_basic_li3">Página lista en 24–48 h desde que recibimos tu contenido</li>
+              <li data-i18n="plan_basic_li4">1 ronda de revisión antes de publicar</li>
+              <li data-i18n="plan_basic_li5">2 cambios incluidos en los primeros 10 días tras publicar</li>
+              <li data-i18n="plan_basic_li6">Diseño responsivo, dominio .com 1.er año, soporte WhatsApp Lun–Sáb</li>
+              <li data-i18n="plan_basic_li7">La versión bilingüe ES/EN es opcional (add-on); sin formularios avanzados, mapa embebido ni galería de casos</li>
             </ul>
             <div class="plan-cta">
               <a href="https://wa.me/13470000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="plan_basic_btn">Empezar con el Básico</a>
               <button type="button" class="accordion-trigger" data-accordion="basic-sections" aria-expanded="false" aria-controls="panel-basic-sections" id="btn-basic-sections">
-                <span data-i18n="plan_basic_acc_trigger">Ver secciones disponibles para elegir</span>
+                <span data-i18n="plan_basic_acc_trigger">Recordatorio: secciones del bloque 1 (Básico)</span>
                 <span class="chevron" aria-hidden="true"> ↓</span>
               </button>
               <div class="accordion-panel" id="panel-basic-sections" role="region" aria-labelledby="btn-basic-sections">
                 <ul>
-                  <li data-i18n="plan_basic_sec1">Portada (nombre, foto, título profesional)</li>
-                  <li data-i18n="plan_basic_sec2">Sobre mí / biografía</li>
-                  <li data-i18n="plan_basic_sec3">Servicios o especialidades</li>
-                  <li data-i18n="plan_basic_sec4">Precios o tarifas</li>
-                  <li data-i18n="plan_basic_sec5">Logros y certificaciones</li>
-                  <li data-i18n="plan_basic_sec6">Horarios de atención</li>
-                  <li data-i18n="plan_basic_sec7">Ubicación / consultorio</li>
-                  <li data-i18n="plan_basic_sec8">Testimonios breves</li>
+                  <li data-i18n="plan_basic_sec1">Trayectoria y biografía profesional</li>
+                  <li data-i18n="plan_basic_sec2">Portafolio de servicios</li>
+                  <li data-i18n="plan_basic_sec3">Tarifario de servicios</li>
+                  <li data-i18n="plan_basic_sec4">Horarios y sedes</li>
+                  <li data-i18n="plan_basic_sec5">Ecosistema de contacto y redes sociales</li>
+                  <li data-i18n="plan_basic_sec6">Tecnología y equipamiento</li>
                 </ul>
-                <p class="plan-note-base" data-i18n="plan_basic_sec_note">La portada es la base y siempre va incluida. Escoge 2 secciones de la lista.</p>
+                <p class="plan-note-base" data-i18n="plan_basic_sec_note">Elige 3 de estas 6. La portada va aparte y siempre incluida.</p>
               </div>
             </div>
           </article>
@@ -1716,29 +2084,34 @@
             <p class="plan-label" data-i18n="plan_pro_label">Plan 02</p>
             <div class="plan-name-row">
               <h3 class="plan-name" data-i18n="plan_pro_name">Profesional</h3>
-              <span class="plan-price">$149</span>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$249</span>
+                <span class="price-promo">$169</span>
+              </div>
             </div>
-            <p class="plan-sub" data-i18n="plan_pro_sub">Portada + 4 secciones · Formulario, mapa y galería</p>
-            <p class="plan-note" data-i18n="plan_pro_note">Pago único · Dominio .com incluido 1er año</p>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_pro_sub">Captación activa · Portada + 5 secciones · Leads y galería</p>
+            <p class="plan-note" data-i18n="plan_pro_note">Pago único · Dominio .com incluido 1.er año</p>
             <ul class="plan-list">
-              <li data-i18n="plan_pro_li1">Portada más 4 secciones a tu elección</li>
-              <li data-i18n="plan_pro_li2">Página web lista en 24–48 horas desde que recibimos tu contenido</li>
-              <li data-i18n="plan_pro_li3">Periodo de revisión antes de publicar: 2 rondas de correcciones incluidas</li>
-              <li data-i18n="plan_pro_li4">3 cambios incluidos en los primeros 10 días después de publicar</li>
-              <li data-i18n="plan_pro_li5">Además del Básico: formulario de contacto, Google Maps, galería de fotos, y preguntas frecuentes o testimonios (eliges una opción)</li>
+              <li data-i18n="plan_pro_li1">Todo lo del Básico, con 5 secciones a elegir y catálogo ampliado</li>
+              <li data-i18n="plan_pro_li2">Galería de casos y resultados</li>
+              <li data-i18n="plan_pro_li3">Formulario de captación de leads</li>
+              <li data-i18n="plan_pro_li4">2 rondas de revisión antes de publicar · 3 cambios en los primeros 15 días</li>
+              <li data-i18n="plan_pro_li5">Bilingüe ES/EN opcional con add-on (incluido desde Premium)</li>
             </ul>
             <div class="plan-cta">
               <button type="button" class="accordion-trigger" data-accordion="pro-sections" aria-expanded="false" aria-controls="panel-pro-sections" id="btn-pro-sections">
-                <span data-i18n="plan_pro_acc_trigger">Detalle de lo que suma sobre el Básico</span>
+                <span data-i18n="plan_pro_acc_trigger">Secciones extra y módulos sobre el Básico</span>
                 <span class="chevron" aria-hidden="true">↓</span>
               </button>
               <div class="accordion-panel" id="panel-pro-sections" role="region" aria-labelledby="btn-pro-sections">
-                <p data-i18n="plan_pro_acc_intro">Incluye todo el Básico, más:</p>
+                <p data-i18n="plan_pro_acc_intro">Además del bloque 1, en Profesional sumas el bloque 2 (hasta 5 secciones en total). Por ejemplo:</p>
                 <ul>
-                  <li data-i18n="plan_pro_sec1">Formulario de contacto</li>
-                  <li data-i18n="plan_pro_sec2">Mapa de Google Maps</li>
-                  <li data-i18n="plan_pro_sec3">Galería de fotos</li>
-                  <li data-i18n="plan_pro_sec4">Sección de preguntas frecuentes o de testimonios (tú eliges una)</li>
+                  <li data-i18n="plan_pro_sec1">Preguntas frecuentes (FAQ)</li>
+                  <li data-i18n="plan_pro_sec2">Testimonios de clientes</li>
+                  <li data-i18n="plan_pro_sec3">Convenios y seguros</li>
+                  <li data-i18n="plan_pro_sec4">Galería de casos y resultados (módulo)</li>
+                  <li data-i18n="plan_pro_sec5">Formulario de captación de leads (módulo)</li>
                 </ul>
               </div>
               <a href="https://wa.me/13470000000" class="btn btn-primary" style="margin-top: 0.75rem;" target="_blank" rel="noopener noreferrer" data-i18n="plan_pro_btn">Empezar con el Profesional</a>
@@ -1750,19 +2123,35 @@
             <p class="plan-label" data-i18n="plan_prem_label">Plan 03</p>
             <div class="plan-name-row">
               <h3 class="plan-name" data-i18n="plan_prem_name">Premium</h3>
-              <span class="plan-price">$249</span>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$399</span>
+                <span class="price-promo">$269</span>
+              </div>
             </div>
-            <p class="plan-sub" data-i18n="plan_prem_sub">Portada + 6 secciones · Correo, video y bilingüe</p>
-            <p class="plan-note" data-i18n="plan_prem_note">Pago único · Dominio .com incluido 1er año</p>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_prem_sub">Presencia completa · Portada + 7 secciones · Mapa, cita y bilingüe</p>
+            <p class="plan-note" data-i18n="plan_prem_note">Pago único · Dominio .com incluido 1.er año</p>
             <ul class="plan-list">
-              <li data-i18n="plan_prem_li1">Portada más 6 secciones a tu elección</li>
-              <li data-i18n="plan_prem_li2">Página web lista en 24–48 horas desde que recibimos tu contenido</li>
-              <li data-i18n="plan_prem_li3">Periodo de revisión antes de publicar: 3 rondas de correcciones incluidas</li>
-              <li data-i18n="plan_prem_li4">5 cambios incluidos en los primeros 30 días después de publicar</li>
-              <li data-i18n="plan_prem_li5">Además del Profesional: 1 correo @tudominio.com (llega a tu bandeja habitual), video embebido (Instagram, YouTube, TikTok), preguntas frecuentes y testimonios (ambas), versión bilingüe ES/EN</li>
+              <li data-i18n="plan_prem_li1">Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)</li>
+              <li data-i18n="plan_prem_li2">Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)</li>
+              <li data-i18n="plan_prem_li3">1 correo profesional @dominio · Sitio bilingüe ES/EN incluido</li>
+              <li data-i18n="plan_prem_li4">3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días</li>
             </ul>
             <div class="plan-cta">
-              <a href="https://wa.me/13470000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="plan_prem_btn">Empezar con el Premium</a>
+              <button type="button" class="accordion-trigger" data-accordion="prem-sections" aria-expanded="false" aria-controls="panel-prem-sections" id="btn-prem-sections">
+                <span data-i18n="plan_prem_acc_trigger">Detalle de secciones y módulos Premium</span>
+                <span class="chevron" aria-hidden="true">↓</span>
+              </button>
+              <div class="accordion-panel" id="panel-prem-sections" role="region" aria-labelledby="btn-prem-sections">
+                <p data-i18n="plan_prem_acc_intro">Ejemplos de secciones de contenido disponibles en el catálogo ampliado:</p>
+                <ul>
+                  <li data-i18n="plan_prem_sec1">Área de descargas (PDFs: protocolos, consentimientos, guías)</li>
+                  <li data-i18n="plan_prem_sec2">Directorio de equipo / personal</li>
+                  <li data-i18n="plan_prem_sec3">Reproductor de video embebido (IG / YT / TikTok)</li>
+                </ul>
+                <p class="plan-note-base" data-i18n="plan_prem_acc_note">Las solicitudes de cita llegan por correo; la coordinación la haces por WhatsApp con la persona o el cliente.</p>
+              </div>
+              <a href="https://wa.me/13470000000" class="btn btn-outline" style="margin-top: 0.75rem;" target="_blank" rel="noopener noreferrer" data-i18n="plan_prem_btn">Empezar con el Premium</a>
             </div>
           </article>
         </div>
@@ -1773,24 +2162,28 @@
             <p class="plan-label" data-i18n="plan_ent_label">Plan 04</p>
             <div class="plan-name-row">
               <h3 class="plan-name" data-i18n="plan_ent_name">Empresarial</h3>
-              <span class="plan-price">$299</span>
+              <div class="plan-price-stack">
+                <span class="price-regular-struck">$599</span>
+                <span class="price-promo">$399</span>
+              </div>
             </div>
-            <p class="plan-sub" data-i18n="plan_ent_sub">Sitio multipágina · Equipo, búsqueda y citas</p>
-            <p class="plan-note" data-i18n="plan_ent_note">Pago único · Dominio .com incluido 1er año</p>
+            <p class="price-promo-tag" data-i18n="price_promo_opening">Precio de promoción por apertura e inicio del proyecto</p>
+            <p class="plan-sub" data-i18n="plan_ent_sub">Clínicas y grupos · Multipágina, blog y búsqueda</p>
+            <p class="plan-note" data-i18n="plan_ent_note">Pago único · Dominio .com incluido 1.er año</p>
             <div class="enterprise-cols">
               <ul class="plan-list">
                 <li data-i18n="plan_ent_li1">Todo lo del plan Premium</li>
                 <li data-i18n="plan_ent_li2">Páginas ilimitadas con menú de navegación</li>
-                <li data-i18n="plan_ent_li3">Página web lista en 24–48 horas desde que recibimos tu contenido</li>
-                <li data-i18n="plan_ent_li4">Periodo de revisión antes de publicar: 3 rondas de correcciones incluidas</li>
-                <li data-i18n="plan_ent_li5">5 cambios en los primeros 30 días después de publicar + 2 actualizaciones de contenido al año incluidas</li>
+                <li data-i18n="plan_ent_li3">Blog con 5 posts iniciales incluidos</li>
+                <li data-i18n="plan_ent_li4">Búsqueda / filtro de servicios</li>
+                <li data-i18n="plan_ent_li5">Hasta 3 correos @dominio vinculados a bandejas personales</li>
               </ul>
               <ul class="plan-list">
-                <li data-i18n="plan_ent_li6">Además del Premium: directorio de equipo o personal</li>
-                <li data-i18n="plan_ent_li7">Hasta 3 correos @tudominio.com vinculados a bandejas personales</li>
-                <li data-i18n="plan_ent_li8">Filtro de búsqueda de servicios</li>
-                <li data-i18n="plan_ent_li9">Formulario de solicitud de cita (sin calendario ni panel; las solicitudes van al correo; coordinación por WhatsApp)</li>
-                <li data-i18n="plan_ent_li10">Soporte prioritario por WhatsApp Lun–Sáb</li>
+                <li data-i18n="plan_ent_li6">2 actualizaciones de contenido incluidas por año (texto, fotos, info)</li>
+                <li data-i18n="plan_ent_li7">Soporte WhatsApp prioritario Lun–Sáb</li>
+                <li data-i18n="plan_ent_li8">Misma cadencia de revisión que Premium: 3 rondas antes de publicar</li>
+                <li data-i18n="plan_ent_li9">5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales</li>
+                <li data-i18n="plan_ent_li10">Ideal para varias sedes, varios profesionales o muchos servicios</li>
               </ul>
             </div>
             <a href="https://wa.me/13470000000" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="plan_ent_btn">Consultar disponibilidad</a>
@@ -1919,6 +2312,10 @@
             <h3><span data-i18n="addon4_title">Versión bilingüe (ES/EN)</span> — <span class="addon-price" data-i18n="addon4_price">$39</span></h3>
             <p data-i18n="addon4_desc">Solo planes Básico y Profesional (ya incluida en Premium y Empresarial).</p>
           </article>
+          <article class="addon-card">
+            <h3><span data-i18n="addon5_title">Blog / post adicional</span> — <span class="addon-price" data-i18n="addon5_price">$30/post</span></h3>
+            <p data-i18n="addon5_desc">También disponible como servicio independiente. Entrega acordada por volumen.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2037,7 +2434,7 @@
         <a href="#contacto" data-i18n="nav_contact">Contacto</a>
         <a href="#faq" data-i18n="footer_faq">Preguntas frecuentes</a>
       </nav>
-      <p class="footer-copy" data-i18n="footer_copy">© 2025 VivePage · Diseño web profesional</p>
+      <p class="footer-copy" data-i18n="footer_copy">© 2026 VivePage · Diseño web profesional</p>
     </div>
   </footer>
 
@@ -2102,90 +2499,146 @@
         target_37: 'Marcas',
         target_38: 'Educación',
         target_39: 'Formación',
+        offer_countdown_title: 'Oferta de precios termina en',
+        offer_count_days: 'días',
+        offer_count_hours: 'horas',
+        offer_count_minutes: 'min',
+        offer_count_seconds: 'seg',
+        offer_countdown_note: 'Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.',
+        offer_count_expired: 'La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.',
+        price_promo_opening: 'Precio de promoción por apertura e inicio del proyecto',
         pricing_title: 'Planes y precios',
         pricing_revision_summary: 'Cómo funciona el plazo y las revisiones',
         pricing_revision_def: 'En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.',
         plans_details_toggle: 'Ver detalle de cada plan y contratar',
         compare_row_price: 'Precio (pago único)',
-        compare_row_sections: 'Secciones de contenido a elegir',
+        compare_row_sections: 'Portada + secciones de contenido',
         compare_row_revision: 'Rondas de revisión antes de publicar',
-        compare_row_forms: 'Formulario, mapa y galería',
+        compare_row_post_changes: 'Cambios tras publicar (incluidos)',
+        compare_post_basic: '2 en 10 días',
+        compare_post_pro: '3 en 15 días',
+        compare_post_prem: '5 en 30 días',
+        compare_post_ent: '5 en 30 días + 2/año',
+        compare_row_ready_48: 'Lista en 24–48 h (con tu contenido)',
+        compare_cat_invest: 'Inversión y alcance',
+        compare_cat_content: 'Contenido y secciones por plan',
+        compare_cat_interactive: 'Módulos interactivos',
+        compare_cat_tech: 'Técnico, correo y soporte',
+        compare_row_blocks: 'Bloques de secciones que puedes usar',
+        compare_blocks_basic: 'Solo bloque 1 (elige 3)',
+        compare_blocks_pro: 'Bloques 1 y 2 (elige 5)',
+        compare_blocks_prem: 'Bloques 1, 2 y 3 (elige 7)',
+        compare_blocks_ent: 'Catálogo completo + ilimitadas',
+        compare_row_blog: 'Blog (5 posts iniciales)',
+        sections_catalog_summary: 'Todas las secciones de contenido disponibles',
+        sections_catalog_intro: 'Cada “sección” es un bloque de tu web (texto + estructura) que eliges según plan. Los módulos interactivos (formularios, mapa, galería, video, etc.) se comparan aparte en la tabla.',
+        sections_block_a_title: 'Bloque 1 — incluido desde Básico (elige hasta 3 en Básico; también en planes superiores)',
+        sections_block_b_title: 'Bloque 2 — a partir de Profesional (además del bloque 1; hasta 5 secciones en total en Profesional)',
+        sections_block_c_title: 'Bloque 3 — a partir de Premium (además de 1 y 2; hasta 7 secciones en total en Premium)',
+        sections_cat_1: 'Trayectoria y biografía profesional',
+        sections_cat_2: 'Portafolio de servicios',
+        sections_cat_3: 'Tarifario de servicios',
+        sections_cat_4: 'Horarios y sedes',
+        sections_cat_5: 'Ecosistema de contacto y redes sociales',
+        sections_cat_6: 'Tecnología y equipamiento',
+        sections_cat_7: 'Preguntas frecuentes (FAQ)',
+        sections_cat_8: 'Testimonios de clientes',
+        sections_cat_9: 'Convenios y seguros',
+        sections_cat_10: 'Área de descargas (PDFs: protocolos, consentimientos, guías, etc.)',
+        sections_cat_11: 'Directorio de equipo / personal',
+        sections_catalog_blog_note: 'Blog: en Empresarial incluye 5 posts iniciales; posts extra son add-on. El video embebido es un módulo interactivo (tabla comparativa), no una sección de esta lista.',
+        sections_catalog_note_enterprise: 'En Empresarial las secciones de contenido son ilimitadas y puedes combinar todo el catálogo de bloques 1–3 más el blog con esas 5 entradas iniciales.',
+        compare_row_leads: 'Formulario de captación de leads',
+        compare_row_gallery: 'Galería de casos y resultados',
+        compare_row_maps: 'Mapa de ubicación (Google Maps)',
+        compare_row_appt: 'Solicitud de cita (al correo, sin panel)',
+        compare_row_video: 'Video embebido (IG / YT / TikTok)',
+        compare_row_unlimited: 'Páginas ilimitadas + menú',
+        compare_row_search: 'Búsqueda / filtro de servicios',
+        compare_row_responsive: 'Diseño responsivo + dominio .com 1.er año',
         compare_row_email: 'Correo profesional @dominio',
-        compare_row_video_bi: 'Video embebido y web bilingüe',
-        compare_row_enterprise: 'Multipágina, equipo, búsqueda y citas',
-        compare_sec_basic: '2',
-        compare_sec_pro: '4',
-        compare_sec_prem: '6',
+        compare_row_bilingual: 'Sitio bilingüe ES / EN',
+        compare_cell_addon_bi: 'Opcional (+$39)',
+        compare_row_support: 'Soporte por WhatsApp Lun–Sáb',
+        compare_support_std: 'Estándar',
+        compare_support_pri: 'Prioritario',
+        compare_sec_basic: '+ 3',
+        compare_sec_pro: '+ 5',
+        compare_sec_prem: '+ 7',
         compare_sec_ent: 'Ilimitadas',
         compare_cell_no: '✕',
         compare_cell_yes: '✓',
-        compare_email_1: '1',
+        compare_email_1: '1 cuenta',
         compare_email_3: 'Hasta 3',
-        compare_sections_hint: 'La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges.',
+        compare_sections_hint: 'La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges. La lista numerada de todas las secciones posibles y los bloques por plan está en el detalle de planes (desplegable de abajo).',
         plan_basic_label: 'Plan 01',
         plan_basic_name: 'Básico',
-        plan_basic_sub: 'Portada + 2 secciones a elegir',
-        plan_basic_note: 'Pago único · Dominio .com incluido 1er año',
+        plan_basic_sub: 'Presencia digital profesional · Portada + 3 secciones a elegir',
+        plan_basic_note: 'Pago único · Dominio .com incluido 1.er año',
         plan_basic_li1: 'Portada siempre incluida (no cuenta como sección elegida)',
-        plan_basic_li2: 'Tú eliges 2 secciones adicionales',
-        plan_basic_li3: 'Página web lista en 24–48 horas desde que recibimos tu contenido',
-        plan_basic_li4: 'Periodo de revisión antes de publicar: 1 ronda de correcciones incluida',
-        plan_basic_li5: '2 cambios incluidos en los primeros 5 días después de publicar',
-        plan_basic_li6: 'Incluye: diseño responsive, botón de WhatsApp, enlaces a redes, dominio .com el 1.er año, soporte por WhatsApp Lun–Sáb',
-        plan_basic_li7: 'No incluye: formulario de contacto, mapa, galería de fotos, correo @dominio, versión bilingüe',
+        plan_basic_li2: 'Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)',
+        plan_basic_li3: 'Página lista en 24–48 h desde que recibimos tu contenido',
+        plan_basic_li4: '1 ronda de revisión antes de publicar',
+        plan_basic_li5: '2 cambios incluidos en los primeros 10 días tras publicar',
+        plan_basic_li6: 'Diseño responsivo, dominio .com 1.er año, soporte WhatsApp Lun–Sáb',
+        plan_basic_li7: 'La versión bilingüe ES/EN es opcional (add-on); sin formularios avanzados, mapa embebido ni galería de casos',
         plan_basic_btn: 'Empezar con el Básico',
-        plan_basic_acc_trigger: 'Ver secciones disponibles para elegir',
-        plan_basic_sec1: 'Portada (nombre, foto, título profesional)',
-        plan_basic_sec2: 'Sobre mí / biografía',
-        plan_basic_sec3: 'Servicios o especialidades',
-        plan_basic_sec4: 'Precios o tarifas',
-        plan_basic_sec5: 'Logros y certificaciones',
-        plan_basic_sec6: 'Horarios de atención',
-        plan_basic_sec7: 'Ubicación / consultorio',
-        plan_basic_sec8: 'Testimonios breves',
-        plan_basic_sec_note: 'La portada es la base y siempre va incluida. Escoge 2 secciones de la lista.',
+        plan_basic_acc_trigger: 'Recordatorio: secciones del bloque 1 (Básico)',
+        plan_basic_sec1: 'Trayectoria y biografía profesional',
+        plan_basic_sec2: 'Portafolio de servicios',
+        plan_basic_sec3: 'Tarifario de servicios',
+        plan_basic_sec4: 'Horarios y sedes',
+        plan_basic_sec5: 'Ecosistema de contacto y redes sociales',
+        plan_basic_sec6: 'Tecnología y equipamiento',
+        plan_basic_sec_note: 'Elige 3 de estas 6. La portada va aparte y siempre incluida.',
         plan_popular_badge: 'Más popular',
         plan_pro_label: 'Plan 02',
         plan_pro_name: 'Profesional',
-        plan_pro_sub: 'Portada + 4 secciones · Formulario, mapa y galería',
-        plan_pro_note: 'Pago único · Dominio .com incluido 1er año',
-        plan_pro_li1: 'Portada más 4 secciones a tu elección',
-        plan_pro_li2: 'Página web lista en 24–48 horas desde que recibimos tu contenido',
-        plan_pro_li3: 'Periodo de revisión antes de publicar: 2 rondas de correcciones incluidas',
-        plan_pro_li4: '3 cambios incluidos en los primeros 10 días después de publicar',
-        plan_pro_li5: 'Además del Básico: formulario de contacto, Google Maps, galería de fotos, y preguntas frecuentes o testimonios (eliges una opción)',
-        plan_pro_acc_trigger: 'Detalle de lo que suma sobre el Básico',
-        plan_pro_acc_intro: 'Incluye todo el Básico, más:',
-        plan_pro_sec1: 'Formulario de contacto',
-        plan_pro_sec2: 'Mapa de Google Maps',
-        plan_pro_sec3: 'Galería de fotos',
-        plan_pro_sec4: 'Sección de preguntas frecuentes o de testimonios (tú eliges una)',
+        plan_pro_sub: 'Captación activa · Portada + 5 secciones · Leads y galería',
+        plan_pro_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_pro_li1: 'Todo lo del Básico, con 5 secciones a elegir y catálogo ampliado',
+        plan_pro_li2: 'Galería de casos y resultados',
+        plan_pro_li3: 'Formulario de captación de leads',
+        plan_pro_li4: '2 rondas de revisión antes de publicar · 3 cambios en los primeros 15 días',
+        plan_pro_li5: 'Bilingüe ES/EN opcional con add-on (incluido desde Premium)',
+        plan_pro_acc_trigger: 'Secciones extra y módulos sobre el Básico',
+        plan_pro_acc_intro: 'Además del bloque 1, en Profesional sumas el bloque 2 (hasta 5 secciones en total). Por ejemplo:',
+        plan_pro_sec1: 'Preguntas frecuentes (FAQ)',
+        plan_pro_sec2: 'Testimonios de clientes',
+        plan_pro_sec3: 'Convenios y seguros',
+        plan_pro_sec4: 'Galería de casos y resultados (módulo)',
+        plan_pro_sec5: 'Formulario de captación de leads (módulo)',
         plan_pro_btn: 'Empezar con el Profesional',
         plan_prem_label: 'Plan 03',
         plan_prem_name: 'Premium',
-        plan_prem_sub: 'Portada + 6 secciones · Correo, video y bilingüe',
-        plan_prem_note: 'Pago único · Dominio .com incluido 1er año',
-        plan_prem_li1: 'Portada más 6 secciones a tu elección',
-        plan_prem_li2: 'Página web lista en 24–48 horas desde que recibimos tu contenido',
-        plan_prem_li3: 'Periodo de revisión antes de publicar: 3 rondas de correcciones incluidas',
-        plan_prem_li4: '5 cambios incluidos en los primeros 30 días después de publicar',
-        plan_prem_li5: 'Además del Profesional: 1 correo @tudominio.com (llega a tu bandeja habitual), video embebido (Instagram, YouTube, TikTok), preguntas frecuentes y testimonios (ambas), versión bilingüe ES/EN',
+        plan_prem_sub: 'Presencia completa · Portada + 7 secciones · Mapa, cita y bilingüe',
+        plan_prem_note: 'Pago único · Dominio .com incluido 1.er año',
+        plan_prem_li1: 'Todo lo del Profesional, con 7 secciones y catálogo premium (descargas, equipo, video)',
+        plan_prem_li2: 'Google Maps, formulario de solicitud de cita al correo (sin panel ni calendario)',
+        plan_prem_li3: '1 correo profesional @dominio · Sitio bilingüe ES/EN incluido',
+        plan_prem_li4: '3 rondas de revisión antes de publicar · 5 cambios en los primeros 30 días',
+        plan_prem_acc_trigger: 'Detalle de secciones y módulos Premium',
+        plan_prem_acc_intro: 'Ejemplos de secciones de contenido disponibles en el catálogo ampliado:',
+        plan_prem_sec1: 'Área de descargas (PDFs: protocolos, consentimientos, guías)',
+        plan_prem_sec2: 'Directorio de equipo / personal',
+        plan_prem_sec3: 'Reproductor de video embebido (IG / YT / TikTok)',
+        plan_prem_acc_note: 'Las solicitudes de cita llegan por correo; la coordinación la haces por WhatsApp con la persona o el cliente.',
         plan_prem_btn: 'Empezar con el Premium',
         plan_ent_badge: 'Para empresas y clínicas',
         plan_ent_label: 'Plan 04',
         plan_ent_name: 'Empresarial',
-        plan_ent_sub: 'Sitio multipágina · Equipo, búsqueda y citas',
-        plan_ent_note: 'Pago único · Dominio .com incluido 1er año',
+        plan_ent_sub: 'Clínicas y grupos · Multipágina, blog y búsqueda',
+        plan_ent_note: 'Pago único · Dominio .com incluido 1.er año',
         plan_ent_li1: 'Todo lo del plan Premium',
         plan_ent_li2: 'Páginas ilimitadas con menú de navegación',
-        plan_ent_li3: 'Página web lista en 24–48 horas desde que recibimos tu contenido',
-        plan_ent_li4: 'Periodo de revisión antes de publicar: 3 rondas de correcciones incluidas',
-        plan_ent_li5: '5 cambios en los primeros 30 días después de publicar + 2 actualizaciones de contenido al año incluidas',
-        plan_ent_li6: 'Además del Premium: directorio de equipo o personal',
-        plan_ent_li7: 'Hasta 3 correos @tudominio.com vinculados a bandejas personales',
-        plan_ent_li8: 'Filtro de búsqueda de servicios',
-        plan_ent_li9: 'Formulario de solicitud de cita (sin calendario ni panel; las solicitudes van al correo; coordinación por WhatsApp)',
-        plan_ent_li10: 'Soporte prioritario por WhatsApp Lun–Sáb',
+        plan_ent_li3: 'Blog con 5 posts iniciales incluidos',
+        plan_ent_li4: 'Búsqueda / filtro de servicios',
+        plan_ent_li5: 'Hasta 3 correos @dominio vinculados a bandejas personales',
+        plan_ent_li6: '2 actualizaciones de contenido incluidas por año (texto, fotos, info)',
+        plan_ent_li7: 'Soporte WhatsApp prioritario Lun–Sáb',
+        plan_ent_li8: 'Misma cadencia de revisión que Premium: 3 rondas antes de publicar',
+        plan_ent_li9: '5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales',
+        plan_ent_li10: 'Ideal para varias sedes, varios profesionales o muchos servicios',
         plan_ent_btn: 'Consultar disponibilidad',
         pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales.',
         addons_title: 'Servicios adicionales',
@@ -2200,6 +2653,9 @@
         addon4_title: 'Versión bilingüe (ES/EN)',
         addon4_price: '$39',
         addon4_desc: 'Solo planes Básico y Profesional (ya incluida en Premium y Empresarial).',
+        addon5_title: 'Blog / post adicional',
+        addon5_price: '$30/post',
+        addon5_desc: 'También disponible como servicio independiente. Entrega acordada por volumen.',
         portfolio_title: 'Algunos trabajos',
         portfolio_intro: 'Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.',
         portfolio_aria: 'Carrusel de proyectos',
@@ -2250,7 +2706,7 @@
         contact_btn: 'Escribir por WhatsApp',
         contact_meta: 'Lunes a Sábado · Atención en español e inglés',
         footer_faq: 'Preguntas frecuentes',
-        footer_copy: '© 2025 VivePage · Diseño web profesional',
+        footer_copy: '© 2026 VivePage · Diseño web profesional',
         wa_tooltip: 'Escríbenos',
         wa_aria: 'Abrir WhatsApp',
         lang_toggle_to_en: 'Cambiar a inglés',
@@ -2311,90 +2767,146 @@
         target_37: 'Brands',
         target_38: 'Education',
         target_39: 'Training',
+        offer_countdown_title: 'Launch pricing ends in',
+        offer_count_days: 'days',
+        offer_count_hours: 'hours',
+        offer_count_minutes: 'min',
+        offer_count_seconds: 'sec',
+        offer_countdown_note: 'Opening rates are valid only during the first 6 weeks of the project.',
+        offer_count_expired: 'The launch promotion has ended. Message us for current pricing.',
+        price_promo_opening: 'Promotional opening price for the start of this project',
         pricing_title: 'Plans and pricing',
         pricing_revision_summary: 'How timing and revisions work',
         pricing_revision_def: 'Within 24–48 hours your website is ready from your content. Then comes the revision period — correction rounds before we publish it online. After go-live, changes are content updates as included in your plan.',
         plans_details_toggle: 'See full plan details and get started',
         compare_row_price: 'Price (one-time)',
-        compare_row_sections: 'Content sections you choose',
+        compare_row_sections: 'Cover + content sections',
         compare_row_revision: 'Revision rounds before publishing',
-        compare_row_forms: 'Contact form, map and gallery',
+        compare_row_post_changes: 'Changes after publishing (included)',
+        compare_post_basic: '2 within 10 days',
+        compare_post_pro: '3 within 15 days',
+        compare_post_prem: '5 within 30 days',
+        compare_post_ent: '5 in 30 days + 2/year',
+        compare_row_ready_48: 'Ready in 24–48h (with your content)',
+        compare_cat_invest: 'Investment and scope',
+        compare_cat_content: 'Content and sections by plan',
+        compare_cat_interactive: 'Interactive modules',
+        compare_cat_tech: 'Technical, email and support',
+        compare_row_blocks: 'Section blocks you can use',
+        compare_blocks_basic: 'Block 1 only (pick 3)',
+        compare_blocks_pro: 'Blocks 1 and 2 (pick 5)',
+        compare_blocks_prem: 'Blocks 1, 2 and 3 (pick 7)',
+        compare_blocks_ent: 'Full catalog + unlimited',
+        compare_row_blog: 'Blog (5 starter posts)',
+        sections_catalog_summary: 'All available content sections',
+        sections_catalog_intro: 'Each “section” is a content block on your site that you choose by plan. Interactive modules (forms, map, gallery, video, etc.) are compared separately in the table.',
+        sections_block_a_title: 'Block 1 — from Basic upward (pick up to 3 on Basic; also on higher plans)',
+        sections_block_b_title: 'Block 2 — from Professional (in addition to block 1; up to 5 sections total on Professional)',
+        sections_block_c_title: 'Block 3 — from Premium (in addition to 1 and 2; up to 7 sections total on Premium)',
+        sections_cat_1: 'Professional background and bio',
+        sections_cat_2: 'Services portfolio',
+        sections_cat_3: 'Fee schedule',
+        sections_cat_4: 'Hours and locations',
+        sections_cat_5: 'Contact hub and social links',
+        sections_cat_6: 'Technology and equipment',
+        sections_cat_7: 'Frequently asked questions (FAQ)',
+        sections_cat_8: 'Client testimonials',
+        sections_cat_9: 'Partnerships and insurance',
+        sections_cat_10: 'Download area (PDFs: protocols, consent forms, guides, etc.)',
+        sections_cat_11: 'Team / staff directory',
+        sections_catalog_blog_note: 'Blog: Enterprise includes 5 starter posts; extra posts are add-ons. Embedded video is an interactive module (comparison table), not a section in this list.',
+        sections_catalog_note_enterprise: 'On Enterprise, content sections are unlimited and you can combine the full block 1–3 catalog plus the blog with those 5 starter posts.',
+        compare_row_leads: 'Lead capture form',
+        compare_row_gallery: 'Case results gallery',
+        compare_row_maps: 'Location map (Google Maps)',
+        compare_row_appt: 'Appointment request (to email, no dashboard)',
+        compare_row_video: 'Embedded video (IG / YT / TikTok)',
+        compare_row_unlimited: 'Unlimited pages + menu',
+        compare_row_search: 'Service search / filter',
+        compare_row_responsive: 'Responsive design + .com domain 1st year',
         compare_row_email: 'Professional @domain email',
-        compare_row_video_bi: 'Embedded video and bilingual site',
-        compare_row_enterprise: 'Multi-page site, team, search and appointments',
-        compare_sec_basic: '2',
-        compare_sec_pro: '4',
-        compare_sec_prem: '6',
+        compare_row_bilingual: 'Bilingual ES / EN site',
+        compare_cell_addon_bi: 'Optional (+$39)',
+        compare_row_support: 'WhatsApp support Mon–Sat',
+        compare_support_std: 'Standard',
+        compare_support_pri: 'Priority',
+        compare_sec_basic: '+ 3',
+        compare_sec_pro: '+ 5',
+        compare_sec_prem: '+ 7',
         compare_sec_ent: 'Unlimited',
         compare_cell_no: '✕',
         compare_cell_yes: '✓',
-        compare_email_1: '1',
+        compare_email_1: '1 inbox',
         compare_email_3: 'Up to 3',
-        compare_sections_hint: 'The cover block (name, photo, headline) is always included and does not count toward the number of sections you choose.',
+        compare_sections_hint: 'The cover block (name, photo, headline) is always included and does not count toward the sections you choose. The full numbered list of sections and how blocks map to each plan is inside the plan details dropdown below.',
         plan_basic_label: 'Plan 01',
         plan_basic_name: 'Basic',
-        plan_basic_sub: 'Cover + 2 sections of your choice',
+        plan_basic_sub: 'Professional presence · Cover + 3 sections of your choice',
         plan_basic_note: 'One-time payment · .com domain included 1st year',
-        plan_basic_li1: 'Cover section always included (does not count as a chosen section)',
-        plan_basic_li2: 'You choose 2 additional sections',
-        plan_basic_li3: 'Website ready within 24–48 hours of receiving your content',
-        plan_basic_li4: 'Revision period before publishing: 1 correction round included',
-        plan_basic_li5: '2 changes included within the first 5 days after publishing',
-        plan_basic_li6: 'Includes: responsive design, WhatsApp button, social links, .com domain 1st year, WhatsApp support Mon–Sat',
-        plan_basic_li7: 'Does not include: contact form, map, photo gallery, @domain email, bilingual version',
+        plan_basic_li1: 'Cover always included (does not count as a chosen section)',
+        plan_basic_li2: 'You choose 3 sections from block 1 (full list under “All available content sections”)',
+        plan_basic_li3: 'Site ready in 24–48h after we receive your content',
+        plan_basic_li4: '1 revision round before publishing',
+        plan_basic_li5: '2 changes included within the first 10 days after publishing',
+        plan_basic_li6: 'Responsive design, .com domain 1st year, WhatsApp support Mon–Sat',
+        plan_basic_li7: 'Bilingual ES/EN is optional (add-on); no advanced forms, embedded map or case gallery',
         plan_basic_btn: 'Start with Basic',
-        plan_basic_acc_trigger: 'See available sections to choose from',
-        plan_basic_sec1: 'Cover (name, photo, professional title)',
-        plan_basic_sec2: 'About me / bio',
-        plan_basic_sec3: 'Services or specialties',
-        plan_basic_sec4: 'Pricing or fees',
-        plan_basic_sec5: 'Achievements and certifications',
-        plan_basic_sec6: 'Business hours',
-        plan_basic_sec7: 'Location / office',
-        plan_basic_sec8: 'Brief testimonials',
-        plan_basic_sec_note: 'The cover is always included. Pick 2 sections from the list.',
+        plan_basic_acc_trigger: 'Reminder: block 1 sections (Basic)',
+        plan_basic_sec1: 'Professional background and bio',
+        plan_basic_sec2: 'Services portfolio',
+        plan_basic_sec3: 'Fee schedule',
+        plan_basic_sec4: 'Hours and locations',
+        plan_basic_sec5: 'Contact hub and social links',
+        plan_basic_sec6: 'Technology and equipment',
+        plan_basic_sec_note: 'Pick 3 of these 6. The cover is separate and always included.',
         plan_popular_badge: 'Most popular',
         plan_pro_label: 'Plan 02',
         plan_pro_name: 'Professional',
-        plan_pro_sub: 'Cover + 4 sections · Form, map and gallery',
+        plan_pro_sub: 'Active lead capture · Cover + 5 sections · Leads and gallery',
         plan_pro_note: 'One-time payment · .com domain included 1st year',
-        plan_pro_li1: 'Cover plus 4 sections of your choice',
-        plan_pro_li2: 'Website ready within 24–48 hours of receiving your content',
-        plan_pro_li3: 'Revision period before publishing: 2 correction rounds included',
-        plan_pro_li4: '3 changes included within the first 10 days after publishing',
-        plan_pro_li5: 'Adds over Basic: contact form, Google Maps, photo gallery, and FAQ or testimonials (you choose one)',
-        plan_pro_acc_trigger: 'What this adds on top of Basic',
-        plan_pro_acc_intro: 'Everything in Basic, plus:',
-        plan_pro_sec1: 'Contact form',
-        plan_pro_sec2: 'Google Maps embed',
-        plan_pro_sec3: 'Photo gallery',
-        plan_pro_sec4: 'FAQ section or testimonials section (you pick one)',
+        plan_pro_li1: 'Everything in Basic, with 5 sections and an expanded catalog',
+        plan_pro_li2: 'Case results gallery',
+        plan_pro_li3: 'Lead capture form',
+        plan_pro_li4: '2 revision rounds before publishing · 3 changes within the first 15 days',
+        plan_pro_li5: 'Bilingual ES/EN optional as add-on (included from Premium)',
+        plan_pro_acc_trigger: 'Extra sections and modules over Basic',
+        plan_pro_acc_intro: 'Beyond block 1, Professional adds block 2 (up to 5 sections total). For example:',
+        plan_pro_sec1: 'Frequently asked questions (FAQ)',
+        plan_pro_sec2: 'Client testimonials',
+        plan_pro_sec3: 'Partnerships and insurance',
+        plan_pro_sec4: 'Case results gallery (module)',
+        plan_pro_sec5: 'Lead capture form (module)',
         plan_pro_btn: 'Start with Professional',
         plan_prem_label: 'Plan 03',
         plan_prem_name: 'Premium',
-        plan_prem_sub: 'Cover + 6 sections · Email, video and bilingual',
+        plan_prem_sub: 'Full presence · Cover + 7 sections · Map, appointments and bilingual',
         plan_prem_note: 'One-time payment · .com domain included 1st year',
-        plan_prem_li1: 'Cover plus 6 sections of your choice',
-        plan_prem_li2: 'Website ready within 24–48 hours of receiving your content',
-        plan_prem_li3: 'Revision period before publishing: 3 correction rounds included',
-        plan_prem_li4: '5 changes included within the first 30 days after publishing',
-        plan_prem_li5: 'Adds over Professional: 1 email @yourdomain.com (delivers to your usual inbox), embedded video (IG/YT/TikTok), FAQ and testimonials (both), bilingual ES/EN version',
+        plan_prem_li1: 'Everything in Professional, with 7 sections and premium catalog (downloads, team, video)',
+        plan_prem_li2: 'Google Maps, appointment request form to email (no dashboard or calendar)',
+        plan_prem_li3: '1 professional @domain email · Bilingual ES/EN included',
+        plan_prem_li4: '3 revision rounds before publishing · 5 changes within the first 30 days',
+        plan_prem_acc_trigger: 'Premium sections and modules in detail',
+        plan_prem_acc_intro: 'Examples of content sections in the expanded catalog:',
+        plan_prem_sec1: 'Download area (PDFs: protocols, consent forms, guides)',
+        plan_prem_sec2: 'Team / staff directory',
+        plan_prem_sec3: 'Embedded video player (IG / YT / TikTok)',
+        plan_prem_acc_note: 'Appointment requests arrive by email; you coordinate with the client on WhatsApp.',
         plan_prem_btn: 'Start with Premium',
         plan_ent_badge: 'For businesses and clinics',
         plan_ent_label: 'Plan 04',
         plan_ent_name: 'Enterprise',
-        plan_ent_sub: 'Multi-page site · Team, search and appointments',
+        plan_ent_sub: 'Clinics and groups · Multi-page, blog and search',
         plan_ent_note: 'One-time payment · .com domain included 1st year',
         plan_ent_li1: 'Everything in the Premium plan',
         plan_ent_li2: 'Unlimited pages with navigation menu',
-        plan_ent_li3: 'Website ready within 24–48 hours of receiving your content',
-        plan_ent_li4: 'Revision period before publishing: 3 correction rounds included',
-        plan_ent_li5: '5 changes within the first 30 days after publishing + 2 content updates per year included',
-        plan_ent_li6: 'Adds over Premium: team or staff directory',
-        plan_ent_li7: 'Up to 3 @yourdomain.com emails linked to personal inboxes',
-        plan_ent_li8: 'Services search filter',
-        plan_ent_li9: 'Appointment request form (no calendar or dashboard — requests go to email, coordinated via WhatsApp)',
-        plan_ent_li10: 'Priority WhatsApp support Mon–Sat',
+        plan_ent_li3: 'Blog with 5 starter posts included',
+        plan_ent_li4: 'Service search / filter',
+        plan_ent_li5: 'Up to 3 @domain emails linked to personal inboxes',
+        plan_ent_li6: '2 content updates per year included (copy, photos, info)',
+        plan_ent_li7: 'Priority WhatsApp support Mon–Sat',
+        plan_ent_li8: 'Same revision cadence as Premium: 3 rounds before publishing',
+        plan_ent_li9: '5 changes within the first 30 days after publishing, plus the 2 yearly updates',
+        plan_ent_li10: 'Ideal for multiple locations, several providers or many services',
         plan_ent_btn: 'Check availability',
         pricing_global_note: 'We do not design logos. Client must provide a logo or profile photo. · Your site is ready within 24–48h after we receive all content; publishing online follows your plan’s revision period. · Business days are Monday–Friday, excluding official holidays.',
         addons_title: 'Add-on services',
@@ -2409,6 +2921,9 @@
         addon4_title: 'Bilingual version (ES/EN)',
         addon4_price: '$39',
         addon4_desc: 'For Basic and Professional plans only (already included in Premium and Enterprise).',
+        addon5_title: 'Blog / extra post',
+        addon5_price: '$30/post',
+        addon5_desc: 'Also available as a standalone service. Timeline agreed by volume.',
         portfolio_title: 'Selected work',
         portfolio_intro: 'Example sites for professionals. Replace the placeholders with real screenshots or set “View site” when you have public URLs.',
         portfolio_aria: 'Project carousel',
@@ -2459,7 +2974,7 @@
         contact_btn: 'Message on WhatsApp',
         contact_meta: 'Monday to Saturday · Spanish and English',
         footer_faq: 'FAQ',
-        footer_copy: '© 2025 VivePage · Professional web design',
+        footer_copy: '© 2026 VivePage · Professional web design',
         wa_tooltip: 'Contact us',
         wa_aria: 'Open WhatsApp',
         lang_toggle_to_en: 'Switch to English',
@@ -2506,6 +3021,51 @@
 
     (function initLang() {
       applyLang(getStoredLang());
+    })();
+
+    (function offerCountdown() {
+      var root = document.getElementById('offer-countdown');
+      if (!root) return;
+      var endAttr = root.getAttribute('data-offer-end');
+      var end = endAttr ? new Date(endAttr).getTime() : NaN;
+      var dEl = document.getElementById('cd-days');
+      var hEl = document.getElementById('cd-hours');
+      var mEl = document.getElementById('cd-minutes');
+      var sEl = document.getElementById('cd-seconds');
+      function pad2(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+      function tick() {
+        if (!endAttr || isNaN(end)) {
+          if (dEl) dEl.textContent = '–';
+          if (hEl) hEl.textContent = '–';
+          if (mEl) mEl.textContent = '–';
+          if (sEl) sEl.textContent = '–';
+          return;
+        }
+        var left = end - Date.now();
+        if (left <= 0) {
+          root.classList.add('is-ended');
+          if (dEl) dEl.textContent = '0';
+          if (hEl) hEl.textContent = '0';
+          if (mEl) mEl.textContent = '00';
+          if (sEl) sEl.textContent = '00';
+          return;
+        }
+        root.classList.remove('is-ended');
+        var days = Math.floor(left / 86400000);
+        var rem = left % 86400000;
+        var hours = Math.floor(rem / 3600000);
+        rem %= 3600000;
+        var minutes = Math.floor(rem / 60000);
+        var seconds = Math.floor((rem % 60000) / 1000);
+        if (dEl) dEl.textContent = String(days);
+        if (hEl) hEl.textContent = String(hours);
+        if (mEl) mEl.textContent = pad2(minutes);
+        if (sEl) sEl.textContent = pad2(seconds);
+      }
+      tick();
+      setInterval(tick, 1000);
     })();
 
     /* Mobile nav */
