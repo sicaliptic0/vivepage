@@ -1320,11 +1320,14 @@
     .mock-desktop {
       flex: 1;
       height: 100px;
+      width: 100%;
       border-radius: 6px;
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(56, 189, 248, 0.12), rgba(12, 14, 24, 0.6));
       position: relative;
       overflow: hidden;
+      display: block;
+      object-fit: cover;
+      background: rgba(12, 14, 24, 0.45);
     }
 
     .mock-desktop::after {
@@ -1344,8 +1347,15 @@
       height: 88px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(167, 139, 250, 0.15), rgba(12, 14, 24, 0.65));
       flex-shrink: 0;
+      display: block;
+      object-fit: cover;
+      background: rgba(12, 14, 24, 0.45);
+    }
+
+    /* Disable placeholder sheen when real images are used. */
+    img.mock-desktop::after {
+      content: none;
     }
 
     .portfolio-card figcaption {
@@ -2281,35 +2291,24 @@
           <div class="portfolio-track">
             <figure class="portfolio-card">
               <div class="portfolio-mocks" aria-hidden="true">
-                <div class="mock-desktop"></div>
-                <div class="mock-mobile"></div>
+                <img class="mock-desktop" src="images/drsamueldesktop.png" alt="" loading="lazy" decoding="async" />
+                <img class="mock-mobile" src="images/drsamuelmobile.jpeg" alt="" loading="lazy" decoding="async" />
               </div>
               <figcaption>
-                <strong data-i18n="portfolio_ex1_title">Consultorio médico</strong>
-                <span data-i18n="portfolio_ex1_desc">Portada clara, servicios y contacto por WhatsApp.</span>
-                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
+                <strong data-i18n="portfolio_ex1_title">drsamuelgalviz.com</strong>
+                <span data-i18n="portfolio_ex1_desc">Ejemplo de plan Básico: portada clara, secciones esenciales y contacto.</span>
+                <a href="https://drsamuelgalviz.com" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="portfolio_view_site">Ver sitio</a>
               </figcaption>
             </figure>
             <figure class="portfolio-card">
               <div class="portfolio-mocks" aria-hidden="true">
-                <div class="mock-desktop"></div>
-                <div class="mock-mobile"></div>
+                <img class="mock-desktop" src="images/fsdesktop.png" alt="" loading="lazy" decoding="async" />
+                <img class="mock-mobile" src="images/fsmobile.jpeg" alt="" loading="lazy" decoding="async" />
               </div>
               <figcaption>
-                <strong data-i18n="portfolio_ex2_title">Despacho legal</strong>
-                <span data-i18n="portfolio_ex2_desc">Credenciales, áreas de práctica y formulario.</span>
-                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
-              </figcaption>
-            </figure>
-            <figure class="portfolio-card">
-              <div class="portfolio-mocks" aria-hidden="true">
-                <div class="mock-desktop"></div>
-                <div class="mock-mobile"></div>
-              </div>
-              <figcaption>
-                <strong data-i18n="portfolio_ex3_title">Clínica dental</strong>
-                <span data-i18n="portfolio_ex3_desc">Galería, mapa y reserva de cita por formulario.</span>
-                <a href="#" class="portfolio-link" data-i18n="portfolio_view_site">Ver sitio</a>
+                <strong data-i18n="portfolio_ex2_title">fsmedesthetics.com</strong>
+                <span data-i18n="portfolio_ex2_desc">Ejemplo de plan Empresarial: multipágina, catálogo amplio y estructura escalable.</span>
+                <a href="https://fsmedesthetics.com" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="portfolio_view_site">Ver sitio</a>
               </figcaption>
             </figure>
           </div>
@@ -2675,12 +2674,12 @@
         portfolio_title: 'Algunos trabajos',
         portfolio_intro: 'Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.',
         portfolio_aria: 'Carrusel de proyectos',
-        portfolio_ex1_title: 'Consultorio médico',
-        portfolio_ex1_desc: 'Portada clara, servicios y contacto por WhatsApp.',
-        portfolio_ex2_title: 'Despacho legal',
-        portfolio_ex2_desc: 'Credenciales, áreas de práctica y formulario.',
-        portfolio_ex3_title: 'Clínica dental',
-        portfolio_ex3_desc: 'Galería, mapa y reserva de cita por formulario.',
+        portfolio_ex1_title: 'drsamuelgalviz.com',
+        portfolio_ex1_desc: 'Ejemplo de plan Básico: portada clara, secciones esenciales y contacto.',
+        portfolio_ex2_title: 'fsmedesthetics.com',
+        portfolio_ex2_desc: 'Ejemplo de plan Empresarial: multipágina, catálogo amplio y estructura escalable.',
+        portfolio_ex3_title: '—',
+        portfolio_ex3_desc: '',
         portfolio_view_site: 'Ver sitio',
         portfolio_scroll_hint: 'Desliza horizontalmente para ver más.',
         how_title: '¿Cómo funciona?',
@@ -2933,12 +2932,12 @@
         portfolio_title: 'Selected work',
         portfolio_intro: 'Example sites for professionals. Replace the placeholders with real screenshots or set “View site” when you have public URLs.',
         portfolio_aria: 'Project carousel',
-        portfolio_ex1_title: 'Medical practice',
-        portfolio_ex1_desc: 'Clear cover, services and WhatsApp contact.',
-        portfolio_ex2_title: 'Law office',
-        portfolio_ex2_desc: 'Credentials, practice areas and contact form.',
-        portfolio_ex3_title: 'Dental clinic',
-        portfolio_ex3_desc: 'Gallery, map and appointment request form.',
+        portfolio_ex1_title: 'drsamuelgalviz.com',
+        portfolio_ex1_desc: 'Basic plan example: clear cover, essential sections and contact.',
+        portfolio_ex2_title: 'fsmedesthetics.com',
+        portfolio_ex2_desc: 'Enterprise plan example: multi-page structure, broader catalog and scalable layout.',
+        portfolio_ex3_title: '—',
+        portfolio_ex3_desc: '',
         portfolio_view_site: 'View site',
         portfolio_scroll_hint: 'Scroll sideways to see more.',
         how_title: 'How does it work?',
