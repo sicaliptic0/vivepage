@@ -285,7 +285,7 @@
       letter-spacing: 0.02em;
     }
 
-    .hero h1 {
+    .hero-title {
       font-family: var(--font-display);
       font-size: clamp(1.85rem, 5.2vw, 2.95rem);
       font-weight: 700;
@@ -298,8 +298,22 @@
       color: transparent;
     }
 
+    .hero-title-line {
+      display: block;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title-line {
+        display: inline;
+      }
+
+      .hero-title-line:first-child::after {
+        content: ' ';
+      }
+    }
+
     @supports not (background-clip: text) {
-      .hero h1 {
+      .hero-title {
         color: var(--text);
         background: none;
       }
@@ -810,6 +824,24 @@
       flex-shrink: 0;
       color: var(--accent);
       opacity: 0.9;
+    }
+
+    @media (max-width: 639px) {
+      .targets-chips {
+        gap: 0.4rem 0.45rem;
+        justify-content: center;
+      }
+
+      .target-chip {
+        font-size: 0.6875rem;
+        padding: 0.32rem 0.5rem;
+        gap: 0.28rem;
+      }
+
+      .target-chip svg {
+        width: 0.85rem;
+        height: 0.85rem;
+      }
     }
 
     .flow-intro {
@@ -1379,8 +1411,11 @@
     <section class="hero">
       <div class="container">
         <span class="hero-badge" data-i18n="hero_badge">🚀 Precios de lanzamiento — primeras 6 semanas</span>
-        <h1 data-i18n="hero_title">Tu web profesional en 1 a 2 días</h1>
-        <p class="hero-sub" data-i18n="hero_subtitle">Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación. Dominio .com incluido. Sin mensualidades.</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line" data-i18n="hero_title_line1">Tu web profesional</span>
+          <span class="hero-title-line" data-i18n="hero_title_line2">en 1 a 2 días</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_subtitle">Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación. Dominio .com incluido.</p>
         <div class="hero-cta">
           <a href="#precios" class="btn btn-primary" data-i18n="hero_cta_primary">Ver planes</a>
           <a href="https://wa.me/13470000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_wa">Escribir por WhatsApp</a>
@@ -1399,79 +1434,159 @@
         <div class="targets-chips" role="list">
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5 5 0 00-7.08 0L12 5.92l-1.34-1.34a5 5 0 00-7.08 7.08L12 21l8.42-8.34a5 5 0 000-7.08z" stroke-linecap="round"/></svg>
-            <span data-i18n="target_1">Médicos y especialistas</span>
+            <span data-i18n="target_1">Médicos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5 5 0 00-7.08 0L12 5.92l-1.34-1.34a5 5 0 00-7.08 7.08L12 21l8.42-8.34a5 5 0 000-7.08z" stroke-linecap="round"/></svg>
+            <span data-i18n="target_2">Especialistas</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.2 1.5 2.9 2.5 4 2.5s2.8-1 4-2.5" stroke-linecap="round"/></svg>
-            <span data-i18n="target_2">Odontólogos</span>
+            <span data-i18n="target_3">Odontólogos</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 8l3 6h8l3-6"/><path d="M5 8a3.5 3.5 0 007 0M12 8a3.5 3.5 0 007 0"/></svg>
-            <span data-i18n="target_3">Abogados</span>
+            <span data-i18n="target_4">Abogados</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20.5a6.5 6.5 0 0113 0" stroke-linecap="round"/></svg>
-            <span data-i18n="target_4">Profesionales independientes</span>
+            <span data-i18n="target_5">Independientes</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.5 8.5 0 018.5 8.5z"/></svg>
-            <span data-i18n="target_5">Psicólogos y terapeutas</span>
+            <span data-i18n="target_6">Psicólogos</span>
           </span>
           <span class="target-chip" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 10h12"/><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M4 8v8M20 8v8"/></svg>
-            <span data-i18n="target_6">Nutrición, fitness y coaches</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.5 8.5 0 018.5 8.5z"/></svg>
+            <span data-i18n="target_7">Terapeutas</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
-            <span data-i18n="target_7">Fisioterapia y rehabilitación</span>
+            <span data-i18n="target_8">Nutrición</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 10h12"/><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M4 8v8M20 8v8"/></svg>
+            <span data-i18n="target_9">Fitness</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.2 6.8H21l-5.5 4 2.1 6.7L12 15.8l-5.6 3.7 2.1-6.7L3 8.8h6.8L12 2z"/></svg>
+            <span data-i18n="target_10">Coaches</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_11">Fisioterapia</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 3 12 2-6h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_12">Rehabilitación</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <span data-i18n="target_8">Arquitectos e interiorismo</span>
+            <span data-i18n="target_13">Arquitectos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span data-i18n="target_14">Interiorismo</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <span data-i18n="target_9">Ingeniería y servicios técnicos</span>
+            <span data-i18n="target_15">Ingeniería</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <span data-i18n="target_16">Servicios técnicos</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h6" stroke-linecap="round"/></svg>
-            <span data-i18n="target_10">Contadores y asesores fiscales</span>
+            <span data-i18n="target_17">Contadores</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h6" stroke-linecap="round"/></svg>
+            <span data-i18n="target_18">Asesores fiscales</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
-            <span data-i18n="target_11">Consultores y estrategia</span>
+            <span data-i18n="target_19">Consultores</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+            <span data-i18n="target_20">Estrategia</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2z"/><circle cx="12" cy="13" r="3"/></svg>
-            <span data-i18n="target_12">Fotografía y audiovisual</span>
+            <span data-i18n="target_21">Fotografía</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2z"/><circle cx="12" cy="13" r="3"/></svg>
+            <span data-i18n="target_22">Audiovisual</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l9-9-3-3-6 6-3-3-3 3 6 6 3-3z"/><path d="M18 13l-5-5" stroke-linecap="round"/></svg>
-            <span data-i18n="target_13">Diseño, branding y creativos</span>
+            <span data-i18n="target_23">Diseño</span>
           </span>
           <span class="target-chip" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2h4l5 4V7L7 11H3z"/><path d="M16 8c2 0 4 1.5 4 4s-2 4-4 4v-8z"/></svg>
-            <span data-i18n="target_14">Marketing y agencias digitales</span>
-          </span>
-          <span class="target-chip" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>
-            <span data-i18n="target_15">Inmobiliaria y brokers</span>
-          </span>
-          <span class="target-chip" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><ellipse cx="8" cy="9" rx="2" ry="2"/><ellipse cx="16" cy="9" rx="2" ry="2"/><ellipse cx="9.5" cy="6.5" rx="1.3" ry="1.3"/><ellipse cx="14.5" cy="6.5" rx="1.3" ry="1.3"/><path d="M12 11c-2.5 2.5-2 5.5 0 6.5 2-1 2.5-4 0-6.5z"/></svg>
-            <span data-i18n="target_16">Veterinarias y mascotas</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l9-9-3-3-6 6-3-3-3 3 6 6 3-3z"/><path d="M18 13l-5-5" stroke-linecap="round"/></svg>
+            <span data-i18n="target_24">Branding</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
-            <span data-i18n="target_17">Estética, spa y belleza</span>
+            <span data-i18n="target_25">Creativos</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2h4l5 4V7L7 11H3z"/><path d="M16 8c2 0 4 1.5 4 4s-2 4-4 4v-8z"/></svg>
+            <span data-i18n="target_26">Marketing</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2h4l5 4V7L7 11H3z"/><path d="M16 8c2 0 4 1.5 4 4s-2 4-4 4v-8z"/></svg>
+            <span data-i18n="target_27">Agencias digitales</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>
+            <span data-i18n="target_28">Inmobiliaria</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>
+            <span data-i18n="target_29">Brokers</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><ellipse cx="8" cy="9" rx="2" ry="2"/><ellipse cx="16" cy="9" rx="2" ry="2"/><ellipse cx="9.5" cy="6.5" rx="1.3" ry="1.3"/><ellipse cx="14.5" cy="6.5" rx="1.3" ry="1.3"/><path d="M12 11c-2.5 2.5-2 5.5 0 6.5 2-1 2.5-4 0-6.5z"/></svg>
+            <span data-i18n="target_30">Veterinarias</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><ellipse cx="8" cy="9" rx="2" ry="2"/><ellipse cx="16" cy="9" rx="2" ry="2"/><ellipse cx="9.5" cy="6.5" rx="1.3" ry="1.3"/><ellipse cx="14.5" cy="6.5" rx="1.3" ry="1.3"/><path d="M12 11c-2.5 2.5-2 5.5 0 6.5 2-1 2.5-4 0-6.5z"/></svg>
+            <span data-i18n="target_31">Mascotas</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_32">Estética</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_33">Spa</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4m10 10l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4m10-10L18.4 5.6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span data-i18n="target_34">Belleza</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3v17M10 3v10M14 3v17M18 3v6"/></svg>
-            <span data-i18n="target_18">Restauración, retail y marcas</span>
+            <span data-i18n="target_35">Restauración</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7V5a3 3 0 016 0v2" stroke-linecap="round"/></svg>
+            <span data-i18n="target_36">Retail</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h6l12 12a2 2 0 01-3 3L6 9V6z"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg>
+            <span data-i18n="target_37">Marcas</span>
           </span>
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016 17h10a2.5 2.5 0 012.5 2.5" stroke-linecap="round"/><path d="M6 17V5a2 2 0 012-2h8v16H8a2 2 0 00-2 2zM18 2v16"/></svg>
-            <span data-i18n="target_19">Educación y formación</span>
+            <span data-i18n="target_38">Educación</span>
+          </span>
+          <span class="target-chip" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016 17h10a2.5 2.5 0 012.5 2.5" stroke-linecap="round"/><path d="M6 17V5a2 2 0 012-2h8v16H8a2 2 0 00-2 2zM18 2v16"/></svg>
+            <span data-i18n="target_39">Formación</span>
           </span>
         </div>
       </div>
@@ -1939,33 +2054,54 @@
         nav_how: 'Cómo funciona',
         nav_contact: 'Contacto',
         hero_badge: '🚀 Precios de lanzamiento — primeras 6 semanas',
-        hero_title: 'Tu web profesional en 1 a 2 días',
-        hero_subtitle: 'Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación. Dominio .com incluido. Sin mensualidades.',
+        hero_title_line1: 'Tu web profesional',
+        hero_title_line2: 'en 1 a 2 días',
+        hero_subtitle: 'Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación. Dominio .com incluido.',
         hero_cta_primary: 'Ver planes',
         hero_cta_wa: 'Escribir por WhatsApp',
         hero_stat1: '✓ Web profesional en 24–48 h con tu contenido',
         hero_stat2: '✓ Dominio .com incluido',
         hero_stat3: '✓ Sin mensualidades',
         targets_title: 'Para profesionales y emprendedores que valoran una web a la altura de su trabajo',
-        target_1: 'Médicos y especialistas',
-        target_2: 'Odontólogos',
-        target_3: 'Abogados',
-        target_4: 'Profesionales independientes',
-        target_5: 'Psicólogos y terapeutas',
-        target_6: 'Nutrición, fitness y coaches',
-        target_7: 'Fisioterapia y rehabilitación',
-        target_8: 'Arquitectos e interiorismo',
-        target_9: 'Ingeniería y servicios técnicos',
-        target_10: 'Contadores y asesores fiscales',
-        target_11: 'Consultores y estrategia',
-        target_12: 'Fotografía y audiovisual',
-        target_13: 'Diseño, branding y creativos',
-        target_14: 'Marketing y agencias digitales',
-        target_15: 'Inmobiliaria y brokers',
-        target_16: 'Veterinarias y mascotas',
-        target_17: 'Estética, spa y belleza',
-        target_18: 'Restauración, retail y marcas',
-        target_19: 'Educación y formación',
+        target_1: 'Médicos',
+        target_2: 'Especialistas',
+        target_3: 'Odontólogos',
+        target_4: 'Abogados',
+        target_5: 'Independientes',
+        target_6: 'Psicólogos',
+        target_7: 'Terapeutas',
+        target_8: 'Nutrición',
+        target_9: 'Fitness',
+        target_10: 'Coaches',
+        target_11: 'Fisioterapia',
+        target_12: 'Rehabilitación',
+        target_13: 'Arquitectos',
+        target_14: 'Interiorismo',
+        target_15: 'Ingeniería',
+        target_16: 'Servicios técnicos',
+        target_17: 'Contadores',
+        target_18: 'Asesores fiscales',
+        target_19: 'Consultores',
+        target_20: 'Estrategia',
+        target_21: 'Fotografía',
+        target_22: 'Audiovisual',
+        target_23: 'Diseño',
+        target_24: 'Branding',
+        target_25: 'Creativos',
+        target_26: 'Marketing',
+        target_27: 'Agencias digitales',
+        target_28: 'Inmobiliaria',
+        target_29: 'Brokers',
+        target_30: 'Veterinarias',
+        target_31: 'Mascotas',
+        target_32: 'Estética',
+        target_33: 'Spa',
+        target_34: 'Belleza',
+        target_35: 'Restauración',
+        target_36: 'Retail',
+        target_37: 'Marcas',
+        target_38: 'Educación',
+        target_39: 'Formación',
         pricing_title: 'Planes y precios',
         pricing_revision_summary: 'Cómo funciona el plazo y las revisiones',
         pricing_revision_def: 'En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.',
@@ -2127,33 +2263,54 @@
         nav_how: 'How it works',
         nav_contact: 'Contact',
         hero_badge: '🚀 Launch pricing — first 6 weeks',
-        hero_title: 'Your professional website in 1–2 days',
-        hero_subtitle: 'Professional-grade sites for solopreneurs, teams and founders who treat the web as part of their reputation. .com domain included. No monthly fees.',
+        hero_title_line1: 'Your professional website',
+        hero_title_line2: 'in 1–2 days',
+        hero_subtitle: 'Professional-grade sites for solopreneurs, teams and founders who treat the web as part of their reputation. .com domain included.',
         hero_cta_primary: 'View plans',
         hero_cta_wa: 'Message on WhatsApp',
-        hero_stat1: '✓ Ready in 24–48h with your content',
+        hero_stat1: '✓ Professional site in 24–48h with your content',
         hero_stat2: '✓ .com domain included',
         hero_stat3: '✓ No monthly fees',
         targets_title: 'For professionals and entrepreneurs who expect a website that matches their work',
-        target_1: 'Physicians and specialists',
-        target_2: 'Dentists',
-        target_3: 'Lawyers',
-        target_4: 'Independent professionals',
-        target_5: 'Psychologists and therapists',
-        target_6: 'Nutrition, fitness and coaches',
-        target_7: 'Physiotherapy and rehab',
-        target_8: 'Architects and interior design',
-        target_9: 'Engineering and technical services',
-        target_10: 'Accountants and tax advisors',
-        target_11: 'Consultants and strategy',
-        target_12: 'Photo and video',
-        target_13: 'Design, branding and creatives',
-        target_14: 'Marketing and digital agencies',
-        target_15: 'Real estate and brokers',
-        target_16: 'Veterinary and pet care',
-        target_17: 'Beauty, spa and aesthetics',
-        target_18: 'Hospitality, retail and brands',
-        target_19: 'Education and training',
+        target_1: 'Physicians',
+        target_2: 'Specialists',
+        target_3: 'Dentists',
+        target_4: 'Lawyers',
+        target_5: 'Freelancers',
+        target_6: 'Psychologists',
+        target_7: 'Therapists',
+        target_8: 'Nutrition',
+        target_9: 'Fitness',
+        target_10: 'Coaches',
+        target_11: 'Physiotherapy',
+        target_12: 'Rehab',
+        target_13: 'Architects',
+        target_14: 'Interior design',
+        target_15: 'Engineering',
+        target_16: 'Technical services',
+        target_17: 'Accountants',
+        target_18: 'Tax advisors',
+        target_19: 'Consultants',
+        target_20: 'Strategy',
+        target_21: 'Photography',
+        target_22: 'Video',
+        target_23: 'Design',
+        target_24: 'Branding',
+        target_25: 'Creatives',
+        target_26: 'Marketing',
+        target_27: 'Digital agencies',
+        target_28: 'Real estate',
+        target_29: 'Brokers',
+        target_30: 'Veterinary',
+        target_31: 'Pet care',
+        target_32: 'Aesthetics',
+        target_33: 'Spa',
+        target_34: 'Beauty',
+        target_35: 'Hospitality',
+        target_36: 'Retail',
+        target_37: 'Brands',
+        target_38: 'Education',
+        target_39: 'Training',
         pricing_title: 'Plans and pricing',
         pricing_revision_summary: 'How timing and revisions work',
         pricing_revision_def: 'Within 24–48 hours your website is ready from your content. Then comes the revision period — correction rounds before we publish it online. After go-live, changes are content updates as included in your plan.',
