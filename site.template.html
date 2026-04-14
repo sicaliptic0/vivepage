@@ -36,6 +36,8 @@
       --glow-cyan: rgba(56, 189, 248, 0.35);
       --glow-violet: rgba(167, 139, 250, 0.22);
       --font-display: 'Syne', system-ui, sans-serif;
+      --yes-mint: #6ee7b7;
+      --surface-inset: rgba(255, 255, 255, 0.045);
     }
 
     *,
@@ -64,6 +66,8 @@
       min-height: 100vh;
       position: relative;
       isolation: isolate;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     body::before {
@@ -100,6 +104,16 @@
       .flow-step-card:hover {
         transform: none;
       }
+
+      .portfolio-card:hover {
+        transform: none;
+      }
+
+      .target-chip:hover {
+        box-shadow:
+          0 2px 14px rgba(0, 0, 0, 0.14),
+          inset 0 1px 0 var(--surface-inset);
+      }
     }
 
     a {
@@ -125,11 +139,11 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(5, 6, 10, 0.78);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 6, 10, 0.82);
+      backdrop-filter: blur(18px) saturate(1.15);
+      -webkit-backdrop-filter: blur(18px) saturate(1.15);
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 0 rgba(56, 189, 248, 0.04);
+      box-shadow: 0 1px 0 rgba(56, 189, 248, 0.06);
     }
 
     .nav-inner {
@@ -340,6 +354,7 @@
       color: var(--muted);
       max-width: 36rem;
       margin: 0 0 1.75rem;
+      line-height: 1.65;
     }
 
     .hero-cta {
@@ -357,7 +372,7 @@
       font-weight: 500;
       font-size: 0.9375rem;
       padding: 0.75rem 1.25rem;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid transparent;
       cursor: pointer;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -449,7 +464,7 @@
 
     /* SECTIONS */
     section {
-      padding: 3rem 0;
+      padding: 3.35rem 0;
     }
 
     .section-title {
@@ -457,8 +472,47 @@
       font-size: clamp(1.55rem, 4vw, 2.05rem);
       font-weight: 700;
       margin: 0 0 1.75rem;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
       color: var(--text);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      margin-top: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.95), rgba(167, 139, 250, 0.45));
+      opacity: 0.92;
+    }
+
+    #portfolio .section-title {
+      text-align: center;
+    }
+
+    #portfolio .section-title::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #quien .section-title {
+      text-align: center;
+    }
+
+    #quien .section-title::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .targets-intro {
+      text-align: center;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin: -0.5rem auto 1.35rem;
+      line-height: 1.6;
     }
 
     /* PRICING */
@@ -490,7 +544,9 @@
       flex-direction: column;
       position: relative;
       transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
-      box-shadow: 0 4px 28px rgba(0, 0, 0, 0.22);
+      box-shadow:
+        0 4px 28px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 var(--surface-inset);
     }
 
     .plan-card:hover {
@@ -504,7 +560,8 @@
       box-shadow:
         0 0 0 1px rgba(167, 139, 250, 0.12),
         0 8px 40px rgba(56, 189, 248, 0.12),
-        0 4px 28px rgba(0, 0, 0, 0.25);
+        0 4px 28px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 var(--surface-inset);
     }
 
     .plan-badge-popular {
@@ -584,7 +641,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: var(--yes-mint);
       font-size: 0.75rem;
     }
 
@@ -716,6 +773,7 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       background: rgba(12, 14, 24, 0.45);
+      box-shadow: inset 0 1px 0 var(--surface-inset);
     }
 
     details.pricing-note-wrap {
@@ -757,6 +815,7 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       background: rgba(12, 14, 24, 0.35);
+      box-shadow: inset 0 1px 0 var(--surface-inset);
     }
 
     .compare-pricing {
@@ -939,10 +998,18 @@
       line-height: 1.3;
     }
 
+    .compare-pricing .compare-cell-yes {
+      color: var(--yes-mint);
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
     .compare-pricing .compare-cell-no {
-      color: #f87171;
-      font-weight: 600;
-      font-size: 1rem;
+      color: #7d8fa3;
+      color: color-mix(in srgb, var(--muted) 72%, transparent);
+      font-weight: 400;
+      font-size: 0.92rem;
       line-height: 1;
     }
 
@@ -1062,12 +1129,22 @@
       gap: 0.4rem;
       padding: 0.45rem 0.85rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(18, 21, 32, 0.62);
       font-size: 0.8125rem;
       font-weight: 500;
       color: var(--text);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 2px 14px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 var(--surface-inset);
+      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .target-chip:hover {
+      border-color: rgba(56, 189, 248, 0.26);
+      box-shadow:
+        0 4px 22px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
     }
 
     .target-chip svg {
@@ -1219,7 +1296,9 @@
       background: var(--card);
       margin-bottom: 0.5rem;
       overflow: hidden;
-      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 2px 14px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 var(--surface-inset);
     }
 
     details.why-step > summary {
@@ -1307,7 +1386,18 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1rem;
-      box-shadow: 0 4px 22px rgba(0, 0, 0, 0.16);
+      box-shadow:
+        0 4px 22px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 var(--surface-inset);
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    }
+
+    .portfolio-card:hover {
+      border-color: rgba(56, 189, 248, 0.22);
+      box-shadow:
+        0 10px 36px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 var(--surface-inset);
+      transform: translateY(-2px);
     }
 
     .portfolio-mocks {
@@ -1321,13 +1411,15 @@
       flex: 1;
       height: 100px;
       width: 100%;
-      border-radius: 6px;
-      border: 1px solid var(--border);
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
       position: relative;
       overflow: hidden;
       display: block;
       object-fit: cover;
+      object-position: top center;
       background: rgba(12, 14, 24, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
     .mock-desktop::after {
@@ -1346,11 +1438,13 @@
       width: 48px;
       height: 88px;
       border-radius: 10px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(148, 163, 184, 0.18);
       flex-shrink: 0;
       display: block;
       object-fit: cover;
+      object-position: top center;
       background: rgba(12, 14, 24, 0.45);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
     }
 
     /* Disable placeholder sheen when real images are used. */
@@ -1419,7 +1513,9 @@
       border-radius: 14px;
       padding: 1.15rem;
       transition: border-color 0.22s ease, box-shadow 0.22s ease;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+      box-shadow:
+        0 2px 20px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 var(--surface-inset);
     }
 
     .addon-card:hover {
@@ -1463,7 +1559,9 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 2px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 var(--surface-inset);
     }
 
     .faq-q {
@@ -1531,8 +1629,19 @@
       font-size: clamp(1.55rem, 4vw, 2.35rem);
       font-weight: 700;
       margin: 0 0 0.75rem;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
       position: relative;
+    }
+
+    .contact-block h2::after {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      margin: 0.65rem auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.95), rgba(167, 139, 250, 0.45));
+      opacity: 0.92;
     }
 
     .contact-block .sub {
@@ -1657,7 +1766,7 @@
       <nav class="nav-links" id="nav-menu" aria-label="Principal">
         <a href="#precios" data-i18n="nav_services">Servicios</a>
         <a href="#como" data-i18n="nav_how">Cómo funciona</a>
-        <a href="#portfolio" data-i18n="nav_portfolio">Trabajos</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portafolio</a>
         <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       </nav>
       <div class="nav-tail">
@@ -1677,7 +1786,7 @@
           <span class="hero-title-line" data-i18n="hero_title_line1">Tu web profesional</span>
           <span class="hero-title-line" data-i18n="hero_title_line2">en 1 a 2 días</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero_subtitle">Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación.</p>
+        <p class="hero-sub" data-i18n="hero_subtitle">Webs de nivel profesional para quien ejerce una profesión o cuida su marca personal: que tu sitio transmita la misma seriedad y pulcritud que quieres que asocien a ti.</p>
         <!-- Oferta: ajusta data-offer-end a la fecha y hora exactas de cierre (ISO 8601). -->
         <div
           class="launch-countdown"
@@ -1722,8 +1831,11 @@
 
     <section id="quien">
       <div class="container">
-        <h2 class="section-title" data-i18n="targets_title">Para profesionales y emprendedores que valoran una web a la altura de su trabajo</h2>
-        <div class="targets-chips" role="list">
+        <h2 class="section-title" data-i18n="targets_title">¿Para quién es VivePage?</h2>
+        <p class="targets-intro" data-i18n="targets_sub">
+          Para profesionales y personas que entienden lo importante que es la presencia en internet y el mensaje serio que da un sitio bien hecho: claridad, orden y confianza desde el primer clic.
+        </p>
+        <div class="targets-chips" id="targets-chips" role="list">
           <span class="target-chip" role="listitem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5 5 0 00-7.08 0L12 5.92l-1.34-1.34a5 5 0 00-7.08 7.08L12 21l8.42-8.34a5 5 0 000-7.08z" stroke-linecap="round"/></svg>
             <span data-i18n="target_1">Médicos</span>
@@ -1954,10 +2066,10 @@
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_ready_48">Lista en 24–48 h (con tu contenido)</th>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_blocks">Bloques de secciones que puedes usar</th>
@@ -1968,79 +2080,79 @@
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_blog">Blog (5 posts iniciales)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_leads">Formulario de captación de leads</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_gallery">Galería de casos y resultados</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_maps">Mapa de ubicación (Google Maps)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_appt">Solicitud de cita (al correo, sin panel)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_video">Video embebido (IG / YT / TikTok)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_unlimited">Páginas ilimitadas + menú</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_search">Búsqueda / filtro de servicios</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_responsive">Diseño responsivo + dominio .com 1.er año</th>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
-                <td data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_email">Correo @dominio (recepción en Gmail)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td data-i18n="compare_email_1">1 cuenta</td>
                 <td data-i18n="compare_email_3">Hasta 3</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_gmail_send">Enviar como @dominio desde Gmail</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">✕</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td data-i18n="compare_cell_included_gmail">Incluido</td>
               </tr>
             </tbody>
@@ -2294,14 +2406,14 @@
 
     <section id="portfolio">
       <div class="container">
-        <h2 class="section-title" data-i18n="portfolio_title">Algunos trabajos</h2>
-        <p class="portfolio-intro" data-i18n="portfolio_intro">Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.</p>
+        <h2 class="section-title" data-i18n="portfolio_title">Portafolio de trabajos</h2>
+        <p class="portfolio-intro" data-i18n="portfolio_intro">Webs diseñadas para profesionales que exigen una presencia clara, cuidada y confiable.</p>
         <div class="portfolio-scroller" tabindex="0" role="region" data-i18n-aria="portfolio_aria" aria-label="Carrusel de proyectos">
           <div class="portfolio-track">
             <figure class="portfolio-card">
               <div class="portfolio-mocks" aria-hidden="true">
                 <img class="mock-desktop" src="/images/drsamueldesktop.png" alt="" loading="lazy" decoding="async" />
-                <img class="mock-mobile" src="/images/drsamuelmobile.jpeg" alt="" loading="lazy" decoding="async" />
+                <img class="mock-mobile" src="/images/drsamuelmobile.png" alt="" loading="lazy" decoding="async" />
               </div>
               <figcaption>
                 <strong data-i18n="portfolio_ex1_title">drsamuelgalviz.com</strong>
@@ -2442,7 +2554,7 @@
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
-              <span data-i18n="faq_a6">En la sección Trabajos hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.</span>
+              <span data-i18n="faq_a6">En la sección Portafolio hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.</span>
             </div>
           </div>
         </div>
@@ -2456,7 +2568,7 @@
           <p class="sub" data-i18n="contact_sub">Escríbenos por WhatsApp y te respondemos en menos de 24 horas.</p>
           <a href="https://wa.me/13322856232" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="contact_btn">Escribir por WhatsApp</a>
           <p class="contact-meta" data-i18n="contact_meta">Lunes a Sábado · Atención en español e inglés</p>
-          <p class="contact-email"><a href="mailto:hola@vivepage.com">hola@vivepage.com</a></p>
+          <p class="contact-email"><a href="mailto:info@vivepage.com">info@vivepage.com</a></p>
         </div>
       </div>
     </section>
@@ -2468,7 +2580,7 @@
       <nav class="footer-links" aria-label="Pie">
         <a href="#precios" data-i18n="nav_services">Servicios</a>
         <a href="#como" data-i18n="nav_how">Cómo funciona</a>
-        <a href="#portfolio" data-i18n="nav_portfolio">Trabajos</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portafolio</a>
         <a href="#contacto" data-i18n="nav_contact">Contacto</a>
         <a href="#faq" data-i18n="footer_faq">Preguntas frecuentes</a>
       </nav>
@@ -2485,19 +2597,22 @@
     const translations = {
       es: {
         nav_services: 'Servicios',
-        nav_portfolio: 'Trabajos',
+        nav_portfolio: 'Portafolio',
         nav_how: 'Cómo funciona',
         nav_contact: 'Contacto',
         hero_badge: '🚀 Precios de lanzamiento — primeras 6 semanas',
         hero_title_line1: 'Tu web profesional',
         hero_title_line2: 'en 1 a 2 días',
-        hero_subtitle: 'Webs con nivel profesional para independientes, equipos y emprendedores que entienden que internet es parte de su reputación.',
+        hero_subtitle:
+          'Webs de nivel profesional para quien ejerce una profesión o cuida su marca personal: que tu sitio transmita la misma seriedad y pulcritud que quieres que asocien a ti.',
         hero_cta_primary: 'Ver planes',
         hero_cta_wa: 'Escribir por WhatsApp',
         hero_stat1: '✓ Web profesional en 24–48 h con tu contenido',
         hero_stat2: '✓ Dominio .com incluido',
         hero_stat3: '✓ Sin mensualidades',
-        targets_title: 'Para profesionales y emprendedores que valoran una web a la altura de su trabajo',
+        targets_title: '¿Para quién es VivePage?',
+        targets_sub:
+          'Para profesionales y personas que entienden lo importante que es la presencia en internet y el mensaje serio que da un sitio bien hecho: claridad, orden y confianza desde el primer clic.',
         target_1: 'Médicos',
         target_2: 'Especialistas',
         target_3: 'Odontólogos',
@@ -2597,7 +2712,7 @@
         compare_sec_pro: '+ 5',
         compare_sec_prem: '+ 7',
         compare_sec_ent: 'Ilimitadas',
-        compare_cell_no: '✕',
+        compare_cell_no: '×',
         compare_cell_yes: '✓',
         compare_email_1: '1 cuenta',
         compare_email_3: 'Hasta 3',
@@ -2691,8 +2806,8 @@
         addon5_title: 'Blog / post adicional',
         addon5_price: '$30/post',
         addon5_desc: 'También disponible como servicio independiente. Entrega acordada por volumen.',
-        portfolio_title: 'Algunos trabajos',
-        portfolio_intro: 'Ejemplos de sitios para profesionales. Sustituye las capturas por imágenes reales o enlaza “Ver sitio” cuando tengas URLs públicas.',
+        portfolio_title: 'Portafolio de trabajos',
+        portfolio_intro: 'Webs diseñadas para profesionales que exigen una presencia clara, cuidada y confiable.',
         portfolio_aria: 'Carrusel de proyectos',
         portfolio_ex1_title: 'drsamuelgalviz.com',
         portfolio_ex1_desc: 'Ejemplo de plan Básico: portada clara, secciones esenciales y contacto.',
@@ -2735,7 +2850,7 @@
         faq_q5: '¿Diseñan logos?',
         faq_a5: 'No diseñamos logos. El cliente debe proveer su logo o foto de perfil.',
         faq_q6: '¿Puedo ver ejemplos de páginas que han hecho?',
-        faq_a6: 'En la sección Trabajos hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.',
+        faq_a6: 'En la sección Portafolio hay ejemplos; también puedes escribirnos por WhatsApp y te mostramos referencias según tu especialidad.',
         contact_title: '¿Listo para tener tu página web?',
         contact_sub: 'Escríbenos por WhatsApp y te respondemos en menos de 24 horas.',
         contact_btn: 'Escribir por WhatsApp',
@@ -2750,19 +2865,22 @@
       },
       en: {
         nav_services: 'Services',
-        nav_portfolio: 'Work',
+        nav_portfolio: 'Portfolio',
         nav_how: 'How it works',
         nav_contact: 'Contact',
         hero_badge: '🚀 Launch pricing — first 6 weeks',
         hero_title_line1: 'Your professional website',
         hero_title_line2: 'in 1–2 days',
-        hero_subtitle: 'Professional-grade sites for solopreneurs, teams and founders who treat the web as part of their reputation.',
+        hero_subtitle:
+          'Professional-grade sites for practitioners and anyone building a personal brand — a polished web presence that reflects the same standards you bring to your work.',
         hero_cta_primary: 'View plans',
         hero_cta_wa: 'Message on WhatsApp',
         hero_stat1: '✓ Professional site in 24–48h with your content',
         hero_stat2: '✓ .com domain included',
         hero_stat3: '✓ No monthly fees',
-        targets_title: 'For professionals and entrepreneurs who expect a website that matches their work',
+        targets_title: 'Who is VivePage for?',
+        targets_sub:
+          'For professionals and individuals who take their online presence seriously — and want a well-built site that signals clarity, credibility, and trust from the first visit.',
         target_1: 'Physicians',
         target_2: 'Specialists',
         target_3: 'Dentists',
@@ -2862,7 +2980,7 @@
         compare_sec_pro: '+ 5',
         compare_sec_prem: '+ 7',
         compare_sec_ent: 'Unlimited',
-        compare_cell_no: '✕',
+        compare_cell_no: '×',
         compare_cell_yes: '✓',
         compare_email_1: '1 inbox',
         compare_email_3: 'Up to 3',
@@ -2956,8 +3074,8 @@
         addon5_title: 'Blog / extra post',
         addon5_price: '$30/post',
         addon5_desc: 'Also available as a standalone service. Timeline agreed by volume.',
-        portfolio_title: 'Selected work',
-        portfolio_intro: 'Example sites for professionals. Replace the placeholders with real screenshots or set “View site” when you have public URLs.',
+        portfolio_title: 'Work portfolio',
+        portfolio_intro: 'Websites designed for professionals who expect a polished, trustworthy presence.',
         portfolio_aria: 'Project carousel',
         portfolio_ex1_title: 'drsamuelgalviz.com',
         portfolio_ex1_desc: 'Basic plan example: clear cover, essential sections and contact.',
@@ -3000,7 +3118,7 @@
         faq_q5: 'Do you design logos?',
         faq_a5: 'We do not design logos. The client must provide a logo or profile photo.',
         faq_q6: 'Can I see examples of sites you have built?',
-        faq_a6: 'See the Work section for samples; you can also message us on WhatsApp for references by specialty.',
+        faq_a6: 'See the Portfolio section for samples; you can also message us on WhatsApp for references by specialty.',
         contact_title: 'Ready for your professional website?',
         contact_sub: 'Write us on WhatsApp — we reply in under 24 hours.',
         contact_btn: 'Message on WhatsApp',
@@ -3038,6 +3156,34 @@
 
     (function initLang() {
       applyLang(getStoredLang());
+    })();
+
+    (function shuffleTargetChips() {
+      var wrap = document.getElementById('targets-chips');
+      if (!wrap) return;
+      var chips = Array.prototype.slice.call(wrap.querySelectorAll('.target-chip'));
+      if (chips.length < 2) return;
+      for (var i = chips.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = chips[i];
+        chips[i] = chips[j];
+        chips[j] = tmp;
+      }
+      var firstLabel = chips[0].querySelector('[data-i18n]');
+      if (firstLabel && firstLabel.getAttribute('data-i18n') === 'target_1') {
+        for (var k = 1; k < chips.length; k++) {
+          var lab = chips[k].querySelector('[data-i18n]');
+          if (lab && lab.getAttribute('data-i18n') !== 'target_1') {
+            var swap = chips[0];
+            chips[0] = chips[k];
+            chips[k] = swap;
+            break;
+          }
+        }
+      }
+      chips.forEach(function (node) {
+        wrap.appendChild(node);
+      });
     })();
 
     (function offerCountdown() {
