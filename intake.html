@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>VivePage — Client intake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #05060a;
+      --surface: rgba(18, 21, 32, 0.85);
+      --border: rgba(148, 163, 184, 0.15);
+      --text: #f4f4f5;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
+      --err: #f87171;
+      --ok: #4ade80;
+      --radius: 12px;
+      --font-display: 'Syne', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 16px;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse 100% 80% at 50% -20%, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(ellipse 80% 50% at 100% 30%, rgba(167, 139, 250, 0.08), transparent 50%);
+    }
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 0.35rem;
+      background: var(--surface);
+      padding: 0.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .lang-toggle button[aria-pressed="true"] {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--text);
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 5vw, 1.85rem);
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 1.5rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+    }
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+    @media (min-width: 540px) {
+      .plan-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .plan-opt {
+      display: block;
+      cursor: pointer;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      padding: 0.85rem 1rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .plan-opt:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .plan-opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .plan-opt strong { display: block; font-size: 1rem; }
+    .plan-opt span { font-size: 0.8rem; color: var(--muted); }
+    .section-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chk {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+    }
+    .chk:has(input:disabled) { opacity: 0.45; }
+    .chk input { margin-top: 0.25rem; accent-color: var(--accent); }
+    .chk label { flex: 1; font-size: 0.9rem; cursor: pointer; }
+    .hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+    }
+    .counter {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    label.field-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin: 0.75rem 0 0.35rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(5, 6, 10, 0.6);
+      color: var(--text);
+      font: inherit;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin: 0 0 1rem;
+    }
+    fieldset legend {
+      padding: 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--accent2);
+    }
+    .hidden { display: none !important; }
+    .error-msg {
+      color: var(--err);
+      font-size: 0.85rem;
+      margin: 0.35rem 0 0;
+    }
+    .banner {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .banner.err { background: rgba(248, 113, 113, 0.12); border: 1px solid rgba(248, 113, 113, 0.35); color: #fecaca; }
+    .banner.ok { background: rgba(74, 222, 128, 0.12); border: 1px solid rgba(74, 222, 128, 0.35); color: #bbf7d0; }
+    button.submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.95rem 1.25rem;
+      font: inherit;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: #042f2e;
+      cursor: pointer;
+    }
+    button.submit:disabled { opacity: 0.55; cursor: not-allowed; }
+    .color-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .color-presets label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .color-presets input { accent-color: var(--accent); }
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    small.req { color: var(--accent); }
+    .module-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="logo">VivePage</span>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="btn-es" aria-pressed="true">ES</button>
+        <button type="button" id="btn-en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <h1 data-i18n="title">Formulario de contenido para tu web</h1>
+    <p class="lead" data-i18n="lead">Completa los datos según el plan contratado. La portada (nombre, titular, foto) va aparte de las secciones que eliges.</p>
+
+    <div id="global-banner" class="hidden" role="status"></div>
+
+    <form id="intake-form" novalidate>
+      <!-- Plan -->
+      <div class="card">
+        <h2 data-i18n="plan_title">1. Tu plan</h2>
+        <p class="hint" data-i18n="plan_hint">Selecciona el plan que contrataste; el formulario se adapta automáticamente.</p>
+        <div class="plan-grid" id="plan-radios"></div>
+        <p class="error-msg hidden" id="plan-err"></p>
+      </div>
+
+      <!-- Sections -->
+      <div class="card" id="sections-card">
+        <h2 data-i18n="sections_title">2. Secciones de contenido</h2>
+        <p class="counter" id="section-counter"></p>
+        <p class="hint" id="sections-intro"></p>
+        <div class="section-grid" id="section-checkboxes"></div>
+        <p class="error-msg hidden" id="sections-err"></p>
+      </div>
+
+      <!-- Fixed contact -->
+      <div class="card">
+        <h2 data-i18n="contact_title">3. Datos de contacto y negocio</h2>
+        <label class="field-label" for="full_name"><span data-i18n="lbl_name">Nombre completo o nombre comercial</span> <small class="req">*</small></label>
+        <input type="text" id="full_name" name="full_name" required autocomplete="name" />
+
+        <label class="field-label" for="hero_headline"><span data-i18n="lbl_headline">Titular de la portada (frase principal bajo tu nombre)</span> <small class="req">*</small></label>
+        <input type="text" id="hero_headline" name="hero_headline" required maxlength="200" />
+
+        <label class="field-label" for="phone"><span data-i18n="lbl_phone">Teléfono (WhatsApp preferible)</span> <small class="req">*</small></label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+
+        <label class="field-label" for="email"><span data-i18n="lbl_email">Correo electrónico</span> <small class="req">*</small></label>
+        <input type="email" id="email" name="email" required autocomplete="email" />
+
+        <label class="field-label" for="city"><span data-i18n="lbl_city">Ciudad / país</span> <small class="req">*</small></label>
+        <input type="text" id="city" name="city" required autocomplete="address-level2" />
+
+        <div id="company-wrap" class="hidden">
+          <label class="field-label" for="company_name"><span data-i18n="lbl_company">Razón social o marca (Empresarial)</span></label>
+          <input type="text" id="company_name" name="company_name" autocomplete="organization" />
+        </div>
+
+        <label class="field-label" for="services_description"><span data-i18n="lbl_services">Descripción de tus servicios (resumen para la web)</span> <small class="req">*</small></label>
+        <textarea id="services_description" name="services_description" required minlength="20" rows="5"></textarea>
+      </div>
+
+      <!-- Dynamic section fields -->
+      <div class="card" id="dynamic-fields-card">
+        <h2 data-i18n="dynamic_title">4. Contenido por sección elegida</h2>
+        <p class="hint" data-i18n="dynamic_hint">Solo verás los bloques de las secciones que marcaste arriba (más módulos incluidos en tu plan).</p>
+        <div id="dynamic-fields"></div>
+      </div>
+
+      <!-- Included modules -->
+      <div class="card hidden" id="card-pro-modules">
+        <h2 data-i18n="pro_modules_title">Módulos incluidos en Profesional o superior</h2>
+        <p class="module-note" data-i18n="pro_modules_note">Galería de casos y formulario de leads van en tu plan; indica textos y detalles.</p>
+        <fieldset>
+          <legend data-i18n="gallery_legend">Galería de casos / resultados</legend>
+          <label class="field-label" for="gallery_description" data-i18n="gallery_desc_lbl">Describe qué casos o resultados quieres mostrar</label>
+          <textarea id="gallery_description" name="gallery_description" rows="4"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="lead_legend">Formulario de captación</legend>
+          <label class="field-label" for="lead_form_spec" data-i18n="lead_spec_lbl">Qué datos quieres pedir (nombre, email, motivo de consulta, etc.)</label>
+          <textarea id="lead_form_spec" name="lead_form_spec" rows="3"></textarea>
+        </fieldset>
+      </div>
+
+      <div class="card hidden" id="card-premium-modules">
+        <h2 data-i18n="prem_modules_title">Módulos incluidos en Premium o Empresarial</h2>
+        <p class="module-note" data-i18n="prem_modules_note">Mapa (si aplica).</p>
+        <fieldset>
+          <legend data-i18n="map_legend">Google Maps</legend>
+          <label class="field-label" for="map_address" data-i18n="map_addr_lbl">Dirección completa para el mapa</label>
+          <textarea id="map_address" name="map_address" rows="2"></textarea>
+          <label class="field-label" for="map_place_name" data-i18n="map_place_lbl">Nombre público del lugar (ej. clínica, consultorio)</label>
+          <input type="text" id="map_place_name" name="map_place_name" />
+        </fieldset>
+      </div>
+
+      <div class="card hidden" id="card-enterprise-modules">
+        <h2 data-i18n="ent_modules_title">Empresarial — multipágina y blog</h2>
+        <fieldset>
+          <legend data-i18n="blog_legend">Blog (5 entradas iniciales)</legend>
+          <label class="field-label" for="blog_content" data-i18n="blog_lbl">Temas, títulos propuestos y texto o bullet points por entrada</label>
+          <textarea id="blog_content" name="blog_content" rows="8"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="multi_legend">Estructura multipágina</legend>
+          <label class="field-label" for="multipage_structure" data-i18n="multi_lbl">Lista de páginas y qué debe ir en cada una</label>
+          <textarea id="multipage_structure" name="multipage_structure" rows="5"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="search_legend">Búsqueda / filtro de servicios</legend>
+          <label class="field-label" for="service_search_spec" data-i18n="search_lbl">Cómo quieres agrupar o filtrar servicios (categorías, etiquetas)</label>
+          <textarea id="service_search_spec" name="service_search_spec" rows="4"></textarea>
+        </fieldset>
+      </div>
+
+      <!-- Colors -->
+      <div class="card">
+        <h2 data-i18n="colors_title">5. Color y estilo</h2>
+        <p class="hint" data-i18n="colors_hint">Elige una referencia o indica la tuya.</p>
+        <div class="color-presets" id="color-presets"></div>
+        <label class="field-label" for="color_custom" data-i18n="color_custom_lbl">Referencia específica (enlace, imagen, marca, código hex)</label>
+        <textarea id="color_custom" name="color_custom" rows="2" placeholder="#hex o URL"></textarea>
+      </div>
+
+      <!-- Media -->
+      <div class="card">
+        <h2 data-i18n="media_title">6. Imágenes</h2>
+        <p class="hint" data-i18n="media_hint">Foto de perfil obligatoria; fotos extra opcionales (equipo, instalaciones, antes/después).</p>
+        <label class="field-label" for="profile_photo"><span data-i18n="lbl_profile">Foto de perfil o logo</span> <small class="req">*</small></label>
+        <input type="file" id="profile_photo" name="profile_photo" accept="image/jpeg,image/png,image/webp,image/gif" required />
+
+        <label class="field-label" for="extra_photos" data-i18n="lbl_extras">Fotos adicionales (opcional, varias)</label>
+        <input type="file" id="extra_photos" name="extra_photos" accept="image/jpeg,image/png,image/webp,image/gif" multiple />
+      </div>
+
+      <!-- Notes -->
+      <div class="card">
+        <h2 data-i18n="notes_title">7. Notas libres</h2>
+        <label class="field-label" for="free_notes" data-i18n="notes_lbl">Cualquier detalle extra (plazos, referencias de sitios que te gusten, restricciones legales, etc.)</label>
+        <textarea id="free_notes" name="free_notes" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="submit" id="submit-btn" data-i18n="submit_btn">Enviar contenido</button>
+    </form>
+  </div>
+
+  <script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+(function () {
+  var SUPABASE_URL = 'https://loqcjbtyqcivuainuojg.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_vpt7KKtA21jrp4ushOhbRg_CokrOoFo';
+
+  var BLOCK1 = ['bio', 'portfolio', 'pricing', 'hours', 'social', 'tech'];
+  var BLOCK2 = ['faq', 'testimonials', 'agreements'];
+  var BLOCK3 = ['downloads', 'team', 'video'];
+
+  var SECTION_DEFS = {
+    bio: {
+      fields: [
+        { name: 'professional_title', type: 'text', i18n: { es: 'Titular profesional (ej. Médico cardiólogo)', en: 'Professional headline (e.g. Cardiologist)' } },
+        { name: 'biography', type: 'textarea', i18n: { es: 'Biografía y trayectoria', en: 'Biography and background' }, required: true },
+        { name: 'credentials', type: 'textarea', i18n: { es: 'Formación, certificaciones, colegiaturas', en: 'Education, certifications, memberships' } }
+      ]
+    },
+    portfolio: {
+      fields: [
+        { name: 'portfolio_detail', type: 'textarea', i18n: { es: 'Detalle de servicios o especialidades (más allá del resumen general)', en: 'Service detail beyond the main summary' }, required: true }
+      ]
+    },
+    pricing: {
+      fields: [
+        { name: 'pricing_text', type: 'textarea', i18n: { es: 'Tarifas, paquetes, formas de pago (texto que verá el visitante)', en: 'Rates, packages, payment methods' }, required: true }
+      ]
+    },
+    hours: {
+      fields: [
+        { name: 'business_hours', type: 'textarea', i18n: { es: 'Horarios de atención', en: 'Business hours' }, required: true },
+        { name: 'locations_text', type: 'textarea', i18n: { es: 'Sedes, direcciones, indicaciones', en: 'Locations and directions' } }
+      ]
+    },
+    social: {
+      fields: [
+        { name: 'website_url', type: 'url', i18n: { es: 'Sitio web actual (si existe)', en: 'Current website (if any)' } },
+        { name: 'instagram', type: 'text', i18n: { es: 'Instagram', en: 'Instagram' } },
+        { name: 'facebook', type: 'text', i18n: { es: 'Facebook', en: 'Facebook' } },
+        { name: 'linkedin', type: 'text', i18n: { es: 'LinkedIn', en: 'LinkedIn' } },
+        { name: 'tiktok', type: 'text', i18n: { es: 'TikTok', en: 'TikTok' } },
+        { name: 'youtube', type: 'text', i18n: { es: 'YouTube', en: 'YouTube' } },
+        { name: 'whatsapp', type: 'text', i18n: { es: 'WhatsApp (número con código de país)', en: 'WhatsApp (number with country code)' } }
+      ]
+    },
+    tech: {
+      fields: [
+        { name: 'tech_equipment', type: 'textarea', i18n: { es: 'Tecnología, equipamiento, metodología', en: 'Technology, equipment, methodology' }, required: true }
+      ]
+    },
+    faq: {
+      fields: [
+        { name: 'faq_content', type: 'textarea', i18n: { es: 'Preguntas y respuestas (una por línea: P: … / R: …)', en: 'FAQs (one per line: Q: … / A: …)' }, required: true }
+      ]
+    },
+    testimonials: {
+      fields: [
+        { name: 'testimonials_content', type: 'textarea', i18n: { es: 'Testimonios (nombre o iniciales + texto)', en: 'Testimonials (name or initials + quote)' }, required: true }
+      ]
+    },
+    agreements: {
+      fields: [
+        { name: 'agreements_content', type: 'textarea', i18n: { es: 'Convenios, seguros, coberturas', en: 'Insurance, agreements, coverage' }, required: true }
+      ]
+    },
+    downloads: {
+      fields: [
+        { name: 'downloads_content', type: 'textarea', i18n: { es: 'PDFs o descargas (título + breve descripción de cada archivo)', en: 'PDFs / downloads (title + short description each)' }, required: true }
+      ]
+    },
+    team: {
+      fields: [
+        { name: 'team_content', type: 'textarea', i18n: { es: 'Equipo: nombre, rol, breve bio por persona', en: 'Team: name, role, short bio each' }, required: true }
+      ]
+    },
+    video: {
+      fields: [
+        { name: 'video_urls', type: 'textarea', i18n: { es: 'Enlaces de videos (YouTube, Instagram, TikTok…)', en: 'Video URLs (YouTube, Instagram, TikTok…)' }, required: true }
+      ]
+    }
+  };
+
+  var SECTION_LABELS = {
+    bio: { es: 'Trayectoria y biografía profesional', en: 'Professional background & bio' },
+    portfolio: { es: 'Portafolio de servicios', en: 'Services portfolio' },
+    pricing: { es: 'Tarifario de servicios', en: 'Service pricing' },
+    hours: { es: 'Horarios y sedes', en: 'Hours & locations' },
+    social: { es: 'Contacto y redes sociales', en: 'Contact & social media' },
+    tech: { es: 'Tecnología y equipamiento', en: 'Technology & equipment' },
+    faq: { es: 'Preguntas frecuentes (FAQ)', en: 'FAQ' },
+    testimonials: { es: 'Testimonios de clientes', en: 'Client testimonials' },
+    agreements: { es: 'Convenios y seguros', en: 'Agreements & insurance' },
+    downloads: { es: 'Área de descargas (PDFs, guías)', en: 'Downloads area (PDFs, guides)' },
+    team: { es: 'Directorio de equipo / personal', en: 'Team directory' },
+    video: { es: 'Video embebido (redes)', en: 'Embedded video' }
+  };
+
+  var PLAN_LIMIT = { basic: 3, professional: 5, premium: 7, enterprise: 999 };
+
+  var UI = {
+    es: {
+      title: 'Formulario de contenido para tu web',
+      lead: 'Completa los datos según el plan contratado. La portada (nombre, titular, foto) va aparte de las secciones que eliges.',
+      plan_title: '1. Tu plan',
+      plan_hint: 'Selecciona el plan que contrataste; el formulario se adapta automáticamente.',
+      plan_basic: 'Básico',
+      plan_basic_sub: 'Portada + 3 secciones (bloque 1)',
+      plan_pro: 'Profesional',
+      plan_pro_sub: 'Hasta 5 secciones + módulos de galería y leads',
+      plan_prem: 'Premium',
+      plan_prem_sub: 'Hasta 7 secciones + mapa, cita, bilingüe…',
+      plan_ent: 'Empresarial',
+      plan_ent_sub: 'Secciones ilimitadas + blog, multipágina, búsqueda',
+      sections_title: '2. Secciones de contenido',
+      sections_intro_basic: 'Elige exactamente 3 secciones del bloque 1.',
+      sections_intro_pro: 'Elige exactamente 5 secciones entre bloque 1 y bloque 2 (FAQ, testimonios, convenios).',
+      sections_intro_prem: 'Elige exactamente 7 secciones entre bloques 1, 2 y 3 (descargas, equipo, video).',
+      sections_intro_ent: 'Marca todas las secciones que necesites (sin límite).',
+      counter: 'Seleccionadas: {n} / {max}',
+      contact_title: '3. Datos de contacto y negocio',
+      lbl_name: 'Nombre completo o nombre comercial',
+      lbl_headline: 'Titular de la portada (frase principal bajo tu nombre)',
+      lbl_phone: 'Teléfono (WhatsApp preferible)',
+      lbl_email: 'Correo electrónico',
+      lbl_city: 'Ciudad / país',
+      lbl_company: 'Razón social o marca (Empresarial)',
+      lbl_services: 'Descripción de tus servicios (resumen para la web)',
+      dynamic_title: '4. Contenido por sección elegida',
+      dynamic_hint: 'Solo verás los bloques de las secciones que marcaste (más módulos incluidos en tu plan).',
+      pro_modules_title: 'Módulos incluidos en Profesional o superior',
+      pro_modules_note: 'Galería de casos y formulario de leads van en tu plan; indica textos y detalles.',
+      gallery_legend: 'Galería de casos / resultados',
+      gallery_desc_lbl: 'Describe qué casos o resultados quieres mostrar',
+      lead_legend: 'Formulario de captación',
+      lead_spec_lbl: 'Qué datos quieres pedir (nombre, email, motivo de consulta, etc.)',
+      prem_modules_title: 'Módulos incluidos en Premium o Empresarial',
+      prem_modules_note: 'Mapa y solicitud de cita por correo.',
+      map_legend: 'Google Maps',
+      map_addr_lbl: 'Dirección completa para el mapa',
+      map_place_lbl: 'Nombre público del lugar (ej. clínica, consultorio)',
+      ent_modules_title: 'Empresarial — multipágina y blog',
+      blog_legend: 'Blog (5 entradas iniciales)',
+      blog_lbl: 'Temas, títulos propuestos y texto o bullet points por entrada',
+      multi_legend: 'Estructura multipágina',
+      multi_lbl: 'Lista de páginas y qué debe ir en cada una',
+      search_legend: 'Búsqueda / filtro de servicios',
+      search_lbl: 'Cómo quieres agrupar o filtrar servicios (categorías, etiquetas)',
+      colors_title: '5. Color y estilo',
+      colors_hint: 'Elige una referencia o indica la tuya.',
+      color_custom_lbl: 'Referencia específica (enlace, imagen, marca, código hex)',
+      color_ocean: 'Océano (cian)',
+      color_violet: 'Violeta nocturno',
+      color_warm: 'Arena cálida',
+      color_forest: 'Bosque',
+      color_minimal: 'Minimal / monocromo',
+      color_none: 'Sin preferencia',
+      media_title: '6. Imágenes',
+      media_hint: 'Foto de perfil obligatoria; fotos extra opcionales (equipo, instalaciones, antes/después).',
+      lbl_profile: 'Foto de perfil o logo',
+      lbl_extras: 'Fotos adicionales (opcional, varias)',
+      notes_title: '7. Notas libres',
+      notes_lbl: 'Cualquier detalle extra (plazos, referencias de sitios que te gusten, restricciones legales, etc.)',
+      submit_btn: 'Enviar contenido',
+      err_plan: 'Selecciona un plan.',
+      err_sections: 'Debes elegir exactamente {n} secciones para tu plan.',
+      err_profile: 'Sube una foto de perfil o logo.',
+      err_submit: 'No se pudo enviar. Revisa la conexión o inténtalo más tarde.',
+      ok_submit: '¡Listo! Hemos recibido tu contenido. Te contactaremos pronto.',
+      err_section_content: 'Completa los campos obligatorios de cada sección elegida.',
+      err_modules_pro: 'Completa al menos un campo de galería o del formulario de leads.',
+      err_modules_prem: 'Indica la dirección para el mapa (Premium/Empresarial).',
+      err_modules_ent: 'Completa blog, multipágina y búsqueda de servicios (resumen breve mínimo).'
+    },
+    en: {
+      title: 'Website content intake form',
+      lead: 'Fill this out according to your contracted plan. The hero (name, headline, photo) is separate from the sections you choose.',
+      plan_title: '1. Your plan',
+      plan_hint: 'Select the plan you purchased; the form adapts automatically.',
+      plan_basic: 'Basic',
+      plan_basic_sub: 'Hero + 3 sections (block 1)',
+      plan_pro: 'Professional',
+      plan_pro_sub: 'Up to 5 sections + gallery & lead modules',
+      plan_prem: 'Premium',
+      plan_prem_sub: 'Up to 7 sections + map, booking, bilingual…',
+      plan_ent: 'Enterprise',
+      plan_ent_sub: 'Unlimited sections + blog, multi-page, search',
+      sections_title: '2. Content sections',
+      sections_intro_basic: 'Choose exactly 3 sections from block 1.',
+      sections_intro_pro: 'Choose exactly 5 sections from blocks 1 and 2 (FAQ, testimonials, agreements).',
+      sections_intro_prem: 'Choose exactly 7 sections from blocks 1, 2 and 3 (downloads, team, video).',
+      sections_intro_ent: 'Select every section you need (no limit).',
+      counter: 'Selected: {n} / {max}',
+      contact_title: '3. Contact & business details',
+      lbl_name: 'Full name or business name',
+      lbl_headline: 'Hero headline (main line under your name)',
+      lbl_phone: 'Phone (WhatsApp preferred)',
+      lbl_email: 'Email',
+      lbl_city: 'City / country',
+      lbl_company: 'Legal name or brand (Enterprise)',
+      lbl_services: 'Services description (short summary for the site)',
+      dynamic_title: '4. Content for each selected section',
+      dynamic_hint: 'You will only see blocks for sections you checked (plus modules included in your plan).',
+      pro_modules_title: 'Modules included in Professional and above',
+      pro_modules_note: 'Case gallery and lead form are part of your plan; add copy and details.',
+      gallery_legend: 'Case gallery / results',
+      gallery_desc_lbl: 'Describe the cases or outcomes you want to show',
+      lead_legend: 'Lead capture form',
+      lead_spec_lbl: 'Which fields you want (name, email, reason for contact, etc.)',
+      prem_modules_title: 'Modules included in Premium or Enterprise',
+      prem_modules_note: 'Map and appointment request by email.',
+      map_legend: 'Google Maps',
+      map_addr_lbl: 'Full address for the map',
+      map_place_lbl: 'Public place name (e.g. clinic, office)',
+      ent_modules_title: 'Enterprise — multi-page & blog',
+      blog_legend: 'Blog (5 initial posts)',
+      blog_lbl: 'Topics, working titles and draft text or bullets per post',
+      multi_legend: 'Multi-page structure',
+      multi_lbl: 'List of pages and what goes on each',
+      search_legend: 'Service search / filter',
+      search_lbl: 'How you want to group or filter services (categories, tags)',
+      colors_title: '5. Colour & style',
+      colors_hint: 'Pick a preset or describe your own.',
+      color_custom_lbl: 'Specific reference (link, image, brand, hex code)',
+      color_ocean: 'Ocean (cyan)',
+      color_violet: 'Night violet',
+      color_warm: 'Warm sand',
+      color_forest: 'Forest',
+      color_minimal: 'Minimal / monochrome',
+      color_none: 'No preference',
+      media_title: '6. Images',
+      media_hint: 'Profile photo required; extra photos optional (team, facilities, before/after).',
+      lbl_profile: 'Profile photo or logo',
+      lbl_extras: 'Extra photos (optional, multiple)',
+      notes_title: '7. Free-form notes',
+      notes_lbl: 'Anything else (deadlines, sites you like, legal constraints, etc.)',
+      submit_btn: 'Submit content',
+      err_plan: 'Please select a plan.',
+      err_sections: 'You must choose exactly {n} sections for your plan.',
+      err_profile: 'Please upload a profile photo or logo.',
+      err_submit: 'Could not submit. Check your connection or try again later.',
+      ok_submit: 'Received! We will get back to you shortly.',
+      err_section_content: 'Fill required fields for each selected section.',
+      err_modules_pro: 'Add at least some detail for the gallery or lead form.',
+      err_modules_prem: 'Add the map address (Premium/Enterprise).',
+      err_modules_ent: 'Fill blog, multi-page structure and service search (short summary minimum).'
+    }
+  };
+
+  var COLOR_PRESETS = [
+    { id: 'ocean', swatch: 'linear-gradient(135deg,#38bdf8,#0ea5e9)' },
+    { id: 'violet', swatch: 'linear-gradient(135deg,#a78bfa,#7c3aed)' },
+    { id: 'warm', swatch: 'linear-gradient(135deg,#fbbf24,#d97706)' },
+    { id: 'forest', swatch: 'linear-gradient(135deg,#34d399,#059669)' },
+    { id: 'minimal', swatch: 'linear-gradient(135deg,#e4e4e7,#71717a)' },
+    { id: 'none', swatch: 'repeating-conic-gradient(#64748b 0 25%, transparent 0 50%) 50% / 12px 12px' }
+  ];
+
+  var lang = 'es';
+  var selectedPlan = '';
+
+  function t(key, vars) {
+    var s = UI[lang][key] || key;
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        s = s.replace('{' + k + '}', vars[k]);
+      });
+    }
+    return s;
+  }
+
+  function applyI18nStatic() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (UI[lang][k]) el.textContent = UI[lang][k];
+    });
+    document.getElementById('btn-es').setAttribute('aria-pressed', lang === 'es');
+    document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
+    renderColorPresets();
+    renderPlanRadios();
+    if (selectedPlan) renderSectionCheckboxes();
+  }
+
+  function renderColorPresets() {
+    var host = document.getElementById('color-presets');
+    host.innerHTML = '';
+    COLOR_PRESETS.forEach(function (p, i) {
+      var id = 'cp-' + p.id;
+      var lab = document.createElement('label');
+      var inp = document.createElement('input');
+      inp.type = 'radio';
+      inp.name = 'color_preset';
+      inp.value = p.id;
+      inp.id = id;
+      if (i === 0) inp.checked = true;
+      var sw = document.createElement('span');
+      sw.className = 'swatch';
+      sw.style.background = p.swatch;
+      var txt = document.createElement('span');
+      var labelKey = 'color_' + p.id;
+      txt.textContent = t(labelKey);
+      lab.appendChild(inp);
+      lab.appendChild(sw);
+      lab.appendChild(txt);
+      lab.setAttribute('for', id);
+      host.appendChild(lab);
+    });
+  }
+
+  function renderPlanRadios() {
+    var host = document.getElementById('plan-radios');
+    host.innerHTML = '';
+    var plans = [
+      { id: 'basic', nameKey: 'plan_basic', subKey: 'plan_basic_sub' },
+      { id: 'professional', nameKey: 'plan_pro', subKey: 'plan_pro_sub' },
+      { id: 'premium', nameKey: 'plan_prem', subKey: 'plan_prem_sub' },
+      { id: 'enterprise', nameKey: 'plan_ent', subKey: 'plan_ent_sub' }
+    ];
+    plans.forEach(function (p) {
+      var lab = document.createElement('label');
+      lab.className = 'plan-opt';
+      var inp = document.createElement('input');
+      inp.type = 'radio';
+      inp.name = 'plan';
+      inp.value = p.id;
+      inp.required = true;
+      if (selectedPlan === p.id) inp.checked = true;
+      inp.addEventListener('change', function () {
+        selectedPlan = p.id;
+        onPlanChange();
+      });
+      var strong = document.createElement('strong');
+      strong.textContent = t(p.nameKey);
+      var span = document.createElement('span');
+      span.textContent = t(p.subKey);
+      lab.appendChild(inp);
+      lab.appendChild(strong);
+      lab.appendChild(span);
+      host.appendChild(lab);
+    });
+  }
+
+  function poolForPlan(plan) {
+    if (plan === 'basic') return BLOCK1.slice();
+    if (plan === 'professional') return BLOCK1.concat(BLOCK2);
+    if (plan === 'premium') return BLOCK1.concat(BLOCK2).concat(BLOCK3);
+    if (plan === 'enterprise') return BLOCK1.concat(BLOCK2).concat(BLOCK3);
+    return [];
+  }
+
+  function maxForPlan(plan) {
+    return PLAN_LIMIT[plan] || 0;
+  }
+
+  function onPlanChange() {
+    document.getElementById('company-wrap').classList.toggle('hidden', selectedPlan !== 'enterprise');
+    document.getElementById('card-pro-modules').classList.toggle('hidden', selectedPlan === 'basic' || !selectedPlan);
+    document.getElementById('card-premium-modules').classList.toggle('hidden', selectedPlan !== 'premium' && selectedPlan !== 'enterprise');
+    document.getElementById('card-enterprise-modules').classList.toggle('hidden', selectedPlan !== 'enterprise');
+    renderSectionCheckboxes();
+    renderDynamicFields();
+  }
+
+  function renderSectionCheckboxes() {
+    var pool = poolForPlan(selectedPlan);
+    var host = document.getElementById('section-checkboxes');
+    var intro = document.getElementById('sections-intro');
+    var card = document.getElementById('sections-card');
+    if (!selectedPlan || pool.length === 0) {
+      card.classList.add('hidden');
+      return;
+    }
+    card.classList.remove('hidden');
+    var ik = selectedPlan === 'basic' ? 'sections_intro_basic' : selectedPlan === 'professional' ? 'sections_intro_pro' : selectedPlan === 'premium' ? 'sections_intro_prem' : 'sections_intro_ent';
+    intro.textContent = t(ik);
+    host.innerHTML = '';
+    var max = maxForPlan(selectedPlan);
+    pool.forEach(function (sid) {
+      var row = document.createElement('div');
+      row.className = 'chk';
+      var inp = document.createElement('input');
+      inp.type = 'checkbox';
+      inp.name = 'section';
+      inp.value = sid;
+      inp.id = 'sec-' + sid;
+      inp.addEventListener('change', function () { enforceSectionLimit(max); updateCounter(max); renderDynamicFields(); });
+      var lab = document.createElement('label');
+      lab.setAttribute('for', 'sec-' + sid);
+      lab.textContent = SECTION_LABELS[sid] ? SECTION_LABELS[sid][lang] : sid;
+      row.appendChild(inp);
+      row.appendChild(lab);
+      host.appendChild(row);
+    });
+    updateCounter(max);
+  }
+
+  function getSelectedSections() {
+    return Array.prototype.slice.call(document.querySelectorAll('input[name="section"]:checked')).map(function (x) { return x.value; });
+  }
+
+  function enforceSectionLimit(max) {
+    var sel = getSelectedSections();
+    if (selectedPlan === 'enterprise') return;
+    if (sel.length <= max) return;
+    var last = sel[sel.length - 1];
+    var cb = document.getElementById('sec-' + last);
+    if (cb) cb.checked = false;
+  }
+
+  function updateCounter(max) {
+    var n = getSelectedSections().length;
+    var el = document.getElementById('section-counter');
+    if (!selectedPlan) { el.textContent = ''; return; }
+    var displayMax = selectedPlan === 'enterprise' ? '∞' : String(max);
+    el.textContent = t('counter', { n: String(n), max: displayMax });
+  }
+
+  function renderDynamicFields() {
+    var host = document.getElementById('dynamic-fields');
+    host.innerHTML = '';
+    var sel = getSelectedSections();
+    sel.forEach(function (sid) {
+      var def = SECTION_DEFS[sid];
+      if (!def) return;
+      var fs = document.createElement('fieldset');
+      var leg = document.createElement('legend');
+      leg.textContent = SECTION_LABELS[sid] ? SECTION_LABELS[sid][lang] : sid;
+      fs.appendChild(leg);
+      def.fields.forEach(function (f) {
+        var lid = sid + '__' + f.name;
+        var lbl = document.createElement('label');
+        lbl.className = 'field-label';
+        lbl.setAttribute('for', lid);
+        lbl.textContent = f.i18n[lang] + (f.required ? ' *' : '');
+        var input;
+        if (f.type === 'textarea') {
+          input = document.createElement('textarea');
+          input.rows = f.name.indexOf('biography') >= 0 ? 6 : 4;
+        } else {
+          input = document.createElement('input');
+          input.type = f.type;
+        }
+        input.id = lid;
+        input.name = lid;
+        input.dataset.section = sid;
+        input.dataset.field = f.name;
+        if (f.required) input.required = true;
+        fs.appendChild(lbl);
+        fs.appendChild(input);
+      });
+      host.appendChild(fs);
+    });
+  }
+
+  function collectSectionPayload() {
+    var payload = {};
+    getSelectedSections().forEach(function (sid) {
+      var def = SECTION_DEFS[sid];
+      if (!def) return;
+      payload[sid] = {};
+      def.fields.forEach(function (f) {
+        var el = document.getElementById(sid + '__' + f.name);
+        if (el) payload[sid][f.name] = el.value.trim();
+      });
+    });
+
+    if (selectedPlan !== 'basic') {
+      payload._modules_pro = {
+        gallery_description: (document.getElementById('gallery_description') || {}).value || '',
+        lead_form_spec: (document.getElementById('lead_form_spec') || {}).value || ''
+      };
+    }
+    if (selectedPlan === 'premium' || selectedPlan === 'enterprise') {
+      payload._modules_premium = {
+        map_address: (document.getElementById('map_address') || {}).value || '',
+        map_place_name: (document.getElementById('map_place_name') || {}).value || ''
+      };
+    }
+    if (selectedPlan === 'enterprise') {
+      payload._modules_enterprise = {
+        blog_content: (document.getElementById('blog_content') || {}).value || '',
+        multipage_structure: (document.getElementById('multipage_structure') || {}).value || '',
+        service_search_spec: (document.getElementById('service_search_spec') || {}).value || ''
+      };
+    }
+    return payload;
+  }
+
+  function validateSectionsCount() {
+    if (!selectedPlan) return t('err_plan');
+    var max = maxForPlan(selectedPlan);
+    var sel = getSelectedSections();
+    if (selectedPlan === 'enterprise') {
+      if (sel.length < 1) return t('err_sections', { n: '1' });
+      return '';
+    }
+    if (sel.length !== max) return t('err_sections', { n: String(max) });
+    return '';
+  }
+
+  function validateSectionFields() {
+    var sel = getSelectedSections();
+    for (var i = 0; i < sel.length; i++) {
+      var sid = sel[i];
+      var def = SECTION_DEFS[sid];
+      if (!def) continue;
+      for (var j = 0; j < def.fields.length; j++) {
+        var f = def.fields[j];
+        if (!f.required) continue;
+        var el = document.getElementById(sid + '__' + f.name);
+        if (!el || !el.value.trim()) return t('err_section_content');
+      }
+    }
+    return '';
+  }
+
+  function validateModules() {
+    if (selectedPlan === 'basic' || !selectedPlan) return '';
+    var g = (document.getElementById('gallery_description') || {}).value || '';
+    var l = (document.getElementById('lead_form_spec') || {}).value || '';
+    if (!g.trim() && !l.trim()) return t('err_modules_pro');
+
+    if (selectedPlan === 'premium' || selectedPlan === 'enterprise') {
+      var addr = (document.getElementById('map_address') || {}).value || '';
+      if (!addr.trim()) return t('err_modules_prem');
+    }
+    if (selectedPlan === 'enterprise') {
+      var b = (document.getElementById('blog_content') || {}).value || '';
+      var m = (document.getElementById('multipage_structure') || {}).value || '';
+      var s = (document.getElementById('service_search_spec') || {}).value || '';
+      if (!b.trim() || !m.trim() || !s.trim()) return t('err_modules_ent');
+    }
+    return '';
+  }
+
+  function showBanner(type, msg) {
+    var b = document.getElementById('global-banner');
+    b.className = 'banner ' + type;
+    b.textContent = msg;
+    b.classList.remove('hidden');
+    if (type === 'ok') window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function hideBanners() {
+    document.getElementById('global-banner').classList.add('hidden');
+  }
+
+  document.getElementById('btn-es').addEventListener('click', function () { lang = 'es'; applyI18nStatic(); });
+  document.getElementById('btn-en').addEventListener('click', function () { lang = 'en'; applyI18nStatic(); });
+
+  var supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  document.getElementById('intake-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    hideBanners();
+    document.getElementById('plan-err').classList.add('hidden');
+    document.getElementById('sections-err').classList.add('hidden');
+
+    selectedPlan = (document.querySelector('input[name="plan"]:checked') || {}).value || '';
+    var err = validateSectionsCount();
+    if (err) {
+      document.getElementById('sections-err').textContent = err;
+      document.getElementById('sections-err').classList.remove('hidden');
+      return;
+    }
+    err = validateSectionFields();
+    if (err) { showBanner('err', err); return; }
+    err = validateModules();
+    if (err) { showBanner('err', err); return; }
+
+    var profileInput = document.getElementById('profile_photo');
+    if (!profileInput.files || !profileInput.files[0]) {
+      showBanner('err', t('err_profile'));
+      return;
+    }
+
+    var clientFolder = crypto.randomUUID();
+    var presetEl = document.querySelector('input[name="color_preset"]:checked');
+    var colorPreset = presetEl ? presetEl.value : 'none';
+
+    var contact = {
+      full_name: document.getElementById('full_name').value.trim(),
+      hero_headline: document.getElementById('hero_headline').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      city: document.getElementById('city').value.trim()
+    };
+    if (selectedPlan === 'enterprise') {
+      contact.company_name = document.getElementById('company_name').value.trim();
+    }
+
+    var row = {
+      client_folder: clientFolder,
+      plan: selectedPlan,
+      locale: lang,
+      contact: contact,
+      services_description: document.getElementById('services_description').value.trim(),
+      selected_sections: getSelectedSections(),
+      section_payload: collectSectionPayload(),
+      color_preset: colorPreset,
+      color_custom_note: document.getElementById('color_custom').value.trim(),
+      free_notes: document.getElementById('free_notes').value.trim(),
+      profile_image_path: null,
+      extra_image_paths: []
+    };
+
+    var submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+
+    try {
+      var ext = profileInput.files[0].name.split('.').pop() || 'jpg';
+      var profilePath = 'intake/' + clientFolder + '/profile.' + ext;
+      var up1 = await supabase.storage.from('intake-uploads').upload(profilePath, profileInput.files[0], {
+        cacheControl: '3600',
+        upsert: true,
+        contentType: profileInput.files[0].type || 'image/jpeg'
+      });
+      if (up1.error) throw up1.error;
+      row.profile_image_path = profilePath;
+
+      var extras = document.getElementById('extra_photos').files;
+      for (var i = 0; i < extras.length; i++) {
+        var f = extras[i];
+        var ex = f.name.split('.').pop() || 'jpg';
+        var p = 'intake/' + clientFolder + '/extra-' + (i + 1) + '.' + ex;
+        var up = await supabase.storage.from('intake-uploads').upload(p, f, {
+          cacheControl: '3600',
+          upsert: true,
+          contentType: f.type || 'image/jpeg'
+        });
+        if (up.error) throw up.error;
+        row.extra_image_paths.push(p);
+      }
+
+      var ins = await supabase.from('intake_submissions').insert(row);
+      if (ins.error) throw ins.error;
+
+      showBanner('ok', t('ok_submit'));
+      document.getElementById('intake-form').reset();
+      selectedPlan = '';
+      renderPlanRadios();
+      onPlanChange();
+    } catch (err2) {
+      console.error(err2);
+      showBanner('err', t('err_submit') + (err2.message ? ' (' + err2.message + ')' : ''));
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  applyI18nStatic();
+  document.getElementById('sections-card').classList.add('hidden');
+})();
+  </script>
+</body>
+</html>

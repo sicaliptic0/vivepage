@@ -825,6 +825,8 @@
       font-size: 0.8125rem;
     }
 
+    .compare-pricing col.compare-col-label { width: 1%; }
+
     .compare-pricing th,
     .compare-pricing td {
       padding: 0.38rem 0.65rem;
@@ -838,7 +840,8 @@
       text-align: left;
       font-weight: 500;
       color: var(--muted);
-      min-width: 10.5rem;
+      min-width: 0;
+      white-space: nowrap;
       position: sticky;
       left: 0;
       z-index: 2;
@@ -846,6 +849,21 @@
       box-shadow: 6px 0 14px -6px rgba(0, 0, 0, 0.55);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+    }
+
+    .compare-pricing th.row-wrap {
+      white-space: normal;
+    }
+
+    @media (min-width: 900px) {
+      .compare-pricing col.compare-col-label { width: 16rem; }
+      .compare-pricing th:first-child,
+      .compare-pricing td:first-child {
+        min-width: 16rem;
+      }
+      .compare-pricing th.row-wrap {
+        white-space: nowrap;
+      }
     }
 
     .compare-pricing thead th {
@@ -2028,6 +2046,10 @@
 
         <div class="compare-pricing-wrap">
           <table class="compare-pricing">
+            <colgroup>
+              <col class="compare-col-label" />
+              <col span="4" />
+            </colgroup>
             <thead>
               <tr>
                 <th scope="col"></th>
@@ -2129,13 +2151,6 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_appt">Solicitud de cita (al correo)</th>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
-                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-              </tr>
-              <tr>
                 <th scope="row" data-i18n="compare_row_video">Video embebido</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
@@ -2146,7 +2161,7 @@
                 <th scope="row" data-i18n="compare_row_blog">Blog (5 posts iniciales)</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
-                <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
+                <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
@@ -2164,14 +2179,14 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_email">Correo @dominio (recepción en Gmail)</th>
+                <th scope="row" class="row-wrap" data-i18n="compare_row_email">Correo @dominio (recepción en Gmail)</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td data-i18n="compare_email_1">1 cuenta</td>
                 <td data-i18n="compare_email_3">Hasta 3</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_gmail_send">Enviar como @dominio desde Gmail</th>
+                <th scope="row" class="row-wrap" data-i18n="compare_row_gmail_send">Enviar como @dominio desde Gmail</th>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
@@ -2717,7 +2732,6 @@
         compare_row_leads: 'Formulario de captación',
         compare_row_gallery: 'Galería de fotos',
         compare_row_maps: 'Mapa de ubicación',
-        compare_row_appt: 'Solicitud de cita (al correo)',
         compare_row_video: 'Video embebido',
         compare_row_unlimited: 'Páginas ilimitadas + menú',
         compare_row_search: 'Búsqueda / filtro de servicios',
@@ -2981,7 +2995,6 @@
         compare_row_leads: 'Capture form',
         compare_row_gallery: 'Photo gallery',
         compare_row_maps: 'Location map',
-        compare_row_appt: 'Booking by email',
         compare_row_video: 'Embedded video',
         compare_row_unlimited: 'Unlimited pages + menu',
         compare_row_search: 'Service search / filter',
