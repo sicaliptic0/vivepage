@@ -287,9 +287,24 @@
     .hero {
       padding: 3.25rem 0 3.75rem;
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(3, 7, 18, 0.72), rgba(3, 7, 18, 0.72)),
+        url('/images/hero.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .hero::after {
       content: '';
       position: absolute;
       top: -20%;
@@ -315,6 +330,13 @@
       letter-spacing: 0.02em;
     }
 
+    .hero-tagline {
+      color: #c4b5fd;
+      background: rgba(167, 139, 250, 0.14);
+      border-color: rgba(167, 139, 250, 0.35);
+      box-shadow: 0 0 24px rgba(167, 139, 250, 0.16);
+    }
+
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(1.85rem, 5.2vw, 2.95rem);
@@ -332,14 +354,11 @@
       display: block;
     }
 
-    @media (min-width: 640px) {
-      .hero-title-line {
-        display: inline;
-      }
-
-      .hero-title-line:first-child::after {
-        content: ' ';
-      }
+    .hero-title-accent {
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      color: #c4b5fd;
     }
 
     @supports not (background-clip: text) {
@@ -422,44 +441,6 @@
       margin: 0 0.5rem;
       color: var(--border);
       user-select: none;
-    }
-
-    .hero .launch-countdown {
-      margin: 0 auto 1.35rem;
-      max-width: min(100%, 28rem);
-      width: 100%;
-      text-align: center;
-      padding: 0.85rem 1rem;
-      box-sizing: border-box;
-    }
-
-    .hero .launch-countdown-title {
-      font-size: 0.875rem;
-      margin: 0 auto 0.5rem;
-      max-width: 22rem;
-    }
-
-    .hero .launch-countdown-digits {
-      justify-content: center;
-      gap: 0.65rem 1rem;
-    }
-
-    .hero .launch-countdown-unit .cd-num {
-      font-size: 1.35rem;
-    }
-
-    .hero .launch-countdown-note {
-      font-size: 0.7rem;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 24rem;
-    }
-
-    .hero .launch-countdown .cd-expired-msg {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 24rem;
     }
 
     /* SECTIONS */
@@ -823,9 +804,15 @@
       min-width: 720px;
       border-collapse: collapse;
       font-size: 0.8125rem;
+      table-layout: fixed;
     }
 
     .compare-pricing col.compare-col-label { width: 1%; }
+    .compare-pricing col.compare-col-plan { width: 1%; }
+    .compare-pricing .compare-cell-dash {
+      color: var(--muted);
+      font-weight: 600;
+    }
 
     .compare-pricing th,
     .compare-pricing td {
@@ -857,6 +844,7 @@
 
     @media (min-width: 900px) {
       .compare-pricing col.compare-col-label { width: 16rem; }
+      .compare-pricing col.compare-col-plan { width: auto; }
       .compare-pricing th:first-child,
       .compare-pricing td:first-child {
         min-width: 16rem;
@@ -938,77 +926,6 @@
       margin: -0.35rem 0 0.85rem;
       line-height: 1.4;
       font-weight: 500;
-    }
-
-    .launch-countdown {
-      margin: 0 0 1.5rem;
-      padding: 1rem 1.15rem;
-      border-radius: 14px;
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(56, 189, 248, 0.08) 100%);
-      text-align: center;
-      max-width: min(100%, 38rem);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .launch-countdown-title {
-      margin: 0 0 0.65rem;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .launch-countdown-digits {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem 1rem;
-      flex-wrap: wrap;
-    }
-
-    .launch-countdown-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 3.1rem;
-    }
-
-    .launch-countdown-unit .cd-num {
-      font-size: 1.55rem;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-      color: var(--accent);
-      line-height: 1.1;
-    }
-
-    .launch-countdown-unit .cd-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-top: 0.2rem;
-    }
-
-    .launch-countdown-note {
-      margin: 0.65rem 0 0;
-      font-size: 0.75rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .launch-countdown.is-ended .launch-countdown-digits {
-      display: none;
-    }
-
-    .launch-countdown.is-ended .cd-expired-msg {
-      display: block;
-    }
-
-    .cd-expired-msg {
-      display: none;
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--muted);
     }
 
     .compare-pricing .compare-cat th {
@@ -1821,48 +1738,19 @@
   <main>
     <section class="hero">
       <div class="container">
-        <span class="hero-badge" data-i18n="hero_badge">🚀 Precios de lanzamiento — primeras 6 semanas</span>
+        <span class="hero-badge hero-tagline" data-i18n="hero_tagline">Tu presencia. Tu nombre. Tu dominio.</span>
         <h1 class="hero-title">
-          <span class="hero-title-line" data-i18n="hero_title_line1">Tu web profesional</span>
-          <span class="hero-title-line" data-i18n="hero_title_line2">en 1 a 2 días</span>
+          <span class="hero-title-line" id="hero-title-line1">Tus clientes</span>
+          <span class="hero-title-line" id="hero-title-line2">te buscan en Google.</span>
+          <span class="hero-title-line hero-title-accent" id="hero-title-line3">¿Qué encuentran?</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero_subtitle">Webs de nivel profesional para quien ejerce una profesión o cuida su marca personal: que tu sitio transmita la misma seriedad y pulcritud que quieres que asocien a ti.</p>
-        <!-- Oferta: ajusta data-offer-end a la fecha y hora exactas de cierre (ISO 8601). -->
-        <div
-          class="launch-countdown"
-          id="offer-countdown"
-          role="timer"
-          aria-live="polite"
-          data-offer-end="2026-05-25T23:59:59"
-        >
-          <p class="launch-countdown-title" data-i18n="offer_countdown_title">Oferta de precios termina en</p>
-          <div class="launch-countdown-digits" id="offer-countdown-digits">
-            <div class="launch-countdown-unit">
-              <span class="cd-num" id="cd-days">–</span>
-              <span class="cd-label" data-i18n="offer_count_days">días</span>
-            </div>
-            <div class="launch-countdown-unit">
-              <span class="cd-num" id="cd-hours">–</span>
-              <span class="cd-label" data-i18n="offer_count_hours">horas</span>
-            </div>
-            <div class="launch-countdown-unit">
-              <span class="cd-num" id="cd-minutes">–</span>
-              <span class="cd-label" data-i18n="offer_count_minutes">min</span>
-            </div>
-            <div class="launch-countdown-unit">
-              <span class="cd-num" id="cd-seconds">–</span>
-              <span class="cd-label" data-i18n="offer_count_seconds">seg</span>
-            </div>
-          </div>
-          <p class="cd-expired-msg" id="cd-expired" data-i18n="offer_count_expired">La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.</p>
-          <p class="launch-countdown-note" data-i18n="offer_countdown_note">Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.</p>
-        </div>
+        <p class="hero-sub" id="hero-subtitle">Sin página web, eres invisible. Con VivePage tienes tu .com profesional en menos de 48 horas. Proceso simple, precio fijo, sin mensualidades.</p>
         <div class="hero-cta">
-          <a href="#precios" class="btn btn-primary" data-i18n="hero_cta_primary">Ver planes</a>
+          <a href="#precios" class="btn btn-primary" id="hero-cta-primary" data-i18n="hero_cta_primary">Ver planes</a>
           <a href="https://wa.me/13322856232" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_wa">Escribir por WhatsApp</a>
         </div>
         <div class="hero-stats">
-          <span data-i18n="hero_stat1">✓ Web profesional en 24–48 h con tu contenido</span><span class="dot" aria-hidden="true">·</span>
+          <span data-i18n="hero_stat1">✓ Web profesional en menos de 48 h con tu contenido</span><span class="dot" aria-hidden="true">·</span>
           <span data-i18n="hero_stat2">✓ Dominio .com incluido</span><span class="dot" aria-hidden="true">·</span>
           <span data-i18n="hero_stat3">✓ Sin mensualidades</span>
         </div>
@@ -2041,14 +1929,18 @@
         <h2 class="section-title" data-i18n="pricing_title">Planes y precios</h2>
         <details class="pricing-note-wrap">
           <summary data-i18n="pricing_revision_summary">Cómo funciona el plazo y las revisiones</summary>
-          <p class="pricing-def-note" data-i18n="pricing_revision_def">En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.</p>
+          <p class="pricing-def-note" data-i18n="pricing_revision_def">En menos de 48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.</p>
         </details>
 
         <div class="compare-pricing-wrap">
           <table class="compare-pricing">
             <colgroup>
               <col class="compare-col-label" />
-              <col span="5" />
+              <col class="compare-col-plan" />
+              <col class="compare-col-plan" />
+              <col class="compare-col-plan" />
+              <col class="compare-col-plan" />
+              <col class="compare-col-plan" />
             </colgroup>
             <thead>
               <tr>
@@ -2057,7 +1949,7 @@
                 <th scope="col" data-i18n="plan_pro_name">Profesional</th>
                 <th scope="col" data-i18n="plan_prem_name">Premium</th>
                 <th scope="col" data-i18n="plan_ent_name">Empresarial</th>
-                <th scope="col" data-i18n="plan_special_name">Trabajos Especiales</th>
+                <th scope="col" data-i18n="plan_special_name">Trabajos especiales</th>
               </tr>
             </thead>
             <tbody>
@@ -2087,11 +1979,7 @@
                     <span class="price-promo">$399</span>
                   </div>
                 </td>
-                <td class="plan-price-cell">
-                  <div class="compare-price-cell-inner">
-                    <span class="price-promo" data-i18n="plan_special_price">A discusión</span>
-                  </div>
-                </td>
+                <td class="plan-price-cell" data-i18n="plan_special_price">Precio a discusión</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_sections">Secciones de contenido</th>
@@ -2099,7 +1987,7 @@
                 <td data-i18n="compare_sec_pro">+ 5</td>
                 <td data-i18n="compare_sec_prem">+ 7</td>
                 <td data-i18n="compare_sec_ent">Ilimitadas</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_revision">Revisión antes de publicar</th>
@@ -2107,7 +1995,7 @@
                 <td>2</td>
                 <td>3</td>
                 <td>3</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_post_changes">Cambios tras publicar</th>
@@ -2115,15 +2003,15 @@
                 <td data-i18n="compare_post_pro">3 en 15 días</td>
                 <td data-i18n="compare_post_prem">5 en 30 días</td>
                 <td data-i18n="compare_post_ent">5 en 30 días + 2/año</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
-                <th scope="row" data-i18n="compare_row_ready_48">Lista en 24–48 h</th>
+                <th scope="row" data-i18n="compare_row_ready_48">Lista en menos de 48 h</th>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_responsive">Diseño responsivo</th>
@@ -2131,7 +2019,7 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_domain">Dominio .com 1.er año</th>
@@ -2139,7 +2027,7 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_leads">Formulario de captación</th>
@@ -2147,7 +2035,7 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_gallery">Galería de fotos</th>
@@ -2155,7 +2043,7 @@
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_maps">Mapa de ubicación</th>
@@ -2163,7 +2051,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_video">Video embebido</th>
@@ -2171,7 +2059,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_blog">Blog (5 posts iniciales)</th>
@@ -2179,7 +2067,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_unlimited">Páginas ilimitadas + menú</th>
@@ -2187,7 +2075,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" data-i18n="compare_row_search">Búsqueda / filtro de servicios</th>
@@ -2195,7 +2083,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-yes" data-i18n="compare_cell_yes">✓</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" class="row-wrap" data-i18n="compare_row_email">Correo @dominio (recepción en Gmail)</th>
@@ -2203,7 +2091,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td data-i18n="compare_email_1">1 cuenta</td>
                 <td data-i18n="compare_email_3">Hasta 3</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
               <tr>
                 <th scope="row" class="row-wrap" data-i18n="compare_row_gmail_send">Enviar como @dominio desde Gmail</th>
@@ -2211,7 +2099,7 @@
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td class="compare-cell-no" data-i18n="compare_cell_no">×</td>
                 <td data-i18n="compare_cell_included_gmail">Incluido</td>
-                <td class="compare-cell-no">-</td>
+                <td class="compare-cell-dash">—</td>
               </tr>
             </tbody>
           </table>
@@ -2266,7 +2154,7 @@
             <ul class="plan-list">
               <li data-i18n="plan_basic_li1">Portada siempre incluida (no cuenta como sección elegida)</li>
               <li data-i18n="plan_basic_li2">Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)</li>
-              <li data-i18n="plan_basic_li3">Página lista en 24–48 h desde que recibimos tu contenido</li>
+              <li data-i18n="plan_basic_li3">Página lista en menos de 48 h desde que recibimos tu contenido</li>
               <li data-i18n="plan_basic_li4">1 ronda de revisión antes de publicar</li>
               <li data-i18n="plan_basic_li5">2 cambios incluidos en los primeros 10 días tras publicar</li>
               <li data-i18n="plan_basic_li6">Diseño responsivo y dominio .com 1.er año</li>
@@ -2407,7 +2295,7 @@
           </div>
         </details>
 
-        <p class="global-note" data-i18n="pricing_global_note">No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere ajustes breves de seguridad en tu cuenta de Google y acceso temporal al correo principal de Gmail donde operarás con tu @dominio (lo coordinamos contigo).</p>
+        <p class="global-note" data-i18n="pricing_global_note">No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en menos de 48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere ajustes breves de seguridad en tu cuenta de Google y acceso temporal al correo principal de Gmail donde operarás con tu @dominio (lo coordinamos contigo).</p>
       </div>
     </section>
 
@@ -2435,7 +2323,7 @@
               <span class="flow-num" aria-hidden="true">3</span>
               <h3 data-i18n="how_s3_title">Diseñamos tu página</h3>
             </div>
-            <p data-i18n="how_s3_desc">Cuando recibimos tu contenido, en 24–48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.</p>
+            <p data-i18n="how_s3_desc">Cuando recibimos tu contenido, en menos de 48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.</p>
           </article>
           <article class="flow-step-card">
             <div class="flow-step-head">
@@ -2497,8 +2385,8 @@
               </div>
               <figcaption>
                 <strong data-i18n="portfolio_ex3_title">Árbol genealógico</strong>
-                <span data-i18n="portfolio_ex3_desc">Trabajo especial: árbol genealógico interactivo con formulario de cambios y panel admin.</span>
-                <a href="https://sicaliptic0.github.io/familiauzcateguimora/index.html" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="portfolio_view_site">Ver sitio</a>
+                <span data-i18n="portfolio_ex3_desc">Árbol genealógico interactivo con perfil de cada integrante de la familia.</span>
+                <a href="https://sicaliptic0.github.io/familiauzcateguimora/" class="portfolio-link" target="_blank" rel="noopener noreferrer" data-i18n="portfolio_view_site">Ver sitio</a>
               </figcaption>
             </figure>
           </div>
@@ -2562,7 +2450,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
               <span data-i18n="why_3_title">Rápido y con soporte real</span>
             </summary>
-            <div class="why-step-body"><p data-i18n="why_3_desc">Página lista en 24–48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.</p></div>
+            <div class="why-step-body"><p data-i18n="why_3_desc">Página lista en menos de 48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.</p></div>
           </details>
         </div>
       </div>
@@ -2669,14 +2557,10 @@
         nav_portfolio: 'Portafolio',
         nav_how: 'Cómo funciona',
         nav_contact: 'Contacto',
-        hero_badge: '🚀 Precios de lanzamiento — primeras 6 semanas',
-        hero_title_line1: 'Tu web profesional',
-        hero_title_line2: 'en 1 a 2 días',
-        hero_subtitle:
-          'Webs de nivel profesional para quien ejerce una profesión o cuida su marca personal: que tu sitio transmita la misma seriedad y pulcritud que quieres que asocien a ti.',
+        hero_tagline: 'Tu presencia. Tu nombre. Tu dominio.',
         hero_cta_primary: 'Ver planes',
         hero_cta_wa: 'Escribir por WhatsApp',
-        hero_stat1: '✓ Web profesional en 24–48 h con tu contenido',
+        hero_stat1: '✓ Web profesional en menos de 48 h con tu contenido',
         hero_stat2: '✓ Dominio .com incluido',
         hero_stat3: '✓ Sin mensualidades',
         targets_title: '¿Para quién es VivePage?',
@@ -2721,17 +2605,9 @@
         target_37: 'Marcas',
         target_38: 'Educación',
         target_39: 'Formación',
-        offer_countdown_title: 'Oferta de precios termina en',
-        offer_count_days: 'días',
-        offer_count_hours: 'horas',
-        offer_count_minutes: 'min',
-        offer_count_seconds: 'seg',
-        offer_countdown_note: 'Precios de apertura válidos solo durante las primeras 6 semanas del proyecto.',
-        offer_count_expired: 'La promoción de lanzamiento ha finalizado. Escríbenos para precios vigentes.',
-        price_promo_opening: 'Precio de promoción por apertura e inicio del proyecto',
         pricing_title: 'Planes y precios',
         pricing_revision_summary: 'Cómo funciona el plazo y las revisiones',
-        pricing_revision_def: 'En 24–48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.',
+        pricing_revision_def: 'En menos de 48 h tienes tu página web lista a partir de tu contenido. Después viene el periodo de revisión: rondas de correcciones antes de publicarla en internet. Una vez en vivo, los cambios son actualizaciones de contenido según tu plan.',
         plans_details_toggle: 'Ver detalle de cada plan y contratar',
         compare_row_price: 'Precio',
         compare_row_sections: 'Secciones de contenido',
@@ -2741,7 +2617,7 @@
         compare_post_pro: '3 en 15 días',
         compare_post_prem: '5 en 30 días',
         compare_post_ent: '5 en 30 días + 2/año',
-        compare_row_ready_48: 'Lista en 24–48 h',
+        compare_row_ready_48: 'Lista en menos de 48 h',
         compare_row_blog: 'Blog (5 posts iniciales)',
         sections_catalog_summary: 'Todas las secciones de contenido disponibles',
         sections_catalog_intro: 'Cada “sección” es un bloque de tu web (texto + estructura) que eliges según plan. Los módulos interactivos (formularios, mapa, galería, video, etc.) se comparan aparte en la tabla.',
@@ -2776,11 +2652,8 @@
         compare_sec_pro: '+ 5',
         compare_sec_prem: '+ 7',
         compare_sec_ent: 'Ilimitadas',
-        compare_sec_special: 'A medida',
         compare_cell_no: '×',
         compare_cell_yes: '✓',
-        compare_cell_custom: 'Según proyecto',
-        compare_domain_special: 'Opcional',
         compare_email_1: '1 cuenta',
         compare_email_3: 'Hasta 3',
         compare_sections_hint: 'La portada (nombre, foto, titular) siempre va incluida y no cuenta dentro del número de secciones que eliges. La lista numerada de todas las secciones posibles y los bloques por plan está en el detalle de planes (desplegable de abajo).',
@@ -2790,7 +2663,7 @@
         plan_basic_note: 'Pago único · Dominio .com incluido 1.er año',
         plan_basic_li1: 'Portada siempre incluida (no cuenta como sección elegida)',
         plan_basic_li2: 'Tú eliges 3 secciones del bloque 1 (lista completa en “Todas las secciones de contenido disponibles”)',
-        plan_basic_li3: 'Página lista en 24–48 h desde que recibimos tu contenido',
+        plan_basic_li3: 'Página lista en menos de 48 h desde que recibimos tu contenido',
         plan_basic_li4: '1 ronda de revisión antes de publicar',
         plan_basic_li5: '2 cambios incluidos en los primeros 10 días tras publicar',
         plan_basic_li6: 'Diseño responsivo y dominio .com 1.er año',
@@ -2841,9 +2714,9 @@
         plan_ent_badge: 'Para empresas y clínicas',
         plan_ent_label: 'Plan 04',
         plan_ent_name: 'Empresarial',
-        plan_special_name: 'Trabajos Especiales',
-        plan_special_price: 'A discusión',
+        plan_special_name: 'Trabajos especiales',
         plan_ent_sub: 'Clínicas y grupos · Multipágina, blog y búsqueda',
+        plan_special_price: 'Precio a discusión',
         plan_ent_note: 'Pago único · Dominio .com incluido 1.er año',
         plan_ent_li1: 'Todo lo del plan Premium',
         plan_ent_li2: 'Páginas ilimitadas con menú de navegación',
@@ -2856,7 +2729,7 @@
         plan_ent_li9: '5 cambios en los primeros 30 días tras publicar, además de las 2 actualizaciones anuales',
         plan_ent_li10: 'Ideal para varias sedes, varios profesionales o muchos servicios',
         plan_ent_btn: 'Consultar disponibilidad',
-        pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en 24–48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere ajustes breves de seguridad en tu cuenta de Google y acceso temporal al correo principal de Gmail donde operarás con tu @dominio (lo coordinamos contigo).',
+        pricing_global_note: 'No diseñamos logos. El cliente debe proveer un logo o foto de perfil. · Tu página está lista en menos de 48 h tras recibir todo el contenido; publicarla en internet corresponde al periodo de revisión de tu plan. · Día hábil: de lunes a viernes, excluyendo festivos oficiales. · El correo @dominio en Gmail incluye recepción; el envío como @dominio desde Gmail se puede añadir con add-on $30 USD (pago único) o va incluido en Empresarial. Requiere ajustes breves de seguridad en tu cuenta de Google y acceso temporal al correo principal de Gmail donde operarás con tu @dominio (lo coordinamos contigo).',
         addons_title: 'Servicios adicionales',
         addon1_title: 'Actualización de contenido',
         addon1_desc: 'Cambios de texto, fotos o información. Entrega en 3–5 días hábiles.',
@@ -2883,8 +2756,9 @@
         portfolio_ex2_title: 'fsmedesthetics.com',
         portfolio_ex2_desc: 'Ejemplo de plan Empresarial: multipágina, catálogo amplio y estructura escalable.',
         portfolio_ex3_title: 'Árbol genealógico',
-        portfolio_ex3_desc: 'Trabajo especial: árbol genealógico interactivo con formulario de cambios y panel admin.',
+        portfolio_ex3_desc: 'Árbol genealógico interactivo con perfil de cada integrante de la familia.',
         portfolio_view_site: 'Ver sitio',
+        portfolio_request_demo: 'Pedir demo',
         portfolio_scroll_hint: 'Desliza horizontalmente para ver más.',
         how_title: '¿Cómo funciona?',
         how_intro: 'Seis pasos claros, sin sorpresas: del primer mensaje a tu web en vivo.',
@@ -2893,7 +2767,7 @@
         how_s2_title: 'Envías tu contenido',
         how_s2_desc: 'Textos, fotos y logo cuando estés listo. Sin límite de tiempo.',
         how_s3_title: 'Diseñamos tu página',
-        how_s3_desc: 'Cuando recibimos tu contenido, en 24–48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.',
+        how_s3_desc: 'Cuando recibimos tu contenido, en menos de 48 horas tienes tu página web lista para revisar. Publicarla en internet viene después del periodo de revisión.',
         how_s4_title: 'Periodo de revisión',
         how_s4_desc: 'Con la página ya lista, la afinamos con las rondas de revisión de tu plan; todo antes de publicar en internet.',
         how_s5_title: 'Confirmas el pago',
@@ -2906,14 +2780,14 @@
         why_2_title: 'Precio justo, pago único',
         why_2_desc: 'Sin mensualidades, sin sorpresas. Pagas una vez y la página es tuya. A partir del segundo año, la renovación del dominio es de $35/año; nosotros la gestionamos por ti.',
         why_3_title: 'Rápido y con soporte real',
-        why_3_desc: 'Página lista en 24–48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.',
+        why_3_desc: 'Página lista en menos de 48 h al enviar contenido, periodo de revisión antes de publicar y cambios incluidos con la web en vivo, según tu plan. Soporte por WhatsApp Lun–Sáb.',
         faq_title: 'Preguntas frecuentes',
         faq_q1: '¿Necesito saber de tecnología para tener mi página?',
         faq_a1: 'No. Nosotros nos encargamos de todo: el dominio, el diseño y la publicación. Tú solo nos mandas tu información y fotos.',
         faq_q2: '¿Qué pasa con el dominio después del primer año?',
         faq_a2: 'El dominio se renueva cada año. Nosotros lo renovamos y gestionamos por $35/año.',
         faq_q3: '¿Puedo pedir cambios después de que la página esté lista?',
-        faq_a3: 'Sí. En 24–48 h tienes la página lista; luego un periodo de revisión con rondas incluidas antes de publicar en internet. Después, los cambios son ajustes de contenido con la web ya en vivo (según tu plan). Pasado el plazo de cambios incluido, cada actualización cuesta $30.',
+        faq_a3: 'Sí. En menos de 48 h tienes la página lista; luego un periodo de revisión con rondas incluidas antes de publicar en internet. Después, los cambios son ajustes de contenido con la web ya en vivo (según tu plan). Pasado el plazo de cambios incluido, cada actualización cuesta $30.',
         faq_q4: '¿Puedo enviar y recibir con el correo @midominio.com desde Gmail?',
         faq_a4: 'No reemplaza Gmail como aplicación. Lo habitual con el correo @dominio es la recepción en tu Gmail. Para enviar también como @dominio desde esa misma cuenta, ofrecemos un servicio de $30 USD (pago único) con configuración completa: implica unos ajustes breves de seguridad en tu cuenta de Google y acceso temporal al correo principal de Gmail donde quieres recibir y enviar con tu @dominio, para poder dejarlo listo. En plan Empresarial va incluido; en otros planes es add-on. Escríbenos y coordinamos el acceso de forma segura.',
         faq_q5: '¿Diseñan logos?',
@@ -2937,11 +2811,7 @@
         nav_portfolio: 'Portfolio',
         nav_how: 'How it works',
         nav_contact: 'Contact',
-        hero_badge: '🚀 Launch pricing — first 6 weeks',
-        hero_title_line1: 'Your professional website',
-        hero_title_line2: 'in 1–2 days',
-        hero_subtitle:
-          'Professional-grade sites for practitioners and anyone building a personal brand — a polished web presence that reflects the same standards you bring to your work.',
+        hero_tagline: 'Your presence. Your name. Your domain.',
         hero_cta_primary: 'View plans',
         hero_cta_wa: 'Message on WhatsApp',
         hero_stat1: '✓ Professional site in 24–48h with your content',
@@ -2989,14 +2859,6 @@
         target_37: 'Brands',
         target_38: 'Education',
         target_39: 'Training',
-        offer_countdown_title: 'Launch pricing ends in',
-        offer_count_days: 'days',
-        offer_count_hours: 'hours',
-        offer_count_minutes: 'min',
-        offer_count_seconds: 'sec',
-        offer_countdown_note: 'Opening rates are valid only during the first 6 weeks of the project.',
-        offer_count_expired: 'The launch promotion has ended. Message us for current pricing.',
-        price_promo_opening: 'Promotional opening price for the start of this project',
         pricing_title: 'Plans and pricing',
         pricing_revision_summary: 'How timing and revisions work',
         pricing_revision_def: 'Within 24–48 hours your website is ready from your content. Then comes the revision period — correction rounds before we publish it online. After go-live, changes are content updates as included in your plan.',
@@ -3046,9 +2908,6 @@
         compare_sec_ent: 'Unlimited',
         compare_cell_no: '×',
         compare_cell_yes: '✓',
-        compare_cell_custom: 'By scope',
-        compare_sec_special: 'Custom',
-        compare_domain_special: 'Optional',
         compare_email_1: '1 inbox',
         compare_email_3: 'Up to 3',
         compare_sections_hint: 'The cover block (name, photo, headline) is always included and does not count toward the sections you choose. The full numbered list of sections and how blocks map to each plan is inside the plan details dropdown below.',
@@ -3110,8 +2969,8 @@
         plan_ent_label: 'Plan 04',
         plan_ent_name: 'Enterprise',
         plan_special_name: 'Special projects',
-        plan_special_price: 'By discussion',
         plan_ent_sub: 'Clinics and groups · Multi-page, blog and search',
+        plan_special_price: 'Price upon request',
         plan_ent_note: 'One-time payment · .com domain included 1st year',
         plan_ent_li1: 'Everything in the Premium plan',
         plan_ent_li2: 'Unlimited pages with navigation menu',
@@ -3151,8 +3010,9 @@
         portfolio_ex2_title: 'fsmedesthetics.com',
         portfolio_ex2_desc: 'Enterprise plan example: multi-page structure, broader catalog and scalable layout.',
         portfolio_ex3_title: 'Family tree',
-        portfolio_ex3_desc: 'Special project: interactive family tree with change request form and admin panel.',
+        portfolio_ex3_desc: 'Multi-page project with clear navigation and a data-structure-first approach.',
         portfolio_view_site: 'View site',
+        portfolio_request_demo: 'Request a demo',
         portfolio_scroll_hint: 'Scroll sideways to see more.',
         how_title: 'How does it work?',
         how_intro: 'Six clear steps, no surprises — from first message to a live site.',
@@ -3227,6 +3087,79 @@
       applyLang(getStoredLang());
     })();
 
+    (function randomizeHero() {
+      var lang = getStoredLang();
+      var t1 = document.getElementById('hero-title-line1');
+      var t2 = document.getElementById('hero-title-line2');
+      var t3 = document.getElementById('hero-title-line3');
+      var sub = document.getElementById('hero-subtitle');
+      var cta = document.getElementById('hero-cta-primary');
+      if (!t1 || !t2 || !t3 || !sub || !cta) return;
+
+      var variants = {
+        es: [
+          {
+            title1: 'Tus clientes',
+            title2: 'te buscan en Google.',
+            title3: '¿Qué encuentran?',
+            sub:
+              'Sin página web, eres invisible. Con VivePage tienes tu .com profesional en menos de 48 horas. Proceso simple, precio fijo, sin mensualidades.',
+            ctaPrimary: 'Ver planes'
+          },
+          {
+            title1: '¿Llevas días peleando',
+            title2: 'con una plantilla y la IA?',
+            title3: 'En menos de 48 horas lo hacemos nosotros.',
+            sub:
+              'Tú nos mandas tu info por WhatsApp. Nosotros diseñamos tu página .com profesional. Sin templates, sin agencias, sin sorpresas.',
+            ctaPrimary: 'Ver planes desde $99'
+          },
+          {
+            title1: 'Deja de vivir',
+            title2: 'en casa ajena.',
+            title3: 'tunombre.com te espera.',
+            sub:
+              'Una página .com dice lo que Instagram no puede. Diseñada en menos de 48 horas, entregada por WhatsApp, con dominio incluido.',
+            ctaPrimary: 'Ver planes'
+          }
+        ],
+        en: [
+          {
+            title1: 'Your clients',
+            title2: 'are searching on Google.',
+            title3: 'What do they find?',
+            sub:
+              'Without a website, you’re invisible. With VivePage you get a professional .com in 48 hours. Simple process, fixed price, no monthly fees.',
+            ctaPrimary: 'View plans'
+          },
+          {
+            title1: 'Still fighting',
+            title2: 'with a template and AI?',
+            title3: 'We do it in 48h.',
+            sub:
+              'Send your info on WhatsApp. We design your professional .com. No templates, no agencies, no surprises.',
+            ctaPrimary: 'View plans from $99'
+          },
+          {
+            title1: 'Stop living',
+            title2: 'on rented land.',
+            title3: 'yourname.com is waiting.',
+            sub:
+              'A .com says what Instagram can’t. Designed in 48 hours, delivered on WhatsApp, with domain included.',
+            ctaPrimary: 'View plans'
+          }
+        ]
+      };
+
+      var list = variants[lang] || variants.es;
+      var pick = list[Math.floor(Math.random() * list.length)];
+      t1.textContent = pick.title1;
+      t2.textContent = pick.title2;
+      t3.textContent = pick.title3;
+      sub.textContent = pick.sub;
+      cta.textContent = pick.ctaPrimary;
+    })();
+
     (function shuffleTargetChips() {
       var wrap = document.getElementById('targets-chips');
       if (!wrap) return;
@@ -3253,51 +3186,6 @@
       chips.forEach(function (node) {
         wrap.appendChild(node);
       });
-    })();
-
-    (function offerCountdown() {
-      var root = document.getElementById('offer-countdown');
-      if (!root) return;
-      var endAttr = root.getAttribute('data-offer-end');
-      var end = endAttr ? new Date(endAttr).getTime() : NaN;
-      var dEl = document.getElementById('cd-days');
-      var hEl = document.getElementById('cd-hours');
-      var mEl = document.getElementById('cd-minutes');
-      var sEl = document.getElementById('cd-seconds');
-      function pad2(n) {
-        return n < 10 ? '0' + n : String(n);
-      }
-      function tick() {
-        if (!endAttr || isNaN(end)) {
-          if (dEl) dEl.textContent = '–';
-          if (hEl) hEl.textContent = '–';
-          if (mEl) mEl.textContent = '–';
-          if (sEl) sEl.textContent = '–';
-          return;
-        }
-        var left = end - Date.now();
-        if (left <= 0) {
-          root.classList.add('is-ended');
-          if (dEl) dEl.textContent = '0';
-          if (hEl) hEl.textContent = '0';
-          if (mEl) mEl.textContent = '00';
-          if (sEl) sEl.textContent = '00';
-          return;
-        }
-        root.classList.remove('is-ended');
-        var days = Math.floor(left / 86400000);
-        var rem = left % 86400000;
-        var hours = Math.floor(rem / 3600000);
-        rem %= 3600000;
-        var minutes = Math.floor(rem / 60000);
-        var seconds = Math.floor((rem % 60000) / 1000);
-        if (dEl) dEl.textContent = String(days);
-        if (hEl) hEl.textContent = String(hours);
-        if (mEl) mEl.textContent = pad2(minutes);
-        if (sEl) sEl.textContent = pad2(seconds);
-      }
-      tick();
-      setInterval(tick, 1000);
     })();
 
     /* Mobile nav */
