@@ -38,6 +38,7 @@ const variants = {
     __OG_LOCALE__: 'es_ES',
     __OG_LOCALE_ALT__: 'en_US',
     __META_DESCRIPTION__: META_ES,
+    __HERO_BG_IMAGE__: '/images/hero.png',
   },
   en: {
     __HTML_LANG__: 'en',
@@ -51,6 +52,7 @@ const variants = {
     __OG_LOCALE__: 'en_US',
     __OG_LOCALE_ALT__: 'es_ES',
     __META_DESCRIPTION__: META_EN,
+    __HERO_BG_IMAGE__: '/images/heroen.png',
   },
 };
 
