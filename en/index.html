@@ -299,9 +299,21 @@
         url('/images/hero.png');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       opacity: 0.9;
       pointer-events: none;
       z-index: -2;
+    }
+
+    @media (max-width: 640px) {
+      .hero::before {
+        /* Zoom out a bit on mobile for readability */
+        background-size: 100% auto;
+        background-position: center top;
+        background:
+          linear-gradient(rgba(3, 7, 18, 0.82), rgba(3, 7, 18, 0.82)),
+          url('/images/hero.png');
+      }
     }
 
     .hero::after {
@@ -843,11 +855,11 @@
     }
 
     @media (min-width: 900px) {
-      .compare-pricing col.compare-col-label { width: 16rem; }
+      .compare-pricing col.compare-col-label { width: 22rem; }
       .compare-pricing col.compare-col-plan { width: auto; }
       .compare-pricing th:first-child,
       .compare-pricing td:first-child {
-        min-width: 16rem;
+        min-width: 22rem;
       }
       .compare-pricing th.row-wrap {
         white-space: nowrap;
