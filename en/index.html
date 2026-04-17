@@ -307,12 +307,13 @@
 
     @media (max-width: 640px) {
       .hero::before {
-        /* Zoom out a bit on mobile for readability */
-        background-size: 100% auto;
-        background-position: center top;
-        background:
-          linear-gradient(rgba(3, 7, 18, 0.82), rgba(3, 7, 18, 0.82)),
+        /* Make the image feel "smaller" on mobile */
+        background-image:
+          linear-gradient(rgba(3, 7, 18, 0.78), rgba(3, 7, 18, 0.78)),
           url('/images/hero.png');
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
       }
     }
 
@@ -832,6 +833,8 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
       vertical-align: middle;
+      position: relative;
+      z-index: 1;
     }
 
     .compare-pricing th:first-child,
@@ -840,10 +843,11 @@
       font-weight: 500;
       color: var(--muted);
       min-width: 0;
-      white-space: nowrap;
+      white-space: normal;
+      line-height: 1.25;
       position: sticky;
       left: 0;
-      z-index: 2;
+      z-index: 10;
       background: rgba(11, 13, 22, 0.98);
       box-shadow: 6px 0 14px -6px rgba(0, 0, 0, 0.55);
       -webkit-backface-visibility: hidden;
@@ -852,6 +856,31 @@
 
     .compare-pricing th.row-wrap {
       white-space: normal;
+    }
+
+    /* Mobile: label column wide enough for "Búsqueda / filtro de servicios" in one line,
+       while allowing longer email rows to wrap to 2 lines. */
+    @media (max-width: 900px) {
+      .compare-pricing {
+        table-layout: auto;
+        min-width: 0;
+        width: max-content;
+      }
+
+      .compare-pricing col.compare-col-label { width: 16rem; }
+      .compare-pricing col.compare-col-plan { width: 9rem; }
+      .compare-pricing th:first-child,
+      .compare-pricing td:first-child {
+        min-width: 16rem;
+        max-width: 16rem;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+      }
+      /* Allow wrap on the two longest labels */
+      .compare-pricing th.row-wrap {
+        white-space: normal;
+      }
     }
 
     @media (min-width: 900px) {
@@ -873,7 +902,7 @@
     }
 
     .compare-pricing thead th:first-child {
-      z-index: 4;
+      z-index: 12;
       background: rgba(16, 22, 34, 0.99);
       color: var(--muted);
       font-weight: 600;
